@@ -1,0 +1,53 @@
+priority,name,city,website,careers_url,scraper_key,verified,notes
+P1,HGA,Minneapolis,https://hga.com,https://hga.com/careers/,generic,no,Hammel Green Abrahamson — large multi-disciplinary; healthcare/civic/education
+P1,Perkins&Will,Minneapolis,https://perkinswill.com,https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/?q=&o=postedDateDesc,ultipro,yes,Global firm with MSP office; UltiPro/UKG ATS
+P1,Cuningham,Minneapolis,https://cuningham.com,https://careers.cuningham.com/career-openings,generic,no,Major MSP firm; entertainment/hospitality/healthcare; subdomain careers site
+P1,DLR Group,Minneapolis,https://www.dlrgroup.com,https://job-boards.greenhouse.io/dlrgroup,greenhouse,yes,Includes former KKE; sports/civic/education; Greenhouse token=dlrgroup
+P1,LEO A DALY,Minneapolis,https://leoadaly.com,https://leoadaly.com/careers/,generic,no,One of MSP's oldest; ~90 design pros locally
+P1,RSP Architects,Minneapolis,https://rsparch.com,https://rsparch.com/careers/,generic,no,Commercial/retail/educational; Jason worked here 2018-2019
+P1,BWBR,St. Paul,https://www.bwbr.com,https://www.bwbr.com/careers/,generic,no,180+ staff; healthcare/civic
+P1,Alliiance,Minneapolis,https://alliiance.com,https://alliiance.com/careers/,generic,no,#8 on 2024 MSPBJ list; airport/civic
+P1,Pope Design Group,St. Paul,https://popedesign.com,https://popedesign.com/careers/,generic,no,~98 employees; commercial/retail/healthcare
+P1,ESG Architecture & Design,Minneapolis,https://esgarch.com,https://esgarch.com/careers/,generic,no,Multifamily/hospitality/mixed-use
+P1,BKV Group,Minneapolis,https://bkvgroup.com,https://bkvgroup.com/careers/,generic,yes,Multifamily/government/commercial — confirmed working
+P1,MSR Design,Minneapolis,https://msrdesign.com,https://msrdesign.com/careers/,generic,no,Meyer Scherer & Rockcastle; cultural/library/civic
+P1,JLG Architects,Minneapolis,https://jlgarchitects.com,https://jlgarchitects.com/careers/,generic,no,100% employee-owned (ESOP); multi-state
+P1,NELSON Worldwide,Minneapolis,https://nelsonworldwide.com,https://nelsonworldwide.com/careers/,greenhouse,no,#1 on MSPBJ list; workplace/retail
+P1,Stantec,Minneapolis,https://www.stantec.com,https://stantec.jobs/jobs/?keyword=architect&location=Minneapolis,generic,no,Large multidiscipline; uses stantec.jobs (custom)
+P2,Mohagen Hansen,Wayzata,https://www.mohagenhansen.com,https://www.mohagenhansen.com/careers,generic,no,Commercial/medical/corporate interiors
+P2,Wold Architects & Engineers,St. Paul,https://www.woldae.com,https://www.woldae.com/careers/,generic,no,K-12/government/civic
+P2,ATS&R,Minneapolis,https://www.atsr.com,https://www.atsr.com/careers/,generic,no,Planners/Architects/Engineers; K-12 focus
+P2,LHB,Minneapolis,https://www.lhbcorp.com,https://www.lhbcorp.com/careers/,generic,no,A/E firm; sustainable design; multi-office
+P2,TKDA,St. Paul,https://www.tkda.com,https://www.tkda.com/careers/,generic,no,Employee-owned A/E/P firm
+P2,Gensler,Minneapolis,https://www.gensler.com,https://www.gensler.com/careers,generic,no,Minneapolis office; workplace/aviation/hospitality; needs Playwright
+P2,AECOM,Minneapolis,https://aecom.com,https://aecom.jobs/minneapolis-mn/jobs,generic,no,Jason worked here 2014-2018; transit/healthcare
+P2,Ryan A+E,Minneapolis,https://www.ryancompanies.com,https://www.ryancompanies.com/careers,generic,no,Architecture & Engineering arm of Ryan Companies
+P2,ISG (I&S Group),Minneapolis,https://www.isginc.com,https://www.isginc.com/careers/,generic,no,Multi-disciplinary A/E; multi-office
+P2,Snow Kreilich Architects,Minneapolis,https://snowkreilich.com,https://snowkreilich.com/careers/,generic,no,2018 AIA Firm of the Year; small but prestigious
+P2,UrbanWorks Architecture,Minneapolis,https://www.urban-works.com,https://www.urban-works.com/careers/,generic,no,Mixed-use/multifamily
+P2,Tushie Montgomery Architects,Minneapolis,https://www.tmiarchitects.com,https://www.tmiarchitects.com/careers/,generic,no,Affordable housing/multifamily
+P2,Kaas Wilson Architects,Bloomington,https://www.kaaswilson.com,https://www.kaaswilson.com/careers/,generic,no,Multifamily/affordable housing
+P2,CNH Architects,Apple Valley,https://www.cnharch.com,https://www.cnharch.com/careers/,generic,no,~50 yrs; commercial/civic/restaurant
+P2,Rafferty Rafferty Tollefson Lindeke,St. Paul,https://www.rrtl.com,https://www.rrtl.com/careers/,generic,no,Healthcare/civic/education
+P2,LSE Architects,Minneapolis,https://www.lse-architects.com,https://www.lse-architects.com/careers/,generic,no,Civic/educational/sports
+P2,SALA Architects,Minneapolis,https://www.salaarc.com,https://www.salaarc.com/careers/,generic,no,Residential/commercial; multiple MSP locations
+P2,VJAA (Vincent James Associates),Minneapolis,https://www.vjaa.com,https://www.vjaa.com/careers/,generic,no,Award-winning small firm
+P2,Christian Dean Architecture,Minneapolis,https://www.christiandean.com,https://www.christiandean.com/careers/,generic,no,Modern residential/commercial
+P2,Albertsson Hansen Architecture,Minneapolis,https://www.aharchitecture.com,https://www.aharchitecture.com/careers/,generic,no,Residential
+P2,HCM Architects,St. Paul,https://www.hcmarchitects.com,https://www.hcmarchitects.com/careers/,generic,no,Hagen Christensen McIlwain; commercial/civic
+P2,KOMA,Minneapolis,https://www.komaarchitects.com,https://www.komaarchitects.com/careers/,generic,no,Krech O'Brien Mueller & Associates
+P2,Architectural Resources,St. Paul,https://www.archres.com,https://www.archres.com/careers/,generic,no,Healthcare/senior living
+P2,Cermak Rhoades Architects,St. Paul,https://www.cermakrhoades.com,https://www.cermakrhoades.com/careers/,generic,no,Affordable housing/community
+P2,Locus Architecture,Minneapolis,https://www.locusarchitecture.com,https://www.locusarchitecture.com/careers/,generic,no,Sustainable residential/commercial
+P3,Ankeny Kell Architects,St. Paul,https://www.ankenykell.com,https://www.ankenykell.com/careers/,generic,no,Civic/educational
+P3,CSB Architects,Minneapolis,https://csbarch.com,https://csbarch.com/careers/,generic,no,Commercial/healthcare
+P3,James Dayton Design,Minneapolis,https://www.jamesdaytondesign.com,https://www.jamesdaytondesign.com/careers/,generic,no,Cultural/residential
+P3,TEA2 Architects,Wayzata,https://www.tea2architects.com,https://www.tea2architects.com/careers/,generic,no,High-end residential
+P3,Charles R Stinson,Minneapolis,https://www.crsarch.com,https://www.crsarch.com/careers/,generic,no,Modern residential
+P3,Studio Hive,Minneapolis,https://www.studiohive.com,https://www.studiohive.com/careers/,generic,no,Workplace/interiors
+P3,Damon Farber Landscape Architects,Minneapolis,https://damonfarber.com,https://damonfarber.com/careers/,generic,no,Landscape architecture
+P3,Klein McCarthy Architects,Minneapolis,https://www.kleinmccarthy.com,https://www.kleinmccarthy.com/careers/,generic,no,Civic/justice; Jason worked here 2019-2020
+P3,Shea Design,Minneapolis,https://www.sheadesign.com,https://www.sheadesign.com/careers/,generic,no,Hospitality/airport F&B; Jason worked here 2022-2024
+P3,Devetter Design Group,Minneapolis,https://www.devetterdesigngroup.com,https://www.devetterdesigngroup.com/careers/,generic,no,Residential/educational/commercial; Jason currently here
+P3,Miller Dunwiddie Architecture,Minneapolis,https://millerdunwiddie.com,https://millerdunwiddie.com/careers/,generic,no,Historic preservation/aviation
+P3,Pope Architects,St. Paul,https://www.popearch.com,https://www.popearch.com/careers/,generic,no,Possibly redundant with Pope Design Group
