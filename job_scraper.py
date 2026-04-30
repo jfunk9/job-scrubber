@@ -94,16 +94,34 @@ EXCLUDE_TITLE_KEYWORDS = [
     "landscape designer", "landscape architect",
 ]
 
-# MSP metro area — used to filter out jobs at firms with national offices
-MSP_KEYWORDS = [
+# Target locations — MSP metro + California + Chicago
+TARGET_LOCATION_KEYWORDS = [
+    # MSP metro
     "minneapolis", "minnetonka", "st. paul", "saint paul", "st paul",
     "bloomington", "edina", "eden prairie", "plymouth", "maple grove",
     "wayzata", "apple valley", "burnsville", "richfield",
     "golden valley", "st louis park", "st. louis park",
     "minnesota", "twin cities", " mn,", " mn ", ", mn",
+    # California — only metros within 30 mi of San Diego, Newport Beach, Santa Monica
+    # San Diego area
+    "san diego", "chula vista", "carlsbad", "encinitas", "oceanside",
+    "la jolla", "el cajon", "la mesa", "coronado", "national city",
+    # Newport Beach / Orange County
+    "newport beach", "costa mesa", "irvine", "huntington beach",
+    "anaheim", "santa ana", "tustin", "mission viejo", "laguna beach",
+    "lake forest", "aliso viejo", "fountain valley",
+    # Santa Monica / Los Angeles area
+    "santa monica", "los angeles", "beverly hills", "culver city",
+    "west hollywood", "pasadena", "burbank", "glendale", "long beach",
+    "manhattan beach", "redondo beach", "el segundo", "marina del rey",
+    "venice", "malibu", "torrance", "inglewood",
+    # Chicago (city only, not all of IL)
+    "chicago",
 ]
+# Backwards-compat alias used elsewhere
+MSP_KEYWORDS = TARGET_LOCATION_KEYWORDS
 
-NON_MN_STATES = ("AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC")
+NON_MN_STATES = ("AL","AK","AZ","AR","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC")
 
 
 # Full state names (lower-cased) that are NOT Minnesota

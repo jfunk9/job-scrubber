@@ -222,6 +222,53 @@ const PRIORITY_LABELS = {
   P3: "Priority 3 — Specialty / smaller firms",
 };
 
+function formatLocation(loc) {
+  if (!loc) return "";
+  const TARGETS = [
+    // MSP
+    "minneapolis","st. paul","saint paul","st paul","minnetonka",
+    "bloomington","edina","eden prairie","plymouth","maple grove",
+    "wayzata","apple valley","burnsville","richfield",
+    "golden valley","st louis park","st. louis park",
+    // San Diego area
+    "san diego","chula vista","carlsbad","encinitas","oceanside",
+    "la jolla","el cajon","la mesa","coronado",
+    // Newport Beach / Orange County
+    "newport beach","costa mesa","irvine","huntington beach",
+    "anaheim","santa ana","tustin","mission viejo","laguna beach",
+    "lake forest","aliso viejo","fountain valley",
+    // Santa Monica / LA area
+    "santa monica","los angeles","beverly hills","culver city",
+    "west hollywood","pasadena","burbank","glendale","long beach",
+    "manhattan beach","redondo beach","el segundo","marina del rey",
+    "venice","malibu","torrance","inglewood",
+    // Chicago
+    "chicago",
+  ];
+  // Split on semicolons or commas separating multiple locations
+  const parts = loc.split(/;\s*/);
+  const matches = [];
+  for (const p of parts) {
+    const lower = p.toLowerCase();
+    for (const city of TARGETS) {
+      if (lower.includes(city)) {
+        // Extract just the city name (first segment before any comma)
+        const cityOnly = p.split(",")[0].trim();
+        if (!matches.includes(cityOnly)) matches.push(cityOnly);
+        break;
+      }
+    }
+  }
+  if (matches.length === 0) {
+    // Fallback: show first city only
+    return loc.split(/[,;]/)[0].trim();
+  }
+  if (parts.length > matches.length) {
+    return matches.join(", ") + ` +${parts.length - matches.length} more`;
+  }
+  return matches.join(", ");
+}
+
 function formatScanLocal(iso) {
   if (!iso) return "(unknown)";
   const d = new Date(iso);
@@ -304,7 +351,7 @@ function render() {
     const scoreClass = j.score >= 60 ? "score-high" : "score";
     const tr = document.createElement("tr");
     tr.className = j.score >= 80 ? "high" : (j.score >= 60 ? "flagged" : "");
-    const details = [j.location, j.posted].filter(x => x).join(' · ');
+    const details = [formatLocation(j.location), j.posted].filter(x => x).join(' · ');
     tr.innerHTML = `
       <td class="col-score"><span class="badge ${scoreClass}">${j.score}</span></td>
       <td class="col-title"><a href="${j.url}" target="_blank" rel="noopener">${j.title}</a></td>
