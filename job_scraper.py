@@ -94,6 +94,61 @@ EXCLUDE_TITLE_KEYWORDS = [
     "landscape designer", "landscape architect",
 ]
 
+# MSP metro area — used to filter out jobs at firms with national offices
+MSP_KEYWORDS = [
+    "minneapolis", "minnetonka", "st. paul", "saint paul", "st paul",
+    "bloomington", "edina", "eden prairie", "plymouth", "maple grove",
+    "wayzata", "apple valley", "burnsville", "richfield",
+    "golden valley", "st louis park", "st. louis park",
+    "minnesota", "twin cities", " mn,", " mn ", ", mn",
+]
+
+NON_MN_STATES = ("AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC")
+
+
+def is_msp_location(location_text):
+    """Return True if location appears to be MSP-area, or is empty (assume local)."""
+    if not location_text:
+        return True
+    loc = location_text.lower()
+    if any(kw in loc for kw in MSP_KEYWORDS):
+        return True
+    if re.search(r"\b(" + "|".join(NON_MN_STATES) + r")\b", location_text):
+        return False
+    return True
+
+
+def parse_ultipro_text(text):
+    """
+    UltiPro link text concatenates title + dept + city + address + date + type.
+    Returns (clean_title, location, posted_date).
+    """
+    location = ""
+    posted = ""
+    m_loc = re.search(r"([A-Z][A-Za-z\.\s]+?),\s*([A-Z]{2})\s*\d{5}", text)
+    if m_loc:
+        location = f"{m_loc.group(1).strip()}, {m_loc.group(2)}"
+    m_date = re.search(r"([A-Z][a-z]{2,8}\s+\d{1,2},\s+\d{4})", text)
+    if m_date:
+        posted = m_date.group(1)
+    title = text
+    for suffix in ["Full Time", "Part Time", "Contract", "Temporary"]:
+        title = title.replace(suffix, "")
+    if m_date:
+        title = title[:title.find(m_date.group(1))]
+    if m_loc:
+        title = title[:title.find(m_loc.group(0))]
+    for marker in ["Architecture", "Interior Design", "Urban Design", "Planning",
+                   "Engineering", "Operations"]:
+        idx = title.find(marker)
+        if idx > 5:
+            title = title[:idx]
+            break
+    title = re.sub(r"\s+", " ", title).strip()
+    return title, location, posted
+
+
+
 # ── Network config ─────────────────────────────────────────────────────────────
 
 HEADERS = {
@@ -295,16 +350,24 @@ def scrape_ultipro(url, firm_name):
     for a in soup.find_all("a", href=True):
         href = a["href"]
         text = a.get_text(strip=True)
-        if not text or len(text) > 200:
+        if not text or len(text) > 500:
             continue
         if "OpportunityDetail" in href or "opportunityid" in href.lower():
             full_url = urlparse.urljoin(url, href)
-            key = (text.lower(), full_url)
+            title, location, posted = parse_ultipro_text(text)
+            if not title:
+                continue
+            key = (title.lower(), full_url)
             if key in seen:
                 continue
             seen.add(key)
-            if is_relevant(text):
-                jobs.append({"title": text, "url": full_url, "location": ""})
+            if is_relevant(title):
+                jobs.append({
+                    "title": title,
+                    "url": full_url,
+                    "location": location,
+                    "posted": posted,
+                })
     return jobs, None
 
 
@@ -456,6 +519,10 @@ def scrape_firm(firm):
     enriched = []
     for j in jobs:
         title = j["title"]
+        location = j.get("location", "")
+        # Geographic filter — drop jobs clearly outside MSP metro
+        if not is_msp_location(location):
+            continue
         score, bd = score_job(title, j.get("description", ""))
         enriched.append({
             "firm": name,
@@ -463,7 +530,8 @@ def scrape_firm(firm):
             "city": firm.get("city", ""),
             "title": title,
             "url": j["url"],
-            "location": j.get("location", ""),
+            "location": location,
+            "posted": j.get("posted", ""),
             "score": score,
             "breakdown": bd,
             "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -532,4 +600,12 @@ def main():
         firms = load_firms()
         matching = [f for f in firms if args.firm.lower() in f["name"].lower()]
         if not matching:
-            p
+            print(f"No firm matched '{args.firm}'")
+            sys.exit(1)
+
+    run(p1_only=args.p1, firm_filter=args.firm)
+    input("\nPress Enter to exit...")
+
+
+if __name__ == "__main__":
+    main()

@@ -123,13 +123,17 @@
     margin: 6px 0;
     background: var(--surface2);
     border-radius: 0 6px 6px 0;
-    display: flex; align-items: center; gap: 12px;
+    display: flex; flex-direction: column; gap: 4px;
   }
   .firm-jobs li.flagged { border-left-color: var(--flag); background: var(--flag-bg); }
   .firm-jobs li.high { border-left-color: var(--green); }
+  .job-row { display: flex; align-items: center; gap: 12px; }
   .firm-jobs a { color: var(--text); text-decoration: none; flex: 1; }
   .firm-jobs a:hover { color: var(--accent); }
-  .job-loc { color: var(--text-dim); font-size: 12px; }
+  .job-detail {
+    color: var(--text-dim); font-size: 12px;
+  }
+  .job-detail .sep { opacity: 0.5; padding: 0 6px; }
   .empty-state {
     padding: 12px 20px 12px 44px;
     color: var(--text-dim);
@@ -278,10 +282,13 @@ function render() {
           const li = document.createElement("li");
           li.className = j.score >= 80 ? "flagged high" : (j.score >= 60 ? "flagged" : "");
           const scoreClass = j.score >= 60 ? "score-high" : "score";
+          const details = [j.location, j.posted].filter(x => x).join(' <span class="sep">·</span> ');
           li.innerHTML = `
-            <a href="${j.url}" target="_blank" rel="noopener">${j.title}</a>
-            ${j.location ? `<span class="job-loc">${j.location}</span>` : ""}
-            <span class="badge ${scoreClass}">${j.score}</span>
+            <div class="job-row">
+              <a href="${j.url}" target="_blank" rel="noopener">${j.title}</a>
+              <span class="badge ${scoreClass}">${j.score}</span>
+            </div>
+            ${details ? `<div class="job-detail">${details}</div>` : ""}
           `;
           ul.appendChild(li);
         }
