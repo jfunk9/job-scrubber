@@ -106,6 +106,19 @@ MSP_KEYWORDS = [
 NON_MN_STATES = ("AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC")
 
 
+# Full state names (lower-cased) that are NOT Minnesota
+NON_MN_STATE_NAMES = (
+    "alabama","alaska","arizona","arkansas","california","colorado","connecticut",
+    "delaware","florida","georgia","hawaii","idaho","illinois","indiana","iowa",
+    "kansas","kentucky","louisiana","maine","maryland","massachusetts","michigan",
+    "mississippi","missouri","montana","nebraska","nevada","new hampshire",
+    "new jersey","new mexico","new york","north carolina","north dakota","ohio",
+    "oklahoma","oregon","pennsylvania","rhode island","south carolina","south dakota",
+    "tennessee","texas","utah","vermont","virginia","washington","west virginia",
+    "wisconsin","wyoming","district of columbia",
+)
+
+
 def is_msp_location(location_text):
     """Return True if location appears to be MSP-area, or is empty (assume local)."""
     if not location_text:
@@ -113,6 +126,10 @@ def is_msp_location(location_text):
     loc = location_text.lower()
     if any(kw in loc for kw in MSP_KEYWORDS):
         return True
+    # Full state names check (catches "California", "Texas", etc.)
+    if any(state in loc for state in NON_MN_STATE_NAMES):
+        return False
+    # Two-letter state code check
     if re.search(r"\b(" + "|".join(NON_MN_STATES) + r")\b", location_text):
         return False
     return True
