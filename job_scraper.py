@@ -165,7 +165,6 @@ LICENSE_REQUIRED_KEYWORDS = [
     "license is required",
     "registration is required",
     "aia registration",
-    "ncarb certification required",
 ]
 
 # Title-only signals (used when description isn't available)

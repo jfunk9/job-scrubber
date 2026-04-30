@@ -222,6 +222,14 @@ const PRIORITY_LABELS = {
   P3: "Priority 3 — Specialty / smaller firms",
 };
 
+function formatScanLocal(iso) {
+  if (!iso) return "(unknown)";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return iso.slice(0, 16);
+  const pad = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
 async function load() {
   let data;
   try {
@@ -244,11 +252,11 @@ async function load() {
     <div class="stat"><div class="stat-value">${total}</div><div class="stat-label">Total listings</div></div>
     <div class="stat"><div class="stat-value flag">${high}</div><div class="stat-label">Score ≥ 60</div></div>
     <div class="stat"><div class="stat-value">${firmsWithJobs}</div><div class="stat-label">Firms with openings</div></div>
-    <div class="stat"><div class="stat-value">${(data.scraped_at||"").slice(0,10)}</div><div class="stat-label">Last scan</div></div>
+    <div class="stat"><div class="stat-value">${formatScanLocal(data.scraped_at)}</div><div class="stat-label">Last updated</div></div>
   `;
 
-  document.getElementById("footer").textContent =
-    `Last scrape: ${data.scraped_at || "(unknown)"} · ${total} listings`;
+  document.getElementById("footer").innerHTML =
+    `Last updated: ${formatScanLocal(data.scraped_at)} &nbsp;|&nbsp; Adkins Architects Inc.`;
 
   window._jobs = allJobs;
   render();
