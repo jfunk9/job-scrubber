@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-04-30T00:35:14+00:00",
-  "total": 96,
+  "scraped_at": "2026-04-30T00:57:45+00:00",
+  "total": 87,
   "jobs": [
     {
       "firm": "HGA",
@@ -17,24 +17,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
-    },
-    {
-      "firm": "HGA",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Civil Designer",
-      "url": "https://careers-hga.icims.com/jobs/3319/civil-designer/job?in_iframe=1",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
+      "scraped_at": "2026-04-30T00:56:04+00:00"
     },
     {
       "firm": "HGA",
@@ -51,41 +34,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
-    },
-    {
-      "firm": "HGA",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Engineering Project Manager",
-      "url": "https://careers-hga.icims.com/jobs/3373/engineering-project-manager/job?in_iframe=1",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
-    },
-    {
-      "firm": "HGA",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Fire Protection Designer",
-      "url": "https://careers-hga.icims.com/jobs/3372/fire-protection-designer/job?in_iframe=1",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
+      "scraped_at": "2026-04-30T00:56:04+00:00"
     },
     {
       "firm": "HGA",
@@ -102,7 +51,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
+      "scraped_at": "2026-04-30T00:56:04+00:00"
     },
     {
       "firm": "HGA",
@@ -119,58 +68,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
-    },
-    {
-      "firm": "HGA",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Plumbing Designer",
-      "url": "https://careers-hga.icims.com/jobs/3394/plumbing-designer/job?in_iframe=1",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
-    },
-    {
-      "firm": "HGA",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Plumbing Designer",
-      "url": "https://careers-hga.icims.com/jobs/3393/plumbing-designer/job?in_iframe=1",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
-    },
-    {
-      "firm": "HGA",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Civil Project Engineer",
-      "url": "https://careers-hga.icims.com/jobs/3320/civil-project-engineer/job?in_iframe=1",
-      "location": "",
-      "score": 0,
-      "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:33:20+00:00"
+      "scraped_at": "2026-04-30T00:56:04+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -187,7 +85,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -204,7 +102,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -221,7 +119,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -238,7 +136,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -255,7 +153,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -272,7 +170,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -289,7 +187,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -306,7 +204,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -323,7 +221,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -340,7 +238,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -357,7 +255,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -374,7 +272,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -391,7 +289,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -408,7 +306,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -425,7 +323,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -442,7 +340,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -459,7 +357,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -476,7 +374,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -493,7 +391,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -510,7 +408,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -527,7 +425,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -544,7 +442,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -561,7 +459,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -578,7 +476,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -595,7 +493,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -612,7 +510,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -629,7 +527,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -646,7 +544,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -663,7 +561,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:29+00:00"
+      "scraped_at": "2026-04-30T00:56:12+00:00"
     },
     {
       "firm": "DLR Group",
@@ -680,7 +578,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -697,7 +595,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -714,7 +612,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -731,7 +629,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -748,7 +646,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -765,24 +663,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Mission Critical Mechanical Design Leader ",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5167603008",
-      "location": "Austin, Texas, United States; Charlotte, North Carolina, United States; Chicago, Illinois, United States; Cleveland, Ohio, United States; Dallas, Texas, United States; Denver, Colorado, United States; Des Moines, Iowa, United States; Durham, North Carolina, United States; Fort Worth, Texas, United States; Houston, Texas, United States; Lincoln, Nebraska, United States; Los Angeles, California, United States; Minneapolis, Minnesota, United States; New York, New York, United States; Omaha, Nebraska, United States; Orlando, Florida, United States; Overland Park, Kansas, United States; Phoenix, Arizona, United States; Portland, Oregon, United States; Seattle, Washington, United States; Washington, D.C.",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -799,7 +680,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -816,7 +697,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -833,7 +714,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -850,7 +731,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -867,7 +748,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -884,7 +765,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -901,7 +782,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -918,7 +799,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -935,7 +816,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -952,7 +833,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -969,7 +850,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -986,7 +867,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1003,7 +884,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1020,7 +901,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1037,7 +918,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1054,7 +935,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1071,7 +952,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1088,7 +969,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1105,7 +986,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1122,7 +1003,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1139,7 +1020,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1156,7 +1037,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1173,7 +1054,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1190,7 +1071,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1207,7 +1088,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1224,7 +1105,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1241,7 +1122,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1258,7 +1139,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1275,7 +1156,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1292,7 +1173,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1309,7 +1190,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1326,7 +1207,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1343,7 +1224,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1360,7 +1241,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1377,7 +1258,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:30+00:00"
+      "scraped_at": "2026-04-30T00:56:14+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1394,7 +1275,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1411,7 +1292,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1428,7 +1309,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1445,7 +1326,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1462,7 +1343,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1479,7 +1360,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1496,7 +1377,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1513,7 +1394,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1530,7 +1411,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1547,7 +1428,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1564,7 +1445,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:33:38+00:00"
+      "scraped_at": "2026-04-30T00:56:21+00:00"
     },
     {
       "firm": "ISG (I&S Group)",
@@ -1581,7 +1462,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:34:04+00:00"
+      "scraped_at": "2026-04-30T00:56:46+00:00"
     },
     {
       "firm": "ISG (I&S Group)",
@@ -1598,41 +1479,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T00:34:04+00:00"
-    },
-    {
-      "firm": "ISG (I&S Group)",
-      "priority": "P2",
-      "city": "Minneapolis",
-      "title": "Designer - Civil \u2192",
-      "url": "https://isginc.pinpointhq.com/en/postings/a650c30c-743e-4389-a403-b773574e082b",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:34:04+00:00"
-    },
-    {
-      "firm": "ISG (I&S Group)",
-      "priority": "P2",
-      "city": "Minneapolis",
-      "title": "Designer - Civil \u2192",
-      "url": "https://www.isginc.com/careers/",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T00:34:04+00:00"
+      "scraped_at": "2026-04-30T00:56:46+00:00"
     }
   ]
 }
