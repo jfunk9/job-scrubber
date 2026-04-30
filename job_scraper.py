@@ -77,8 +77,9 @@ EXCLUDE_TITLE_KEYWORDS = [
     "human resources", "hr ", "recruiter",
     "business development", "controller",
     "graphic designer", "interior designer",
-    "civil engineer", "structural engineer", "mep engineer",
-    "electrical engineer", "mechanical engineer",
+    "civil", "engineer", "engineering",
+    "fire protection", "mep",
+    "structural", "electrical", "mechanical", "plumbing",
     "landscape designer", "landscape architect",
 ]
 
