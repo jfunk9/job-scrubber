@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-04-30T13:31:30+00:00",
-  "total": 87,
+  "scraped_at": "2026-04-30T21:42:53+00:00",
+  "total": 76,
   "jobs": [
     {
       "firm": "HGA",
@@ -9,6 +9,7 @@
       "title": "Architect",
       "url": "https://careers-hga.icims.com/jobs/3231/architect/job?in_iframe=1",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -17,7 +18,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:38+00:00"
+      "scraped_at": "2026-04-30T21:41:05+00:00"
     },
     {
       "firm": "HGA",
@@ -26,6 +27,7 @@
       "title": "Creative Project Manager",
       "url": "https://careers-hga.icims.com/jobs/3400/creative-project-manager/job?in_iframe=1",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -34,7 +36,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:38+00:00"
+      "scraped_at": "2026-04-30T21:41:05+00:00"
     },
     {
       "firm": "HGA",
@@ -43,6 +45,7 @@
       "title": "Lighting Designer",
       "url": "https://careers-hga.icims.com/jobs/3365/lighting-designer/job?in_iframe=1",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -51,7 +54,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:38+00:00"
+      "scraped_at": "2026-04-30T21:41:05+00:00"
     },
     {
       "firm": "HGA",
@@ -60,6 +63,7 @@
       "title": "Operations Project Manager",
       "url": "https://careers-hga.icims.com/jobs/3403/operations-project-manager/job?in_iframe=1",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -68,24 +72,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:38+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Project ArchitectArchitectureBainbridge Island1580 Fort Ward Hill RoadBainbridge Island, WA 98110, USA+0 moreJul 21, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=98f0cb4a-3e47-41f2-9128-01abf628e662",
-      "location": "",
-      "score": 49,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 5,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:05+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -94,6 +81,7 @@
       "title": "Senior Project Architect",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=4f278ad7-d80b-412b-82ec-3ebb7bdabe3b",
       "location": "",
+      "posted": "",
       "score": 44,
       "breakdown": {
         "title_match": 24,
@@ -102,24 +90,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Urban Designer - Project Manager",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=c792cb83-1cf6-43d2-9f3e-13e51f69ad6b",
-      "location": "",
-      "score": 44,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -128,6 +99,7 @@
       "title": "Transit Architect III",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=fa79f841-2152-48f6-b2f9-692231c88604",
       "location": "",
+      "posted": "",
       "score": 40,
       "breakdown": {
         "title_match": 16,
@@ -136,7 +108,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -145,6 +117,7 @@
       "title": "Senior Project Manager - K-12/Higher Ed",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=b7ff9ee5-1a4c-4696-9176-21580beec7da",
       "location": "",
+      "posted": "",
       "score": 40,
       "breakdown": {
         "title_match": 16,
@@ -153,7 +126,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -162,6 +135,7 @@
       "title": "Senior Project Manager - Healthcare",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=803c4bee-3fc9-42e5-9bf4-2c8d43c53884",
       "location": "",
+      "posted": "",
       "score": 40,
       "breakdown": {
         "title_match": 16,
@@ -170,24 +144,25 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
       "priority": "P1",
       "city": "Minneapolis",
-      "title": "Senior Medical Planner - Healthcare DesignArchitectureDenver475 Lincoln StreetSuite 100Denver, CO 80203, USA+0 moreSep 22, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=9467d444-0243-4b90-a0b7-2a29802deb16",
+      "title": "Designer III",
+      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=d73a4ebc-252f-488f-a331-e99997b072d3",
       "location": "",
-      "score": 40,
+      "posted": "",
+      "score": 36,
       "breakdown": {
         "title_match": 16,
-        "sector": 4,
+        "sector": 0,
         "software": 0,
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -196,6 +171,7 @@
       "title": "Senior Interior Project Designer",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=0d8f7137-7f0d-4842-b93b-f864c8c8778a",
       "location": "",
+      "posted": "",
       "score": 36,
       "breakdown": {
         "title_match": 16,
@@ -204,7 +180,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -213,6 +189,7 @@
       "title": "Designer III",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=14435f8f-a354-4cd6-9a43-9f34d4202056",
       "location": "",
+      "posted": "",
       "score": 36,
       "breakdown": {
         "title_match": 16,
@@ -221,7 +198,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -230,6 +207,7 @@
       "title": "Senior Project Designer",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=c1121652-560e-4a60-a444-26d00d30a5fd",
       "location": "",
+      "posted": "",
       "score": 36,
       "breakdown": {
         "title_match": 16,
@@ -238,58 +216,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Urban DesignerUrban DesignBoston225 Franklin StreetSuite 1100Boston, MA 02110, USA+0 moreJan 28, 2026Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=04f599e1-c42f-443c-a32e-8804b87fd447",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Design PrincipalArchitectureDallas2218 Bryan StreetSuite 200Dallas, TX 75201, USA+0 moreAug 28, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=2cc17d84-f894-411a-b5c6-8eda48b35cdb",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Health Planning PrincipalArchitectureDallas2218 Bryan StreetSuite 200Dallas, TX 75201, USA+0 moreAug 28, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=305b3adb-642b-4283-8b5b-0183e7b814ec",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -298,6 +225,7 @@
       "title": "Project Architect- Commercial High Rise/ Multi-Family",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=92964be2-5ee7-45dd-b968-031b1a0f3dec",
       "location": "",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -306,24 +234,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Project Architect - WorkplaceArchitectureNew York1250 BroadwaySuite 200New York, NY 10001, USA+0 moreDec 12, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=0097e783-cc1a-476a-9181-457d1bef1e51",
-      "location": "",
-      "score": 20,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 4,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -332,6 +243,7 @@
       "title": "Project Architect",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=3c6ff72f-e49b-487f-850a-04662919828b",
       "location": "",
+      "posted": "",
       "score": 16,
       "breakdown": {
         "title_match": 16,
@@ -340,7 +252,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -349,6 +261,7 @@
       "title": "Project Manager- Workplace",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=7ec474c4-4f74-4e00-bfc4-89fe3aa59442",
       "location": "",
+      "posted": "",
       "score": 12,
       "breakdown": {
         "title_match": 8,
@@ -357,7 +270,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -366,6 +279,7 @@
       "title": "Architect II",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=d59ff6bf-ddfb-45fc-8257-b062b9ca2fe3",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -374,7 +288,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -383,6 +297,7 @@
       "title": "Project Manager",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=379ed416-ccce-4d1c-a24a-3dc50aae2feb",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -391,7 +306,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -400,6 +315,7 @@
       "title": "Interior Project Manager",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=228aada5-e23e-4d68-9ed2-b1adc1d36baf",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -408,7 +324,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -417,6 +333,7 @@
       "title": "Project Manager - Data Center/Mission Critical",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=589d76b1-f88c-4b47-997d-8be7f67f5ab8",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -425,7 +342,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -434,6 +351,7 @@
       "title": "Branded Environments - Designer I",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=967cb04e-cff9-499c-87a5-01e74c2a483a",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -442,7 +360,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -451,6 +369,7 @@
       "title": "Urban Designer II",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=95203fd8-c0fa-4ed7-bbc0-5b7ff9d12d24",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -459,7 +378,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -468,6 +387,7 @@
       "title": "Urban Designer I",
       "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=f22918f5-a8df-402d-82a5-d0ff701aaab0",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -476,92 +396,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Design DirectorInteriorsBoston225 Franklin StreetSuite 1100Boston, MA 02110, USA+0 moreJul 10, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=e483ac25-766e-46ec-bbb3-1ab344d6e317",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Medical PlannerArchitecturePhiladelphia2000 Market StreetSuite 750Philadelphia, PA 19103, USA+0 moreMay 7, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=b323c989-c1c4-4174-a646-bf45bf0ceb48",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Design DirectorInteriorsDallas2218 Bryan StreetSuite 200Dallas, TX 75201, USA+0 moreFeb 17, 2025Full Time",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=d3b15284-ba77-4d64-8e1e-e300053ffa2e",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Sustainable Design Advisor I",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=e930bcff-a8fa-4d3d-8ef5-5455f6aecc3f",
-      "location": "",
-      "score": 5,
-      "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 5,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Administrative Assistant/ Project Coordinator",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=7781cb46-2902-4987-b9d0-be12995c83da",
-      "location": "",
-      "score": 0,
-      "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:47+00:00"
+      "scraped_at": "2026-04-30T21:41:13+00:00"
     },
     {
       "firm": "DLR Group",
@@ -570,6 +405,7 @@
       "title": "Senior Architect, Justice+Civic",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4256329008",
       "location": "Austin, Texas, United States; Dallas, Texas, United States; Fort Worth, Texas, United States; Houston, Texas, United States",
+      "posted": "",
       "score": 48,
       "breakdown": {
         "title_match": 24,
@@ -578,7 +414,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -587,6 +423,7 @@
       "title": "Senior Architect",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5160810008",
       "location": "Fort Worth, Texas, United States",
+      "posted": "",
       "score": 44,
       "breakdown": {
         "title_match": 24,
@@ -595,24 +432,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Project Designer, Higher Education",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5074017008",
-      "location": "Boston, Massachusetts, United States",
-      "score": 44,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 8,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -621,6 +441,7 @@
       "title": "Senior Project Designer, Higher Education",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5072785008",
       "location": "Atlanta, Georgia, United States; Austin, Texas, United States; Charlotte, North Carolina, United States; Dallas, Texas, United States; Durham, North Carolina, United States; Houston, Texas, United States; Orlando, Florida, United States; Phoenix, Arizona, United States",
+      "posted": "",
       "score": 44,
       "breakdown": {
         "title_match": 16,
@@ -629,7 +450,25 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
+    },
+    {
+      "firm": "DLR Group",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Senior Project Designer, Higher Education",
+      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5074017008",
+      "location": "Boston, Massachusetts, United States",
+      "posted": "",
+      "score": 44,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 8,
+        "software": 0,
+        "level": 20,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -638,6 +477,7 @@
       "title": "Senior Healthcare Architect",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5123605008",
       "location": "Boston, Massachusetts, United States",
+      "posted": "",
       "score": 40,
       "breakdown": {
         "title_match": 16,
@@ -646,7 +486,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -655,6 +495,7 @@
       "title": "Studio Design Leader, Education",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5060615008",
       "location": "Denver, Colorado, United States",
+      "posted": "",
       "score": 40,
       "breakdown": {
         "title_match": 16,
@@ -663,7 +504,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -672,6 +513,7 @@
       "title": "National Mission Critical Design Leader",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4941243008",
       "location": "Atlanta, Georgia, United States; Austin, Texas, United States; Charlotte, North Carolina, United States; Dallas, Texas, United States; Des Moines, Iowa, United States; Durham, North Carolina, United States; Fort Worth, Texas, United States; Houston, Texas, United States; Lincoln, Nebraska, United States; Nashville, Tennessee, United States; Omaha, Nebraska, United States; Orlando, Florida, United States; Overland Park, Kansas, United States; Phoenix, Arizona, United States; Portland, Oregon, United States; Tucson, Arizona, United States; West Palm Beach, Florida, United States",
+      "posted": "",
       "score": 36,
       "breakdown": {
         "title_match": 16,
@@ -680,7 +522,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -689,6 +531,7 @@
       "title": "National Mission Critical Design Leader",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5011554008",
       "location": "Boston, Massachusetts, United States; Chicago, Illinois, United States; Cleveland, Ohio, United States; Colorado Springs, Colorado, United States; Columbus, Ohio, United States; Denver, Colorado, United States; Las Vegas, Nevada, United States; Los Angeles, California, United States; Minneapolis, Minnesota, United States; New York, New York, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States; Seattle, Washington, United States; Sonoma, California, United States; Washington, D.C.",
+      "posted": "",
       "score": 36,
       "breakdown": {
         "title_match": 16,
@@ -697,7 +540,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -706,6 +549,7 @@
       "title": "Architectural Designer, Education Market",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5188415008",
       "location": "Washington, D.C.",
+      "posted": "",
       "score": 28,
       "breakdown": {
         "title_match": 24,
@@ -714,7 +558,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -723,6 +567,7 @@
       "title": "Architectural Designer, Healthcare",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4799491008",
       "location": "New York, New York, United States",
+      "posted": "",
       "score": 28,
       "breakdown": {
         "title_match": 24,
@@ -731,7 +576,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -740,6 +585,7 @@
       "title": "Architectural Designer",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5163443008",
       "location": "Orlando, Florida, United States",
+      "posted": "",
       "score": 24,
       "breakdown": {
         "title_match": 24,
@@ -748,7 +594,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -757,6 +603,7 @@
       "title": "Architectural Designer",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5138007008",
       "location": "Minneapolis, Minnesota, United States",
+      "posted": "",
       "score": 24,
       "breakdown": {
         "title_match": 24,
@@ -765,7 +612,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -774,6 +621,7 @@
       "title": "Architectural Designer/ Industrial",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5133376008",
       "location": "Atlanta, Georgia, United States; Dallas, Texas, United States; Houston, Texas, United States; Phoenix, Arizona, United States",
+      "posted": "",
       "score": 24,
       "breakdown": {
         "title_match": 24,
@@ -782,7 +630,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -791,6 +639,7 @@
       "title": "Architectural Designer, Intermediate",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5160739008",
       "location": "Austin, Texas, United States; Dallas, Texas, United States; Houston, Texas, United States",
+      "posted": "",
       "score": 24,
       "breakdown": {
         "title_match": 24,
@@ -799,7 +648,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -808,6 +657,7 @@
       "title": "Architectural Project Manager, Education",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5056571008",
       "location": "Minneapolis, Minnesota, United States",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -816,24 +666,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Project Manager, Healthcare",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5133965008",
-      "location": "Charlotte, North Carolina, United States; Durham, North Carolina, United States",
-      "score": 20,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 4,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -842,6 +675,7 @@
       "title": "Architectural Project Manager, Healthcare",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5159663008",
       "location": "Phoenix, Arizona, United States",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -850,7 +684,25 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
+    },
+    {
+      "firm": "DLR Group",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Project Manager, Healthcare",
+      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5133965008",
+      "location": "Charlotte, North Carolina, United States; Durham, North Carolina, United States",
+      "posted": "",
+      "score": 20,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 4,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -859,6 +711,7 @@
       "title": "Architectural Project Manager, K-12",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5193043008",
       "location": "Phoenix, Arizona, United States",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -867,7 +720,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -876,6 +729,7 @@
       "title": "Project Architect, Education Market",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5196796008",
       "location": "Charlotte, North Carolina, United States",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -884,7 +738,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -893,6 +747,7 @@
       "title": "Project Architect, Workplace",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5109935008",
       "location": "New York, New York, United States",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -901,7 +756,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -910,6 +765,7 @@
       "title": "Project Architect, Workplace",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4933354008",
       "location": "Cleveland, Ohio, United States; Columbus, Ohio, United States",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -918,7 +774,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -927,6 +783,7 @@
       "title": "Project Architect",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5158135008",
       "location": "Nashville, Tennessee, United States",
+      "posted": "",
       "score": 16,
       "breakdown": {
         "title_match": 16,
@@ -935,7 +792,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -944,6 +801,7 @@
       "title": "Project Architect",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5137664008",
       "location": "Charlotte, North Carolina, United States",
+      "posted": "",
       "score": 16,
       "breakdown": {
         "title_match": 16,
@@ -952,24 +810,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Project Architect, Mission Critical",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4770389008",
-      "location": "Atlanta, Georgia, United States; Austin, Texas, United States; Charlotte, North Carolina, United States; Cleveland, Ohio, United States; Columbus, Ohio, United States; Dallas, Texas, United States; Des Moines, Iowa, United States; Durham, North Carolina, United States; Fort Worth, Texas, United States; Houston, Texas, United States; Las Vegas, Nevada, United States; Lincoln, Nebraska, United States; Nashville, Tennessee, United States; Omaha, Nebraska, United States; Orlando, Florida, United States; Overland Park, Kansas, United States; Phoenix, Arizona, United States; Portland, Oregon, United States; Tucson, Arizona, United States",
-      "score": 16,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -978,6 +819,7 @@
       "title": "Project Architect, Mission Critical",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4755904008",
       "location": "Boston, Massachusetts, United States; Chicago, Illinois, United States; Colorado Springs, Colorado, United States; Denver, Colorado, United States; Los Angeles, California, United States; Minneapolis, Minnesota, United States; New York, New York, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States; Seattle, Washington, United States; Sonoma, California, United States; Washington, D.C.",
+      "posted": "",
       "score": 16,
       "breakdown": {
         "title_match": 16,
@@ -986,7 +828,25 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
+    },
+    {
+      "firm": "DLR Group",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Project Architect, Mission Critical",
+      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4770389008",
+      "location": "Atlanta, Georgia, United States; Austin, Texas, United States; Charlotte, North Carolina, United States; Cleveland, Ohio, United States; Columbus, Ohio, United States; Dallas, Texas, United States; Des Moines, Iowa, United States; Durham, North Carolina, United States; Fort Worth, Texas, United States; Houston, Texas, United States; Las Vegas, Nevada, United States; Lincoln, Nebraska, United States; Nashville, Tennessee, United States; Omaha, Nebraska, United States; Orlando, Florida, United States; Overland Park, Kansas, United States; Phoenix, Arizona, United States; Portland, Oregon, United States; Tucson, Arizona, United States",
+      "posted": "",
+      "score": 16,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -995,6 +855,7 @@
       "title": "Project Manager, K-12 Education",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4475696008",
       "location": "Austin, Texas, United States; Dallas, Texas, United States",
+      "posted": "",
       "score": 16,
       "breakdown": {
         "title_match": 8,
@@ -1003,7 +864,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1012,6 +873,7 @@
       "title": "Architect, K-12",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5133370008",
       "location": "Riverside, California, United States; Sacramento, California, United States",
+      "posted": "",
       "score": 12,
       "breakdown": {
         "title_match": 8,
@@ -1020,7 +882,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1029,6 +891,7 @@
       "title": "Designer, K-12 ",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5162953008",
       "location": "Sacramento, California, United States; San Francisco, California, United States",
+      "posted": "",
       "score": 12,
       "breakdown": {
         "title_match": 8,
@@ -1037,7 +900,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1046,6 +909,7 @@
       "title": "Educational Learning Designer",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5181697008",
       "location": "Austin, Texas, United States; Dallas, Texas, United States; Fort Worth, Texas, United States; Houston, Texas, United States",
+      "posted": "",
       "score": 12,
       "breakdown": {
         "title_match": 8,
@@ -1054,7 +918,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1063,6 +927,7 @@
       "title": "Project Manager, Education Market",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4880889008",
       "location": "Orlando, Florida, United States",
+      "posted": "",
       "score": 12,
       "breakdown": {
         "title_match": 8,
@@ -1071,7 +936,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1080,6 +945,7 @@
       "title": "Project Manager, K-12",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5131786008",
       "location": "Los Angeles, California, United States; Riverside, California, United States; Sacramento, California, United States",
+      "posted": "",
       "score": 12,
       "breakdown": {
         "title_match": 8,
@@ -1088,7 +954,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1097,6 +963,7 @@
       "title": "Architect, Intermediate",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5160787008",
       "location": "Austin, Texas, United States; Dallas, Texas, United States; Houston, Texas, United States",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -1105,7 +972,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1114,6 +981,7 @@
       "title": "Audiovisual Systems Designer, Entry-Level",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4956973008",
       "location": "Cleveland, Ohio, United States; Seattle, Washington, United States",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -1122,24 +990,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Project Manager",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5197417008",
-      "location": "Seattle, Washington, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1148,6 +999,7 @@
       "title": "Project Manager",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4308397008",
       "location": "Dallas, Texas, United States",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -1156,7 +1008,25 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
+    },
+    {
+      "firm": "DLR Group",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Project Manager",
+      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5197417008",
+      "location": "Seattle, Washington, United States",
+      "posted": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1165,6 +1035,7 @@
       "title": "Project Manager, Sports",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4988336008",
       "location": "Los Angeles, California, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -1173,7 +1044,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1182,6 +1053,7 @@
       "title": "Telecommunications + Security Designer",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4818033008",
       "location": "Charlotte, North Carolina, United States; Cleveland, Ohio, United States; Dallas, Texas, United States; Denver, Colorado, United States; Fort Worth, Texas, United States; Houston, Texas, United States; Los Angeles, California, United States; Omaha, Nebraska, United States; Overland Park, Kansas, United States; Phoenix, Arizona, United States; Portland, Oregon, United States; Washington, D.C.",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -1190,24 +1062,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Behavioral Health Planner / Design Expert",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4550950008",
-      "location": "Austin, Texas, United States; Charlotte, North Carolina, United States; Dallas, Texas, United States; Lincoln, Nebraska, United States; Nashville, Tennessee, United States; Omaha, Nebraska, United States; Orlando, Florida, United States; Phoenix, Arizona, United States; Portland, Oregon, United States",
-      "score": 0,
-      "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1216,6 +1071,7 @@
       "title": "Behavioral Health Planner / Design Expert",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4629159008",
       "location": "Denver, Colorado, United States; Los Angeles, California, United States; Minneapolis, Minnesota, United States; New York, New York, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States; Seattle, Washington, United States; Sonoma, California, United States; Washington, D.C.",
+      "posted": "",
       "score": 0,
       "breakdown": {
         "title_match": 0,
@@ -1224,7 +1080,25 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
+    },
+    {
+      "firm": "DLR Group",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Behavioral Health Planner / Design Expert",
+      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4550950008",
+      "location": "Austin, Texas, United States; Charlotte, North Carolina, United States; Dallas, Texas, United States; Lincoln, Nebraska, United States; Nashville, Tennessee, United States; Omaha, Nebraska, United States; Orlando, Florida, United States; Phoenix, Arizona, United States; Portland, Oregon, United States",
+      "posted": "",
+      "score": 0,
+      "breakdown": {
+        "title_match": 0,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1233,6 +1107,7 @@
       "title": "Project Administrator",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5162769008",
       "location": "Phoenix, Arizona, United States",
+      "posted": "",
       "score": 0,
       "breakdown": {
         "title_match": 0,
@@ -1241,7 +1116,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1250,6 +1125,7 @@
       "title": "Project Scheduler ",
       "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5163822008",
       "location": "Chicago, Illinois, United States; Minneapolis, Minnesota, United States; Omaha, Nebraska, United States; Overland Park, Kansas, United States",
+      "posted": "",
       "score": 0,
       "breakdown": {
         "title_match": 0,
@@ -1258,7 +1134,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:48+00:00"
+      "scraped_at": "2026-04-30T21:41:15+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1267,6 +1143,7 @@
       "title": "Senior Project Architect",
       "url": "https://bkvgroup.com/careers/senior-project-architect-fl/",
       "location": "",
+      "posted": "",
       "score": 44,
       "breakdown": {
         "title_match": 24,
@@ -1275,7 +1152,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1284,6 +1161,7 @@
       "title": "Senior Project Architect (Development)",
       "url": "https://bkvgroup.com/careers/senior-project-architect-development/",
       "location": "",
+      "posted": "",
       "score": 44,
       "breakdown": {
         "title_match": 24,
@@ -1292,7 +1170,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1301,6 +1179,7 @@
       "title": "Senior Lighting Designer",
       "url": "https://bkvgroup.com/careers/senior-lighting-designer/",
       "location": "",
+      "posted": "",
       "score": 36,
       "breakdown": {
         "title_match": 16,
@@ -1309,7 +1188,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1318,6 +1197,7 @@
       "title": "Architectural Designer I (Government)",
       "url": "https://bkvgroup.com/careers/architectural-designer-i-government/",
       "location": "",
+      "posted": "",
       "score": 28,
       "breakdown": {
         "title_match": 24,
@@ -1326,7 +1206,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1335,6 +1215,7 @@
       "title": "Architectural Designer II (Government)",
       "url": "https://bkvgroup.com/careers/architectural-designer-ii-government/",
       "location": "",
+      "posted": "",
       "score": 28,
       "breakdown": {
         "title_match": 24,
@@ -1343,7 +1224,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1352,6 +1233,7 @@
       "title": "Architectural Designer II (Development)",
       "url": "https://bkvgroup.com/careers/architectural-designer-ii/",
       "location": "",
+      "posted": "",
       "score": 24,
       "breakdown": {
         "title_match": 24,
@@ -1360,7 +1242,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1369,6 +1251,7 @@
       "title": "Project Architect I (Government)",
       "url": "https://bkvgroup.com/careers/project-architect-i-government/",
       "location": "",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -1377,7 +1260,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1386,6 +1269,7 @@
       "title": "Project Architect II (Government)",
       "url": "https://bkvgroup.com/careers/project-architect-ii-government/",
       "location": "",
+      "posted": "",
       "score": 20,
       "breakdown": {
         "title_match": 16,
@@ -1394,7 +1278,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1403,6 +1287,7 @@
       "title": "Project Architect I (Development)",
       "url": "https://bkvgroup.com/careers/project-architect-i-development/",
       "location": "",
+      "posted": "",
       "score": 16,
       "breakdown": {
         "title_match": 16,
@@ -1411,7 +1296,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1420,6 +1305,7 @@
       "title": "Lighting Designer",
       "url": "https://bkvgroup.com/careers/lighting-designer/",
       "location": "",
+      "posted": "",
       "score": 8,
       "breakdown": {
         "title_match": 8,
@@ -1428,7 +1314,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1437,6 +1323,7 @@
       "title": "Director of Design (Development)",
       "url": "https://bkvgroup.com/careers/director-of-design-development/",
       "location": "",
+      "posted": "",
       "score": 0,
       "breakdown": {
         "title_match": 0,
@@ -1445,41 +1332,43 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:29:57+00:00"
+      "scraped_at": "2026-04-30T21:41:23+00:00"
     },
     {
       "firm": "ISG (I&S Group)",
       "priority": "P2",
       "city": "Minneapolis",
-      "title": "Architect - K-12 \u2192",
-      "url": "https://isginc.pinpointhq.com/en/postings/8838aee7-f35f-4ac7-b595-f5dfc184eaec",
+      "title": "GIS Telecommunications Designer \u2192",
+      "url": "https://isginc.pinpointhq.com/en/postings/718975a4-ffdf-4cb9-85e6-aed341bb576c",
       "location": "",
-      "score": 12,
+      "posted": "",
+      "score": 8,
       "breakdown": {
         "title_match": 8,
-        "sector": 4,
+        "sector": 0,
         "software": 0,
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:30:22+00:00"
+      "scraped_at": "2026-04-30T21:41:48+00:00"
     },
     {
       "firm": "ISG (I&S Group)",
       "priority": "P2",
       "city": "Minneapolis",
-      "title": "Architect - K-12 \u2192",
+      "title": "GIS Telecommunications Designer \u2192",
       "url": "https://www.isginc.com/careers/",
       "location": "",
-      "score": 12,
+      "posted": "",
+      "score": 8,
       "breakdown": {
         "title_match": 8,
-        "sector": 4,
+        "sector": 0,
         "software": 0,
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-30T13:30:22+00:00"
+      "scraped_at": "2026-04-30T21:41:48+00:00"
     }
   ]
 }
