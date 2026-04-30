@@ -148,6 +148,45 @@ def parse_ultipro_text(text):
     return title, location, posted
 
 
+# License-required signals — drop jobs whose description requires architectural licensure.
+# Jason has 17 yrs experience but is not licensed.
+LICENSE_REQUIRED_KEYWORDS = [
+    "licensed architect required",
+    "registered architect required",
+    "must be a licensed architect",
+    "must be a registered architect",
+    "professional license required",
+    "professional registration required",
+    "architectural registration required",
+    "must hold a current professional license",
+    "must hold a current architectural license",
+    "must be licensed in",
+    "must be registered in",
+    "license is required",
+    "registration is required",
+    "aia registration",
+    "ncarb certification required",
+]
+
+# Title-only signals (used when description isn't available)
+LICENSE_REQUIRED_TITLE = [
+    "licensed architect", "registered architect",
+]
+
+
+def requires_license(title, description=""):
+    """Return True if this job appears to require an architectural license."""
+    t = (title or "").lower()
+    for kw in LICENSE_REQUIRED_TITLE:
+        if kw in t:
+            return True
+    d = (description or "").lower()
+    for kw in LICENSE_REQUIRED_KEYWORDS:
+        if kw in d:
+            return True
+    return False
+
+
 
 # ── Network config ─────────────────────────────────────────────────────────────
 
@@ -335,6 +374,7 @@ def scrape_greenhouse(url, firm_name):
             "title": title,
             "url": j.get("absolute_url", ""),
             "location": (j.get("location") or {}).get("name", ""),
+            "description": j.get("content", ""),
         })
     return jobs, None
 
@@ -522,6 +562,9 @@ def scrape_firm(firm):
         location = j.get("location", "")
         # Geographic filter — drop jobs clearly outside MSP metro
         if not is_msp_location(location):
+            continue
+        # License filter — Jason isn't licensed; drop jobs that require it
+        if requires_license(title, j.get("description", "")):
             continue
         score, bd = score_job(title, j.get("description", ""))
         enriched.append({
