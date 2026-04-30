@@ -146,6 +146,41 @@
     font-size: 12px;
     padding: 24px;
   }
+
+  .jobs-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .jobs-table th {
+    text-align: left;
+    padding: 12px 14px;
+    background: var(--surface2);
+    color: var(--text-dim);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+  }
+  .jobs-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .jobs-table tbody tr:last-child td { border-bottom: none; }
+  .jobs-table tbody tr:hover { background: var(--surface2); }
+  .jobs-table tr.flagged { background: var(--flag-bg); }
+  .jobs-table tr.high td:first-child { border-left: 3px solid var(--green); }
+  .jobs-table .col-score { width: 70px; }
+  .jobs-table .col-title { min-width: 280px; }
+  .jobs-table .col-firm { width: 240px; }
+  .jobs-table .col-detail { color: var(--text-dim); font-size: 13px; }
+  .jobs-table a { color: var(--text); text-decoration: none; }
+  .jobs-table a:hover { color: var(--accent); text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -171,10 +206,7 @@
     <option value="60">Score ≥ 60</option>
     <option value="80">Score ≥ 80</option>
   </select>
-  <select id="hideEmpty">
-    <option value="0">Show all firms</option>
-    <option value="1" selected>Hide firms with no jobs</option>
-  </select>
+
 </div>
 
 <div class="container" id="content">
@@ -201,17 +233,13 @@ async function load() {
     return;
   }
 
-  // Group jobs by firm
-  const firms = {};
-  for (const j of data.jobs || []) {
-    if (!firms[j.firm]) firms[j.firm] = { priority: j.priority, city: j.city, jobs: [] };
-    firms[j.firm].jobs.push(j);
-  }
+  // Flatten jobs and sort by score descending
+  const allJobs = (data.jobs || []).slice().sort((a, b) => b.score - a.score);
 
   // Stats
-  const total = (data.jobs || []).length;
-  const high = (data.jobs || []).filter(j => j.score >= 60).length;
-  const firmsWithJobs = Object.keys(firms).length;
+  const total = allJobs.length;
+  const high = allJobs.filter(j => j.score >= 60).length;
+  const firmsWithJobs = new Set(allJobs.map(j => j.firm)).size;
   document.getElementById("stats").innerHTML = `
     <div class="stat"><div class="stat-value">${total}</div><div class="stat-label">Total listings</div></div>
     <div class="stat"><div class="stat-value flag">${high}</div><div class="stat-label">Score ≥ 60</div></div>
@@ -222,7 +250,7 @@ async function load() {
   document.getElementById("footer").textContent =
     `Last scrape: ${data.scraped_at || "(unknown)"} · ${total} listings`;
 
-  window._firms = firms;
+  window._jobs = allJobs;
   render();
 }
 
@@ -230,89 +258,59 @@ function render() {
   const search = document.getElementById("search").value.toLowerCase();
   const pFilter = document.getElementById("priorityFilter").value;
   const sFilter = parseInt(document.getElementById("scoreFilter").value, 10);
-  const hideEmpty = document.getElementById("hideEmpty").value === "1";
 
-  const firms = window._firms || {};
-  const groups = { P1: [], P2: [], P3: [] };
-
-  for (const [name, info] of Object.entries(firms)) {
-    if (pFilter && info.priority !== pFilter) continue;
-    const matchingJobs = info.jobs.filter(j => {
-      if (j.score < sFilter) return false;
-      if (search) {
-        const hay = (name + " " + j.title).toLowerCase();
-        if (!hay.includes(search)) return false;
-      }
-      return true;
-    });
-    if (hideEmpty && matchingJobs.length === 0) continue;
-    (groups[info.priority] || groups.P3).push({ name, info, matchingJobs });
-  }
+  const jobs = (window._jobs || []).filter(j => {
+    if (pFilter && j.priority !== pFilter) return false;
+    if (j.score < sFilter) return false;
+    if (search) {
+      const hay = (j.firm + " " + j.title).toLowerCase();
+      if (!hay.includes(search)) return false;
+    }
+    return true;
+  });
 
   const root = document.getElementById("content");
   root.innerHTML = "";
 
-  for (const p of ["P1", "P2", "P3"]) {
-    if (!groups[p].length) continue;
-    const totalJobs = groups[p].reduce((a, x) => a + x.matchingJobs.length, 0);
-    const det = document.createElement("details");
-    det.className = "priority-group";
-    det.open = (p === "P1");
+  if (!jobs.length) {
+    root.innerHTML = `<p style="color: var(--text-dim);">No jobs match the current filters.</p>`;
+    return;
+  }
 
-    const sum = document.createElement("summary");
-    sum.innerHTML = `
-      <span class="pgroup-title">${PRIORITY_LABELS[p]}</span>
-      <span class="badge ${p.toLowerCase()}">${p}</span>
-      <span class="pgroup-count">${groups[p].length} firms · ${totalJobs} listings</span>
+  // Build a single flat table of jobs
+  const table = document.createElement("table");
+  table.className = "jobs-table";
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th class="col-score">Score</th>
+        <th class="col-title">Title</th>
+        <th class="col-firm">Firm</th>
+        <th class="col-detail">Location · Posted</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  `;
+  const tbody = table.querySelector("tbody");
+  for (const j of jobs) {
+    const scoreClass = j.score >= 60 ? "score-high" : "score";
+    const tr = document.createElement("tr");
+    tr.className = j.score >= 80 ? "high" : (j.score >= 60 ? "flagged" : "");
+    const details = [j.location, j.posted].filter(x => x).join(' · ');
+    tr.innerHTML = `
+      <td class="col-score"><span class="badge ${scoreClass}">${j.score}</span></td>
+      <td class="col-title"><a href="${j.url}" target="_blank" rel="noopener">${j.title}</a></td>
+      <td class="col-firm">${j.firm} <span class="badge ${j.priority.toLowerCase()}">${j.priority}</span></td>
+      <td class="col-detail">${details}</td>
     `;
-    det.appendChild(sum);
-
-    for (const { name, info, matchingJobs } of groups[p]) {
-      const row = document.createElement("div");
-      row.className = "firm-row";
-      row.innerHTML = `
-        <div class="firm-name">${name}
-          <span class="badge ${info.priority.toLowerCase()}">${info.priority}</span>
-        </div>
-        <div class="firm-meta">${info.city || ""}</div>
-      `;
-      if (matchingJobs.length) {
-        const ul = document.createElement("ul");
-        for (const j of matchingJobs) {
-          const li = document.createElement("li");
-          li.className = j.score >= 80 ? "flagged high" : (j.score >= 60 ? "flagged" : "");
-          const scoreClass = j.score >= 60 ? "score-high" : "score";
-          const details = [j.location, j.posted].filter(x => x).join(' <span class="sep">·</span> ');
-          li.innerHTML = `
-            <div class="job-row">
-              <a href="${j.url}" target="_blank" rel="noopener">${j.title}</a>
-              <span class="badge ${scoreClass}">${j.score}</span>
-            </div>
-            ${details ? `<div class="job-detail">${details}</div>` : ""}
-          `;
-          ul.appendChild(li);
-        }
-        const wrap = document.createElement("div");
-        wrap.className = "firm-jobs";
-        wrap.appendChild(ul);
-        row.appendChild(wrap);
-      } else {
-        row.innerHTML += `<div class="firm-meta" style="margin-top:6px;">No openings matched current filters.</div>`;
-      }
-      det.appendChild(row);
-    }
-    root.appendChild(det);
+    tbody.appendChild(tr);
   }
-
-  if (!root.children.length) {
-    root.innerHTML = `<p style="color: var(--text-dim);">No firms match the current filters.</p>`;
-  }
+  root.appendChild(table);
 }
 
 document.getElementById("search").addEventListener("input", render);
 document.getElementById("priorityFilter").addEventListener("change", render);
 document.getElementById("scoreFilter").addEventListener("change", render);
-document.getElementById("hideEmpty").addEventListener("change", render);
 
 load();
 </script>
