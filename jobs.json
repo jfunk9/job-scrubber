@@ -1,7 +1,177 @@
 {
-  "scraped_at": "2026-04-29T23:38:04+00:00",
-  "total": 115,
+  "scraped_at": "2026-04-30T00:23:40+00:00",
+  "total": 92,
   "jobs": [
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architect",
+      "url": "https://careers-hga.icims.com/jobs/3231/architect/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Civil Designer",
+      "url": "https://careers-hga.icims.com/jobs/3319/civil-designer/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Creative Project Manager",
+      "url": "https://careers-hga.icims.com/jobs/3400/creative-project-manager/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Engineering Project Manager",
+      "url": "https://careers-hga.icims.com/jobs/3373/engineering-project-manager/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Fire Protection Designer",
+      "url": "https://careers-hga.icims.com/jobs/3372/fire-protection-designer/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Lighting Designer",
+      "url": "https://careers-hga.icims.com/jobs/3365/lighting-designer/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Operations Project Manager",
+      "url": "https://careers-hga.icims.com/jobs/3403/operations-project-manager/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Plumbing Designer",
+      "url": "https://careers-hga.icims.com/jobs/3394/plumbing-designer/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Plumbing Designer",
+      "url": "https://careers-hga.icims.com/jobs/3393/plumbing-designer/job?in_iframe=1",
+      "location": "",
+      "score": 8,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
+    {
+      "firm": "HGA",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Civil Project Engineer",
+      "url": "https://careers-hga.icims.com/jobs/3320/civil-project-engineer/job?in_iframe=1",
+      "location": "",
+      "score": 0,
+      "breakdown": {
+        "title_match": 0,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "scraped_at": "2026-04-30T00:23:05+00:00"
+    },
     {
       "firm": "Perkins&Will",
       "priority": "P1",
@@ -17,7 +187,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -34,7 +204,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -51,7 +221,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -68,24 +238,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer III - Workplace",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=f6917b8f-1b4d-4322-b577-80dd89e904cb",
-      "location": "",
-      "score": 40,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 4,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -102,41 +255,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer III - Healthcare",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=2e8788a5-bf47-48b2-a025-2c2f42f19042",
-      "location": "",
-      "score": 40,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 4,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer III - Healthcare",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=1c925450-b659-4b80-8031-c2433406a0af",
-      "location": "",
-      "score": 40,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 4,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -153,24 +272,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer III - Healthcare",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=6afc5bad-af80-4fa2-a01f-e401aaa9bd6a",
-      "location": "",
-      "score": 40,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 4,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -187,41 +289,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=5263d952-0810-4ab3-b699-73dcd175f727",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer - Sports, Recreation and Entertainment",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=9b2f3cfc-b03d-44a6-a732-4762d049608c",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -238,24 +306,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=3f7ffad3-d783-4600-b140-42d536f4d320",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -272,24 +323,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=d7c11728-90da-4ee9-ae3a-baa985bb0d87",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -306,7 +340,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -323,7 +357,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -340,7 +374,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -357,7 +391,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -374,7 +408,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -391,7 +425,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -408,7 +442,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -425,58 +459,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer II- Healthcare",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=d9773a5f-f86d-4cef-b068-ac310fe17a67",
-      "location": "",
-      "score": 12,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 4,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer II - Healthcare",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=f51136b7-3829-48df-8a12-076c97ab182d",
-      "location": "",
-      "score": 12,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 4,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer II - Healthcare",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=ab7d201d-298b-47fb-9c8a-021cf9f29341",
-      "location": "",
-      "score": 12,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 4,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -493,7 +476,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -510,7 +493,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -527,7 +510,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -544,7 +527,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -561,75 +544,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Intermediate Interior Designer",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=e7ff1d8a-73ec-4714-afbe-d96e36226ab9",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Junior Interior Designer",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=019e97ef-6d15-4c10-a0ed-9309a6b6f08f",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer II",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=11cf5c3b-1b72-46d4-8f54-ebb6617916f1",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer II",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=84617899-f1f1-4f63-b609-68da0141f124",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -646,7 +561,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -663,7 +578,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -680,7 +595,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -697,7 +612,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -714,7 +629,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -731,7 +646,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -748,7 +663,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:46+00:00"
+      "scraped_at": "2026-04-30T00:23:13+00:00"
     },
     {
       "firm": "DLR Group",
@@ -765,24 +680,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer, California K-12 Interiors Leader",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5016814008",
-      "location": "Los Angeles, California, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States",
-      "score": 48,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 4,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -799,41 +697,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer, Higher Education",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5031880008",
-      "location": "Atlanta, Georgia, United States; Charlotte, North Carolina, United States; Dallas, Texas, United States; Houston, Texas, United States",
-      "score": 44,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 8,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer, Higher Education",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5032171008",
-      "location": "Boston, Massachusetts, United States; Los Angeles, California, United States",
-      "score": 44,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 8,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -850,7 +714,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -867,7 +731,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -884,24 +748,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer, Education Market",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/4949491008",
-      "location": "Atlanta, Georgia, United States",
-      "score": 40,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 4,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -918,24 +765,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer III",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5138271008",
-      "location": "Orlando, Florida, United States",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -952,7 +782,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -969,7 +799,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -986,24 +816,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5156853008",
-      "location": "Austin, Texas, United States; Dallas, Texas, United States; Fort Worth, Texas, United States; Houston, Texas, United States",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1020,7 +833,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1037,7 +850,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1054,7 +867,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1071,7 +884,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1088,7 +901,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1105,7 +918,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1122,7 +935,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1139,7 +952,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1156,7 +969,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1173,7 +986,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1190,7 +1003,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1207,7 +1020,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1224,7 +1037,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1241,7 +1054,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1258,7 +1071,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1275,7 +1088,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1292,7 +1105,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1309,7 +1122,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1326,7 +1139,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1343,7 +1156,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1360,24 +1173,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Healthcare Interior Designer",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5133978008",
-      "location": "Charlotte, North Carolina, United States; Durham, North Carolina, United States",
-      "score": 12,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 4,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1394,7 +1190,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1411,7 +1207,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1428,7 +1224,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1445,143 +1241,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5131408008",
-      "location": "Minneapolis, Minnesota, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5138293008",
-      "location": "Charlotte, North Carolina, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5143239008",
-      "location": "Overland Park, Kansas, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5173090008",
-      "location": "Denver, Colorado, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5180910008",
-      "location": "Las Vegas, Nevada, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer ",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5122058008",
-      "location": "Denver, Colorado, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer, Intermediate",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5157006008",
-      "location": "Dallas, Texas, United States; Houston, Texas, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
-    },
-    {
-      "firm": "DLR Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer, Intermediate ",
-      "url": "https://job-boards.greenhouse.io/dlrgroup/jobs/5167024008",
-      "location": "Minneapolis, Minnesota, United States",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1598,7 +1258,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1615,7 +1275,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1632,7 +1292,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1649,7 +1309,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1666,7 +1326,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1683,7 +1343,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1700,7 +1360,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1717,7 +1377,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:48+00:00"
+      "scraped_at": "2026-04-30T00:23:16+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1734,7 +1394,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1751,24 +1411,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
-    },
-    {
-      "firm": "BKV Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Designer",
-      "url": "https://bkvgroup.com/careers/senior-interior-designer-2/",
-      "location": "",
-      "score": 36,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1785,7 +1428,7 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1802,7 +1445,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1819,7 +1462,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1836,7 +1479,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1853,7 +1496,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1870,7 +1513,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1887,41 +1530,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
-    },
-    {
-      "firm": "BKV Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer I",
-      "url": "https://bkvgroup.com/careers/interior-designer-i-2/",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
-    },
-    {
-      "firm": "BKV Group",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Interior Designer II",
-      "url": "https://bkvgroup.com/careers/interior-designer-ii-2/",
-      "location": "",
-      "score": 8,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1938,7 +1547,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1955,7 +1564,7 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-04-29T23:37:59+00:00"
+      "scraped_at": "2026-04-30T00:23:31+00:00"
     }
   ]
 }
