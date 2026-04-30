@@ -52,6 +52,10 @@ TITLE_KEYWORDS = [
     "intermediate architect", "senior architect",
     "registered architect", "licensed architect",
     "interior architect",
+    # Visualization / BIM / design technology — what Jason excels at
+    "bim specialist", "bim technician", "bim coordinator", "bim manager",
+    "design technologist", "visualization", "design visualization",
+    "3d artist", "rendering", "real-time", "vr", "virtual reality",
     " iii", " iv", "level 3", "level iii", "senior", "lead",
     "principal", "associate",
 ]
@@ -66,8 +70,15 @@ SECTOR_KEYWORDS = [
 ]
 
 SOFTWARE_KEYWORDS = [
-    "revit", "autocad", "sketchup", "enscape", "rhino",
-    "bluebeam", "bim", "adobe", "lumion",
+    "revit", "sketchup", "enscape", "lumion", "rhino",
+    "twinmotion", "unreal", "unity", "d5 render",
+    "bluebeam", "bim", "adobe",
+    # Disruptive / emerging tech Jason wants to lean into
+    "pyrevit", "dynamo", "grasshopper",
+    "point cloud", "scan to bim", "3d scan", "lidar", "reality capture",
+    "computational design", "parametric", "generative design",
+    "ai", "machine learning", "automation",
+    "autocad",
 ]
 
 EXCLUDE_TITLE_KEYWORDS = [
@@ -518,16 +529,7 @@ def main():
     args = parser.parse_args()
 
     if args.firm:
-        # Validate firm name matches at least one row
         firms = load_firms()
         matching = [f for f in firms if args.firm.lower() in f["name"].lower()]
         if not matching:
-            print(f"No firm matched '{args.firm}'")
-            sys.exit(1)
-
-    run(p1_only=args.p1, firm_filter=args.firm)
-    input("\nPress Enter to exit...")
-
-
-if __name__ == "__main__":
-    main()
+            p
