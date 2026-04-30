@@ -1,5 +1,5 @@
 priority,name,city,website,careers_url,scraper_key,verified,notes
-P1,HGA,Minneapolis,https://hga.com,https://hga.com/careers/,generic,no,Hammel Green Abrahamson — large multi-disciplinary; healthcare/civic/education
+P1,HGA,Minneapolis,https://hga.com,https://careers-hga.icims.com/jobs/search?ss=1,icims,yes,Hammel Green Abrahamson — uses iCIMS ATS; healthcare/civic/education
 P1,Perkins&Will,Minneapolis,https://perkinswill.com,https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/?q=&o=postedDateDesc,ultipro,yes,Global firm with MSP office; UltiPro/UKG ATS
 P1,Cuningham,Minneapolis,https://cuningham.com,https://careers.cuningham.com/career-openings,generic,no,Major MSP firm; entertainment/hospitality/healthcare; subdomain careers site
 P1,DLR Group,Minneapolis,https://www.dlrgroup.com,https://job-boards.greenhouse.io/dlrgroup,greenhouse,yes,Includes former KKE; sports/civic/education; Greenhouse token=dlrgroup
@@ -50,4 +50,4 @@ P3,Klein McCarthy Architects,Minneapolis,https://www.kleinmccarthy.com,https://w
 P3,Shea Design,Minneapolis,https://www.sheadesign.com,https://www.sheadesign.com/careers/,generic,no,Hospitality/airport F&B; Jason worked here 2022-2024
 P3,Devetter Design Group,Minneapolis,https://www.devetterdesigngroup.com,https://www.devetterdesigngroup.com/careers/,generic,no,Residential/educational/commercial; Jason currently here
 P3,Miller Dunwiddie Architecture,Minneapolis,https://millerdunwiddie.com,https://millerdunwiddie.com/careers/,generic,no,Historic preservation/aviation
-P3,Pope Architects,St. Paul,https://www.popearch.com,https://www.popearch.com/careers/,generic,no,Possibly redundant with Pope Design Group
+P3,Pope Architects,St. Paul,https://www.popearch.com,https://www.popearch.com/careers/,generic,no,Possibly redundant with Pope De

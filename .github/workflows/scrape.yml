@@ -1,0 +1,50 @@
+name: Run Job Scraper
+
+on:
+  # Manual trigger — the "Refresh" button on the Actions tab
+  workflow_dispatch:
+
+  # Auto-run every weekday at 7:00 AM Central (12:00 UTC)
+  schedule:
+    - cron: '0 12 * * 1-5'
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 lxml playwright
+          playwright install chromium
+          playwright install-deps
+
+      - name: Run scraper
+        run: |
+          python -c "
+          import job_scraper as s
+          import os
+          # Override repo dir so output writes to repo root in CI
+          s.GITHUB_REPO_DIR = os.getcwd()
+          s.run()
+          "
+
+      - name: Commit and push updated dashboard
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add index.html jobs.json
+          git diff --staged --quiet || git commit -m "Auto-update dashboard $(date +'%Y-%m-%d %H:%M UTC')"
+          git push

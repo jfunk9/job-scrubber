@@ -76,7 +76,7 @@ EXCLUDE_TITLE_KEYWORDS = [
     "receptionist", "office manager", "it manager",
     "human resources", "hr ", "recruiter",
     "business development", "controller",
-    "graphic designer",
+    "graphic designer", "interior designer",
     "civil engineer", "structural engineer", "mep engineer",
     "electrical engineer", "mechanical engineer",
     "landscape designer", "landscape architect",
@@ -296,6 +296,76 @@ def scrape_ultipro(url, firm_name):
     return jobs, None
 
 
+def scrape_icims(url, firm_name):
+    """
+    iCIMS Career Portal — JS-heavy. Uses Playwright with extended wait,
+    walks any iframes, and matches multiple iCIMS link patterns.
+    Also dumps rendered HTML to icims_<tenant>_debug.html for inspection.
+    """
+    from playwright.sync_api import sync_playwright
+
+    browser = get_browser()
+    if browser is None:
+        return [], "Playwright unavailable"
+
+    jobs = []
+    seen = set()
+
+    try:
+        page = browser.new_page()
+        page.goto(url, timeout=30000)
+        # Wait for any of the typical iCIMS job-list signals
+        try:
+            page.wait_for_load_state("networkidle", timeout=15000)
+        except Exception:
+            page.wait_for_timeout(8000)
+
+        # Collect HTML from the main page AND every frame on the page
+        html_chunks = [page.content()]
+        for frame in page.frames:
+            try:
+                html_chunks.append(frame.content())
+            except Exception:
+                pass
+        page.close()
+    except Exception as e:
+        return [], f"Playwright error: {e}"
+
+    # Save a debug copy of what we saw (overwrites each run; useful when 0 results)
+    try:
+        m = re.search(r"careers-([a-z0-9-]+)\.icims\.com", url)
+        tenant = m.group(1) if m else "unknown"
+        with open(os.path.join(THIS_DIR, f"icims_{tenant}_debug.html"), "w", encoding="utf-8") as f:
+            f.write("\n<!--FRAME-->\n".join(html_chunks))
+    except Exception:
+        pass
+
+    for html in html_chunks:
+        soup = BeautifulSoup(html, "lxml")
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            text = a.get_text(strip=True)
+            if not text or len(text) > 200:
+                continue
+            href_l = href.lower()
+            # iCIMS job link patterns
+            if (re.search(r"/jobs/\d+/", href_l)
+                or "icims.com/jobs/" in href_l):
+                full_url = urlparse.urljoin(url, href)
+                # Strip iCIMS prefix junk like "Job TitleArchitect"
+                clean = re.sub(r"^(Job Title|Title|Position)\s*", "", text).strip()
+                if not clean:
+                    continue
+                key = (clean.lower(), full_url)
+                if key in seen:
+                    continue
+                seen.add(key)
+                if is_relevant(clean):
+                    jobs.append({"title": clean, "url": full_url, "location": ""})
+
+    return jobs, None
+
+
 def scrape_workday(url, firm_name):
     return scrape_generic(url, firm_name)
 
@@ -331,6 +401,7 @@ SCRAPER_MAP = {
     "workday":    scrape_workday,
     "lever":      scrape_lever,
     "ultipro":    scrape_ultipro,
+    "icims":      scrape_icims,
 }
 
 
@@ -419,29 +490,41 @@ def write_results(all_jobs):
         print(f"    (dashboard still available locally at {OUTPUT_HTML})")
 
 
+def run(p1_only=False, firm_filter=None):
+    """
+    End-to-end scrape, no argparse, no input() prompt.
+    Used by GitHub Actions and as the engine behind main().
+    Returns the list of all jobs found.
+    """
+    firms = load_firms()
+    if p1_only:
+        firms = [f for f in firms if f["priority"] == "P1"]
+    if firm_filter:
+        firms = [f for f in firms if firm_filter.lower() in f["name"].lower()]
+    print(f"Scanning {len(firms)} firms...")
+    all_jobs = []
+    for firm in firms:
+        all_jobs.extend(scrape_firm(firm))
+        time.sleep(0.5)
+    write_results(all_jobs)
+    return all_jobs
+
+
 def main():
     parser = argparse.ArgumentParser(description="Twin Cities architecture job scraper")
     parser.add_argument("--p1", action="store_true", help="Only scan P1 (top-15) firms")
     parser.add_argument("--firm", help="Scan a single firm by name (case-insensitive)")
     args = parser.parse_args()
 
-    firms = load_firms()
-
-    if args.p1:
-        firms = [f for f in firms if f["priority"] == "P1"]
     if args.firm:
-        firms = [f for f in firms if args.firm.lower() in f["name"].lower()]
-        if not firms:
+        # Validate firm name matches at least one row
+        firms = load_firms()
+        matching = [f for f in firms if args.firm.lower() in f["name"].lower()]
+        if not matching:
             print(f"No firm matched '{args.firm}'")
             sys.exit(1)
 
-    print(f"Scanning {len(firms)} firms...")
-    all_jobs = []
-    for firm in firms:
-        all_jobs.extend(scrape_firm(firm))
-        time.sleep(0.5)
-
-    write_results(all_jobs)
+    run(p1_only=args.p1, firm_filter=args.firm)
     input("\nPress Enter to exit...")
 
 
