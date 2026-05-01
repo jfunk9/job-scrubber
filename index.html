@@ -175,7 +175,8 @@
   .jobs-table tbody tr:hover { background: var(--surface2); }
   .jobs-table tr.flagged { background: var(--flag-bg); }
   .jobs-table tr.high td:first-child { border-left: 3px solid var(--green); }
-  .jobs-table .col-score { width: 70px; }
+  .jobs-table .col-fit { width: 60px; }
+  .jobs-table .col-score { width: 60px; }
   .jobs-table .col-title { min-width: 280px; }
   .jobs-table .col-firm { width: 240px; }
   .jobs-table .col-detail { color: var(--text-dim); font-size: 13px; }
@@ -289,15 +290,15 @@ async function load() {
   }
 
   // Flatten jobs and sort by score descending
-  const allJobs = (data.jobs || []).slice().sort((a, b) => b.score - a.score);
+  const allJobs = (data.jobs || []).slice().sort((a, b) => (b.fit||0) - (a.fit||0));
 
   // Stats
   const total = allJobs.length;
-  const high = allJobs.filter(j => j.score >= 60).length;
+  const high = allJobs.filter(j => (j.fit||0) >= 50).length;
   const firmsWithJobs = new Set(allJobs.map(j => j.firm)).size;
   document.getElementById("stats").innerHTML = `
     <div class="stat"><div class="stat-value">${total}</div><div class="stat-label">Total listings</div></div>
-    <div class="stat"><div class="stat-value flag">${high}</div><div class="stat-label">Score ≥ 60</div></div>
+    <div class="stat"><div class="stat-value flag">${high}</div><div class="stat-label">Fit ≥ 50</div></div>
     <div class="stat"><div class="stat-value">${firmsWithJobs}</div><div class="stat-label">Firms with openings</div></div>
     <div class="stat"><div class="stat-value">${formatScanLocal(data.scraped_at)}</div><div class="stat-label">Last updated</div></div>
   `;
@@ -338,6 +339,7 @@ function render() {
   table.innerHTML = `
     <thead>
       <tr>
+        <th class="col-fit">Fit</th>
         <th class="col-score">Score</th>
         <th class="col-title">Title</th>
         <th class="col-firm">Firm</th>
@@ -352,7 +354,12 @@ function render() {
     const tr = document.createElement("tr");
     tr.className = j.score >= 80 ? "high" : (j.score >= 60 ? "flagged" : "");
     const details = [formatLocation(j.location), j.posted].filter(x => x).join(' · ');
+    const fit = j.fit || 0;
+    const fitClass = fit >= 50 ? "score-high" : "score";
+    const fbd = j.fit_breakdown || {};
+    const fitTip = `Autonomy ${fbd.autonomy||0} | Creative ${fbd.creative||0} | Lifestyle ${fbd.lifestyle||0} | TechLeverage ${fbd.tech_leverage||0} | TechDepth ${fbd.tech_depth||0} | Comp ${fbd.compensation||0} | Alignment ${fbd.alignment||0}`;
     tr.innerHTML = `
+      <td class="col-fit"><span class="badge ${fitClass}" title="${fitTip}">${fit}</span></td>
       <td class="col-score"><span class="badge ${scoreClass}">${j.score}</span></td>
       <td class="col-title"><a href="${j.url}" target="_blank" rel="noopener">${j.title}</a></td>
       <td class="col-firm">${j.firm} <span class="badge ${j.priority.toLowerCase()}">${j.priority}</span></td>

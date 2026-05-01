@@ -328,6 +328,82 @@ def is_relevant(title):
     return any(w in t for w in arch_words)
 
 
+
+
+# ── Fit-matrix scoring (Jason's weighted decision framework) ──────────────────
+# Each category has a weight (sums to 100) and keyword signals.
+# Score per category = weight * min(1, matches / target_matches)
+FIT_MATRIX = {
+    "autonomy": {
+        "weight": 20,
+        "target": 3,
+        "keywords": ["principal", "studio leader", "studio lead", "design lead",
+                     "associate principal", "director", "head of", "senior architect",
+                     "lead architect", "manage", "ownership", "self-directed",
+                     "lead the", "you will lead", "drive the"],
+    },
+    "creative": {
+        "weight": 22,
+        "target": 3,
+        "keywords": ["design", "concept", "creative", "studio", "schematic",
+                     "design phase", "concept design", "design lead", "designer",
+                     "design director", "ideation", "design studio", "design vision"],
+    },
+    "lifestyle": {
+        "weight": 20,
+        "target": 2,
+        "keywords": ["hybrid", "remote", "flexible", "work-life", "work life",
+                     "4-day", "four-day", "wellness", "balance", "flexible schedule",
+                     "esop", "employee-owned", "employee owned", "100% employee"],
+    },
+    "tech_leverage": {
+        "weight": 12,
+        "target": 2,
+        "keywords": ["ai", "automation", "computational design", "parametric",
+                     "pyrevit", "dynamo", "grasshopper", "vr", "virtual reality",
+                     "real-time", "twinmotion", "unreal", "lumion", "enscape",
+                     "machine learning", "design technology", "innovation"],
+    },
+    "tech_depth": {
+        "weight": 11,
+        "target": 3,
+        "keywords": ["revit", "construction documents", "construction administration",
+                     "production", "qa/qc", "specifications", "drafting", "detailing",
+                     "permit drawings", "shop drawings"],
+    },
+    "compensation": {
+        "weight": 9,
+        "target": 1,
+        "keywords": ["$", "salary range", "competitive salary", "compensation",
+                     "75k", "80k", "90k", "100k", "110k", "120k"],
+    },
+    "alignment": {
+        "weight": 6,
+        "target": 2,
+        "keywords": ["career path", "career growth", "mentorship", "mentoring",
+                     "esop", "employee-owned", "associate track", "professional development",
+                     "long-term", "growth opportunity"],
+    },
+}
+
+
+def fit_score(title, description=""):
+    """
+    Returns (total, breakdown) where total is 0-100 fit score using Jason's
+    weighted matrix and breakdown is per-category contribution.
+    """
+    text = (title + " " + description).lower()
+    breakdown = {}
+    total = 0.0
+    for cat, cfg in FIT_MATRIX.items():
+        matches = sum(1 for kw in cfg["keywords"] if kw in text)
+        ratio = min(1.0, matches / cfg["target"])
+        contrib = round(cfg["weight"] * ratio, 1)
+        breakdown[cat] = contrib
+        total += contrib
+    return round(total), breakdown
+
+
 # ── Scrapers ──────────────────────────────────────────────────────────────────
 
 def scrape_generic(url, firm_name):
@@ -601,6 +677,7 @@ def scrape_firm(firm):
         if requires_license(title, j.get("description", "")):
             continue
         score, bd = score_job(title, j.get("description", ""))
+        fit, fit_bd = fit_score(title, j.get("description", ""))
         enriched.append({
             "firm": name,
             "priority": firm["priority"],
@@ -610,7 +687,9 @@ def scrape_firm(firm):
             "location": location,
             "posted": j.get("posted", ""),
             "score": score,
+            "fit": fit,
             "breakdown": bd,
+            "fit_breakdown": fit_bd,
             "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         })
 
