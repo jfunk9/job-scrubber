@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-01T00:53:21+00:00",
+  "scraped_at": "2026-05-01T01:45:02+00:00",
   "total": 39,
   "jobs": [
     {
@@ -11,6 +11,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 0,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -18,7 +19,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:04+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:14+00:00"
     },
     {
       "firm": "HGA",
@@ -29,6 +39,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 14,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -36,7 +47,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:04+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 7.3,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:14+00:00"
     },
     {
       "firm": "HGA",
@@ -47,6 +67,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 7,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -54,7 +75,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:04+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:14+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -65,6 +95,7 @@
       "location": "",
       "posted": "",
       "score": 44,
+      "fit": 0,
       "breakdown": {
         "title_match": 24,
         "sector": 0,
@@ -72,7 +103,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -83,6 +123,7 @@
       "location": "",
       "posted": "",
       "score": 40,
+      "fit": 0,
       "breakdown": {
         "title_match": 16,
         "sector": 4,
@@ -90,7 +131,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -101,6 +151,7 @@
       "location": "",
       "posted": "",
       "score": 40,
+      "fit": 7,
       "breakdown": {
         "title_match": 16,
         "sector": 4,
@@ -108,7 +159,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -119,6 +179,7 @@
       "location": "",
       "posted": "",
       "score": 40,
+      "fit": 7,
       "breakdown": {
         "title_match": 16,
         "sector": 4,
@@ -126,7 +187,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -137,6 +207,7 @@
       "location": "",
       "posted": "",
       "score": 36,
+      "fit": 15,
       "breakdown": {
         "title_match": 16,
         "sector": 0,
@@ -144,7 +215,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -155,6 +235,7 @@
       "location": "",
       "posted": "",
       "score": 36,
+      "fit": 15,
       "breakdown": {
         "title_match": 16,
         "sector": 0,
@@ -162,7 +243,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -173,6 +263,7 @@
       "location": "",
       "posted": "",
       "score": 36,
+      "fit": 15,
       "breakdown": {
         "title_match": 16,
         "sector": 0,
@@ -180,7 +271,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -191,6 +291,7 @@
       "location": "",
       "posted": "",
       "score": 36,
+      "fit": 15,
       "breakdown": {
         "title_match": 16,
         "sector": 0,
@@ -198,7 +299,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -209,6 +319,7 @@
       "location": "",
       "posted": "",
       "score": 20,
+      "fit": 0,
       "breakdown": {
         "title_match": 16,
         "sector": 4,
@@ -216,7 +327,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -227,6 +347,7 @@
       "location": "",
       "posted": "",
       "score": 16,
+      "fit": 0,
       "breakdown": {
         "title_match": 16,
         "sector": 0,
@@ -234,7 +355,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -245,6 +375,7 @@
       "location": "",
       "posted": "",
       "score": 12,
+      "fit": 7,
       "breakdown": {
         "title_match": 8,
         "sector": 4,
@@ -252,7 +383,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -263,6 +403,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 0,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -270,7 +411,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -281,6 +431,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 7,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -288,7 +439,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -299,6 +459,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 7,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -306,7 +467,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -317,6 +487,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 7,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -324,7 +495,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -335,6 +515,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 15,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -342,7 +523,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -353,6 +543,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 15,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -360,7 +551,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -371,6 +571,7 @@
       "location": "",
       "posted": "",
       "score": 8,
+      "fit": 15,
       "breakdown": {
         "title_match": 8,
         "sector": 0,
@@ -378,7 +579,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:13+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:23+00:00"
     },
     {
       "firm": "DLR Group",
@@ -389,6 +599,7 @@
       "location": "Minneapolis, Minnesota, United States",
       "posted": "",
       "score": 86,
+      "fit": 80,
       "breakdown": {
         "title_match": 40,
         "sector": 16,
@@ -396,7 +607,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 20.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 0.0,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -407,6 +627,7 @@
       "location": "Los Angeles, California, United States; Riverside, California, United States; Sacramento, California, United States",
       "posted": "",
       "score": 86,
+      "fit": 80,
       "breakdown": {
         "title_match": 40,
         "sector": 16,
@@ -414,7 +635,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 20.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 0.0,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -425,6 +655,7 @@
       "location": "Los Angeles, California, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States",
       "posted": "",
       "score": 83,
+      "fit": 91,
       "breakdown": {
         "title_match": 40,
         "sector": 8,
@@ -432,7 +663,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 20.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -443,6 +683,7 @@
       "location": "Boston, Massachusetts, United States; Chicago, Illinois, United States; Cleveland, Ohio, United States; Colorado Springs, Colorado, United States; Columbus, Ohio, United States; Denver, Colorado, United States; Las Vegas, Nevada, United States; Los Angeles, California, United States; Minneapolis, Minnesota, United States; New York, New York, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States; Seattle, Washington, United States; Sonoma, California, United States; Washington, D.C.",
       "posted": "",
       "score": 79,
+      "fit": 90,
       "breakdown": {
         "title_match": 40,
         "sector": 4,
@@ -450,7 +691,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 20.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -461,6 +711,7 @@
       "location": "Boston, Massachusetts, United States; Chicago, Illinois, United States; Colorado Springs, Colorado, United States; Denver, Colorado, United States; Los Angeles, California, United States; Minneapolis, Minnesota, United States; New York, New York, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States; Seattle, Washington, United States; Sonoma, California, United States; Washington, D.C.",
       "posted": "",
       "score": 79,
+      "fit": 90,
       "breakdown": {
         "title_match": 40,
         "sector": 4,
@@ -468,7 +719,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 20.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 7.3,
+        "compensation": 9.0,
+        "alignment": 6.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -479,6 +739,7 @@
       "location": "Denver, Colorado, United States; Los Angeles, California, United States; Minneapolis, Minnesota, United States; New York, New York, United States; Riverside, California, United States; Sacramento, California, United States; San Diego, California, United States; San Francisco, California, United States; Seattle, Washington, United States; Sonoma, California, United States; Washington, D.C.",
       "posted": "",
       "score": 75,
+      "fit": 84,
       "breakdown": {
         "title_match": 24,
         "sector": 16,
@@ -486,7 +747,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 20.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -497,6 +767,7 @@
       "location": "Minneapolis, Minnesota, United States",
       "posted": "",
       "score": 71,
+      "fit": 77,
       "breakdown": {
         "title_match": 32,
         "sector": 4,
@@ -504,7 +775,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 7.3,
+        "compensation": 9.0,
+        "alignment": 6.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -515,6 +795,7 @@
       "location": "Chicago, Illinois, United States; Minneapolis, Minnesota, United States; Omaha, Nebraska, United States; Overland Park, Kansas, United States",
       "posted": "",
       "score": 58,
+      "fit": 59,
       "breakdown": {
         "title_match": 24,
         "sector": 4,
@@ -522,7 +803,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 13.3,
+        "creative": 7.3,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 0.0,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "DLR Group",
@@ -533,6 +823,7 @@
       "location": "Charlotte, North Carolina, United States; Cleveland, Ohio, United States; Dallas, Texas, United States; Denver, Colorado, United States; Fort Worth, Texas, United States; Houston, Texas, United States; Los Angeles, California, United States; Omaha, Nebraska, United States; Overland Park, Kansas, United States; Phoenix, Arizona, United States; Portland, Oregon, United States; Washington, D.C.",
       "posted": "",
       "score": 56,
+      "fit": 78,
       "breakdown": {
         "title_match": 16,
         "sector": 25,
@@ -540,7 +831,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:15+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-01T01:43:24+00:00"
     },
     {
       "firm": "BKV Group",
@@ -551,6 +851,7 @@
       "location": "",
       "posted": "",
       "score": 44,
+      "fit": 0,
       "breakdown": {
         "title_match": 24,
         "sector": 0,
@@ -558,7 +859,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -569,6 +879,7 @@
       "location": "",
       "posted": "",
       "score": 44,
+      "fit": 0,
       "breakdown": {
         "title_match": 24,
         "sector": 0,
@@ -576,7 +887,16 @@
         "level": 20,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -587,6 +907,7 @@
       "location": "",
       "posted": "",
       "score": 28,
+      "fit": 15,
       "breakdown": {
         "title_match": 24,
         "sector": 4,
@@ -594,7 +915,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -605,6 +935,7 @@
       "location": "",
       "posted": "",
       "score": 28,
+      "fit": 15,
       "breakdown": {
         "title_match": 24,
         "sector": 4,
@@ -612,7 +943,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -623,6 +963,7 @@
       "location": "",
       "posted": "",
       "score": 24,
+      "fit": 15,
       "breakdown": {
         "title_match": 24,
         "sector": 0,
@@ -630,7 +971,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -641,6 +991,7 @@
       "location": "",
       "posted": "",
       "score": 20,
+      "fit": 0,
       "breakdown": {
         "title_match": 16,
         "sector": 4,
@@ -648,7 +999,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -659,6 +1019,7 @@
       "location": "",
       "posted": "",
       "score": 20,
+      "fit": 0,
       "breakdown": {
         "title_match": 16,
         "sector": 4,
@@ -666,7 +1027,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -677,6 +1047,7 @@
       "location": "",
       "posted": "",
       "score": 16,
+      "fit": 0,
       "breakdown": {
         "title_match": 16,
         "sector": 0,
@@ -684,7 +1055,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     },
     {
       "firm": "BKV Group",
@@ -695,6 +1075,7 @@
       "location": "",
       "posted": "",
       "score": 0,
+      "fit": 14,
       "breakdown": {
         "title_match": 0,
         "sector": 0,
@@ -702,7 +1083,16 @@
         "level": 0,
         "exclude": 0
       },
-      "scraped_at": "2026-05-01T00:51:23+00:00"
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 7.3,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-01T01:43:32+00:00"
     }
   ]
 }
