@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-05-04T13:32:15+00:00",
-  "total": 41,
+  "scraped_at": "2026-05-06T13:55:38+00:00",
+  "total": 38,
   "jobs": [
     {
       "firm": "HGA",
@@ -28,7 +28,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:08+00:00"
+      "scraped_at": "2026-05-06T13:53:32+00:00"
     },
     {
       "firm": "HGA",
@@ -56,7 +56,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:08+00:00"
+      "scraped_at": "2026-05-06T13:53:32+00:00"
     },
     {
       "firm": "HGA",
@@ -84,7 +84,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:08+00:00"
+      "scraped_at": "2026-05-06T13:53:32+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -112,7 +112,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -140,7 +140,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -168,7 +168,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -196,7 +196,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -224,35 +224,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Interior Project Designer",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=0d8f7137-7f0d-4842-b93b-f864c8c8778a",
-      "location": "",
-      "posted": "",
-      "score": 36,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -280,35 +252,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Project Designer",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=c1121652-560e-4a60-a444-26d00d30a5fd",
-      "location": "",
-      "posted": "",
-      "score": 36,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -336,7 +280,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -364,7 +308,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -392,7 +336,35 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
+    },
+    {
+      "firm": "Perkins&Will",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Interior Design Director",
+      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=e483ac25-766e-46ec-bbb3-1ab344d6e317",
+      "location": "",
+      "posted": "",
+      "score": 8,
+      "fit": 21,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -420,7 +392,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -448,7 +420,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -476,7 +448,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -504,7 +476,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -532,7 +504,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -560,63 +532,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Urban Designer I",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=f22918f5-a8df-402d-82a5-d0ff701aaab0",
-      "location": "",
-      "posted": "",
-      "score": 8,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Administrative Assistant/ Project Coordinator",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=7781cb46-2902-4987-b9d0-be12995c83da",
-      "location": "",
-      "posted": "",
-      "score": 0,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-04T13:30:17+00:00"
+      "scraped_at": "2026-05-06T13:53:41+00:00"
     },
     {
       "firm": "DLR Group",
@@ -644,7 +560,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -672,7 +588,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -700,7 +616,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -728,7 +644,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -756,7 +672,7 @@
         "compensation": 9.0,
         "alignment": 6.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -784,7 +700,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -812,7 +728,7 @@
         "compensation": 9.0,
         "alignment": 6.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -840,7 +756,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "DLR Group",
@@ -868,7 +784,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-04T13:30:18+00:00"
+      "scraped_at": "2026-05-06T13:53:42+00:00"
     },
     {
       "firm": "BKV Group",
@@ -896,7 +812,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -924,7 +840,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -952,7 +868,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -980,7 +896,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1008,7 +924,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1036,7 +952,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1064,7 +980,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1092,7 +1008,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1120,7 +1036,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1148,7 +1064,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-04T13:30:26+00:00"
+      "scraped_at": "2026-05-06T13:53:52+00:00"
     }
   ]
 }
