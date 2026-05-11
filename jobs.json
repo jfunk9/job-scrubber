@@ -1,6 +1,6 @@
 {
-  "scraped_at": "2026-05-08T13:22:09+00:00",
-  "total": 37,
+  "scraped_at": "2026-05-11T14:39:04+00:00",
+  "total": 38,
   "jobs": [
     {
       "firm": "HGA",
@@ -28,7 +28,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:42+00:00"
+      "scraped_at": "2026-05-11T14:36:44+00:00"
     },
     {
       "firm": "HGA",
@@ -56,7 +56,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:42+00:00"
+      "scraped_at": "2026-05-11T14:36:44+00:00"
     },
     {
       "firm": "HGA",
@@ -84,7 +84,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:42+00:00"
+      "scraped_at": "2026-05-11T14:36:44+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -112,7 +112,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -140,7 +140,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -168,7 +168,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -196,7 +196,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -224,49 +224,21 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
       "priority": "P1",
       "city": "Minneapolis",
-      "title": "Designer III",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=14435f8f-a354-4cd6-9a43-9f34d4202056",
+      "title": "Project Architect - Sports and Recreation",
+      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=0cf1b9d5-abe2-43ac-8221-95886a8448ee",
       "location": "",
       "posted": "",
-      "score": 36,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
-    },
-    {
-      "firm": "Perkins&Will",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Project Architect- Commercial High Rise/ Multi-Family",
-      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=92964be2-5ee7-45dd-b968-031b1a0f3dec",
-      "location": "",
-      "posted": "",
-      "score": 20,
+      "score": 16,
       "fit": 0,
       "breakdown": {
         "title_match": 16,
-        "sector": 4,
+        "sector": 0,
         "software": 0,
         "level": 0,
         "exclude": 0
@@ -280,7 +252,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -308,7 +280,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -336,7 +308,63 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
+    },
+    {
+      "firm": "Perkins&Will",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Graduate Recruitment 2026: Architectural Assistant Part I",
+      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=15334c50-265d-463b-a0b6-dfcbbc73c1d7",
+      "location": "",
+      "posted": "",
+      "score": 8,
+      "fit": 0,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-11T14:36:53+00:00"
+    },
+    {
+      "firm": "Perkins&Will",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Graduate Recruitment 2026: Architectural Assistant Part II",
+      "url": "https://recruiting2.ultipro.com/PER1007PWILL/JobBoard/0ca393a4-bf82-4db6-acae-91e6a0315a4a/OpportunityDetail?opportunityId=84803399-d186-4d24-9c7c-22206f080235",
+      "location": "",
+      "posted": "",
+      "score": 8,
+      "fit": 0,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 0,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 0.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -364,7 +392,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -392,7 +420,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -420,7 +448,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -448,7 +476,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -476,7 +504,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -504,7 +532,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:19:51+00:00"
+      "scraped_at": "2026-05-11T14:36:53+00:00"
     },
     {
       "firm": "DLR Group",
@@ -532,7 +560,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -560,7 +588,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -588,7 +616,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -616,7 +644,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -644,7 +672,7 @@
         "compensation": 9.0,
         "alignment": 6.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -672,7 +700,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -700,7 +728,7 @@
         "compensation": 9.0,
         "alignment": 6.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -728,7 +756,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "DLR Group",
@@ -756,7 +784,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-08T13:19:53+00:00"
+      "scraped_at": "2026-05-11T14:36:55+00:00"
     },
     {
       "firm": "BKV Group",
@@ -784,7 +812,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -812,7 +840,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -840,7 +868,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -868,7 +896,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -896,7 +924,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -924,7 +952,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -952,7 +980,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -980,7 +1008,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1008,7 +1036,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1036,7 +1064,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-08T13:20:01+00:00"
+      "scraped_at": "2026-05-11T14:37:04+00:00"
     }
   ]
 }
