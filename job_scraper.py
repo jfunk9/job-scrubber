@@ -593,65 +593,69 @@ def scrape_icims(url, firm_name):
 
 def scrape_aia_mn(url, firm_name):
     """
-    AIA Minnesota Job Board — aggregator listing jobs from many MN firms.
-    Returns job dicts with `firm` set per-job (overrides the row's name).
+    AIA Minnesota Job Board aggregator.
+    Structure: each job is an <h4> (or similar heading) wrapping a link to /job/<slug>/.
+    The firm name is the next sibling element's text; the location is the one after that.
     """
-    soup = fetch(url) or fetch_js(url, wait_ms=4000)
+    soup = fetch(url)
+    if soup is None:
+        soup = fetch_js(url, wait_ms=5000)
     if soup is None:
         return [], "fetch failed"
+
+    # Save raw HTML for offline inspection
+    try:
+        with open(os.path.join(THIS_DIR, "aia_mn_debug.html"), "w", encoding="utf-8") as f:
+            f.write(str(soup))
+    except Exception:
+        pass
 
     jobs = []
     seen = set()
 
-    # Each job: an <a> linking to /job/<slug>/. Its parent contains the
-    # firm name and location as sibling text.
     for a in soup.find_all("a", href=True):
         href = a["href"]
-        if "/job/" not in href:
+        # Match /job/<slug>/ but skip nav links
+        if not re.search(r"/job/[^/]+/?$", href):
+            continue
+        if "job-submission" in href or "jobs/" in href.lower().rstrip("/").split("/")[-2:]:
             continue
         title = a.get_text(strip=True)
         if not title or len(title) > 200:
             continue
-        if "post" in title.lower() and "job board" in title.lower():
-            continue  # skip "Post on the Job Board" CTA
         full_url = urlparse.urljoin(url, href)
 
-        # Walk up to find a container; grab the firm + location from text after the heading
-        container = a.find_parent()
-        for _ in range(4):  # try a few ancestors
-            if container is None:
-                break
-            text = container.get_text("\n", strip=True)
-            if title in text and len(text) < 500:
-                break
-            container = container.find_parent()
+        # Find the heading element containing this link, then walk next siblings
+        heading = a.find_parent(["h1","h2","h3","h4","h5","h6"]) or a.parent
 
         firm = ""
         location = ""
-        posted = ""
-        if container:
-            lines = [ln.strip() for ln in container.get_text("\n", strip=True).split("\n") if ln.strip()]
-            try:
-                ti = lines.index(title)
-            except ValueError:
-                ti = -1
-            if ti >= 0:
-                # The line right after the title is usually the firm
-                if ti + 1 < len(lines):
-                    firm = lines[ti + 1]
-                # The line after that is usually the location
-                if ti + 2 < len(lines):
-                    candidate = lines[ti + 2]
-                    if any(kw in candidate.lower() for kw in
-                           ["minneapolis", "st. paul", "saint paul", "minnesota",
-                            "duluth", "rochester", "southwest", "southeast",
-                            "northern minnesota"]):
-                        location = candidate
-                # Look backward for the Posted date
-                for j in range(max(0, ti - 3), ti):
-                    if lines[j].lower().startswith("posted"):
-                        posted = lines[j].replace("Posted", "").strip()
-                        break
+        nxt = heading.find_next_sibling() if heading else None
+        attempts = 0
+        while nxt is not None and attempts < 6:
+            text = nxt.get_text(" ", strip=True)
+            if text and len(text) < 200 and not text.lower().startswith("posted"):
+                if not firm:
+                    firm = text
+                elif not location:
+                    location = text
+                    break
+            nxt = nxt.find_next_sibling()
+            attempts += 1
+
+        # Fallback: scan parent's text in order
+        if not firm:
+            parent = heading.parent if heading else a.parent
+            if parent:
+                lines = [ln.strip() for ln in parent.get_text("\n", strip=True).split("\n") if ln.strip()]
+                try:
+                    ti = lines.index(title)
+                    if ti + 1 < len(lines):
+                        firm = lines[ti + 1]
+                    if ti + 2 < len(lines):
+                        location = lines[ti + 2]
+                except ValueError:
+                    pass
 
         key = (title.lower(), full_url)
         if key in seen:
@@ -663,10 +667,10 @@ def scrape_aia_mn(url, firm_name):
                 "title": title,
                 "url": full_url,
                 "location": location,
-                "posted": posted,
-                "firm_override": firm,  # per-job firm name for the aggregator
+                "firm_override": firm,
             })
 
+    print(f"    [AIA-MN] found {len(jobs)} matching job links")
     return jobs, None
 
 
