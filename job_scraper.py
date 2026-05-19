@@ -591,6 +591,85 @@ def scrape_icims(url, firm_name):
     return jobs, None
 
 
+def scrape_aia_mn(url, firm_name):
+    """
+    AIA Minnesota Job Board — aggregator listing jobs from many MN firms.
+    Returns job dicts with `firm` set per-job (overrides the row's name).
+    """
+    soup = fetch(url) or fetch_js(url, wait_ms=4000)
+    if soup is None:
+        return [], "fetch failed"
+
+    jobs = []
+    seen = set()
+
+    # Each job: an <a> linking to /job/<slug>/. Its parent contains the
+    # firm name and location as sibling text.
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if "/job/" not in href:
+            continue
+        title = a.get_text(strip=True)
+        if not title or len(title) > 200:
+            continue
+        if "post" in title.lower() and "job board" in title.lower():
+            continue  # skip "Post on the Job Board" CTA
+        full_url = urlparse.urljoin(url, href)
+
+        # Walk up to find a container; grab the firm + location from text after the heading
+        container = a.find_parent()
+        for _ in range(4):  # try a few ancestors
+            if container is None:
+                break
+            text = container.get_text("\n", strip=True)
+            if title in text and len(text) < 500:
+                break
+            container = container.find_parent()
+
+        firm = ""
+        location = ""
+        posted = ""
+        if container:
+            lines = [ln.strip() for ln in container.get_text("\n", strip=True).split("\n") if ln.strip()]
+            try:
+                ti = lines.index(title)
+            except ValueError:
+                ti = -1
+            if ti >= 0:
+                # The line right after the title is usually the firm
+                if ti + 1 < len(lines):
+                    firm = lines[ti + 1]
+                # The line after that is usually the location
+                if ti + 2 < len(lines):
+                    candidate = lines[ti + 2]
+                    if any(kw in candidate.lower() for kw in
+                           ["minneapolis", "st. paul", "saint paul", "minnesota",
+                            "duluth", "rochester", "southwest", "southeast",
+                            "northern minnesota"]):
+                        location = candidate
+                # Look backward for the Posted date
+                for j in range(max(0, ti - 3), ti):
+                    if lines[j].lower().startswith("posted"):
+                        posted = lines[j].replace("Posted", "").strip()
+                        break
+
+        key = (title.lower(), full_url)
+        if key in seen:
+            continue
+        seen.add(key)
+
+        if is_relevant(title):
+            jobs.append({
+                "title": title,
+                "url": full_url,
+                "location": location,
+                "posted": posted,
+                "firm_override": firm,  # per-job firm name for the aggregator
+            })
+
+    return jobs, None
+
+
 def scrape_workday(url, firm_name):
     return scrape_generic(url, firm_name)
 
@@ -627,6 +706,7 @@ SCRAPER_MAP = {
     "lever":      scrape_lever,
     "ultipro":    scrape_ultipro,
     "icims":      scrape_icims,
+    "aia_mn":     scrape_aia_mn,
 }
 
 
@@ -679,7 +759,7 @@ def scrape_firm(firm):
         score, bd = score_job(title, j.get("description", ""))
         fit, fit_bd = fit_score(title, j.get("description", ""))
         enriched.append({
-            "firm": name,
+            "firm": j.get("firm_override") or name,
             "priority": firm["priority"],
             "city": firm.get("city", ""),
             "title": title,
