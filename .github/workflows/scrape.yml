@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install requests beautifulsoup4 lxml playwright
+          pip install -r requirements.txt
 
       - name: Cache Playwright browsers
         id: playwright-cache
