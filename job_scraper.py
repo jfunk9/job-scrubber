@@ -229,7 +229,7 @@ HEADERS = {
                   "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
+    "Accept-Encoding": "gzip, deflate",
     "Connection": "keep-alive",
     "Upgrade-Insecure-Requests": "1",
 }
@@ -794,17 +794,28 @@ def write_results(all_jobs):
         json.dump(payload, f, indent=2)
     print(f"\n[+] Wrote {len(all_jobs)} jobs to {OUTPUT_JSON}")
 
-    # Mirror dashboard + data into the GitHub repo for Pages publishing.
+    # Mirror only the dashboard HTML to the GitHub repo (NOT jobs.json — that's
+    # written by the GitHub Actions cron so we don't get merge conflicts when
+    # both local and cloud runs touch the same file). When running INSIDE the
+    # Actions runner, GITHUB_REPO_DIR has been overridden to cwd by scrape.yml,
+    # so jobs.json gets written directly to the repo root by write_results above.
+    in_ci = os.environ.get("GITHUB_ACTIONS") == "true" or GITHUB_REPO_DIR == os.getcwd()
     try:
         os.makedirs(GITHUB_REPO_DIR, exist_ok=True)
-        for fname in ("index.html", "jobs.json"):
-            src = os.path.join(THIS_DIR, fname)
-            dst = os.path.join(GITHUB_REPO_DIR, fname)
-            if os.path.exists(src):
-                shutil.copy2(src, dst)
-                print(f"[+] Copied {fname} -> {dst}")
-        print(f"\n  >> Open GitHub Desktop, commit, and push to publish.")
-        print(f"  >> Live URL: https://jfunk9.github.io/job-scrubber/")
+        files = ("index.html", "jobs.json") if in_ci else ("index.html",)
+        for fname in files:
+            src_path = os.path.join(THIS_DIR, fname)
+            dst_path = os.path.join(GITHUB_REPO_DIR, fname)
+            if os.path.exists(src_path) and src_path != dst_path:
+                shutil.copy2(src_path, dst_path)
+                print(f"[+] Copied {fname} -> {dst_path}")
+        if not in_ci:
+            print(f"\n  >> Local run: jobs.json stays local. The daily GitHub")
+            print(f"     Actions cron updates the live dashboard.")
+            print(f"  >> If you want to publish NOW: manually trigger the workflow")
+            print(f"     at https://github.com/jfunk9/job-scrubber/actions")
+        else:
+            print(f"\n  >> Live URL: https://jfunk9.github.io/job-scrubber/")
     except Exception as e:
         print(f"[!] Could not copy to GitHub repo at {GITHUB_REPO_DIR}: {e}")
         print(f"    (dashboard still available locally at {OUTPUT_HTML})")
