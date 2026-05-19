@@ -223,6 +223,17 @@ const PRIORITY_LABELS = {
   P3: "Priority 3 — Specialty / smaller firms",
 };
 
+function locationTier(loc) {
+  if (!loc) return 1;  // unknown — middle (assume local)
+  const l = loc.toLowerCase();
+  const MSP = ["minneapolis","st. paul","saint paul","st paul","minnetonka",
+               "bloomington","edina","eden prairie","plymouth","maple grove",
+               "wayzata","apple valley","burnsville","richfield",
+               "golden valley","st louis park","minnesota"];
+  if (MSP.some(c => l.includes(c))) return 0;  // MSP first
+  return 2;  // out-of-state target metros last
+}
+
 function formatLocation(loc) {
   if (!loc) return "";
   const TARGETS = [
@@ -290,7 +301,12 @@ async function load() {
   }
 
   // Flatten jobs and sort by score descending
-  const allJobs = (data.jobs || []).slice().sort((a, b) => (b.fit||0) - (a.fit||0));
+  const allJobs = (data.jobs || []).slice().sort((a, b) => {
+    const tA = locationTier(a.location);
+    const tB = locationTier(b.location);
+    if (tA !== tB) return tA - tB;
+    return (b.fit||0) - (a.fit||0);
+  });
 
   // Stats
   const total = allJobs.length;
