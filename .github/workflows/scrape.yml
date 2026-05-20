@@ -4,6 +4,16 @@ on:
   # Manual trigger — the "Refresh" button on the Actions tab
   workflow_dispatch:
 
+  # Auto-run on every push to main that changes scraper code or config
+  # (skipped if only jobs.json/index.html changed — those are the workflow's own outputs)
+  push:
+    branches: [main]
+    paths:
+      - 'job_scraper.py'
+      - 'firms.csv'
+      - 'requirements.txt'
+      - '.github/workflows/scrape.yml'
+
   # Auto-run every weekday at 7:00 AM Central (12:00 UTC)
   schedule:
     - cron: '0 12 * * 1-5'
