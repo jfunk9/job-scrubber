@@ -594,8 +594,8 @@ def scrape_icims(url, firm_name):
 def scrape_aia_mn(url, firm_name):
     """
     AIA Minnesota Job Board aggregator.
-    Structure: each job is an <h4> (or similar heading) wrapping a link to /job/<slug>/.
-    The firm name is the next sibling element's text; the location is the one after that.
+    Captures title/firm/location from the listing, AND fetches each job's
+    individual page to grab the description (so scoring uses the real text).
     """
     soup = fetch(url)
     if soup is None:
@@ -603,7 +603,6 @@ def scrape_aia_mn(url, firm_name):
     if soup is None:
         return [], "fetch failed"
 
-    # Save raw HTML for offline inspection
     try:
         with open(os.path.join(THIS_DIR, "aia_mn_debug.html"), "w", encoding="utf-8") as f:
             f.write(str(soup))
@@ -615,7 +614,6 @@ def scrape_aia_mn(url, firm_name):
 
     for a in soup.find_all("a", href=True):
         href = a["href"]
-        # Match /job/<slug>/ but skip nav links
         if not re.search(r"/job/[^/]+/?$", href):
             continue
         if "job-submission" in href or "jobs/" in href.lower().rstrip("/").split("/")[-2:]:
@@ -625,7 +623,6 @@ def scrape_aia_mn(url, firm_name):
             continue
         full_url = urlparse.urljoin(url, href)
 
-        # Find the heading element containing this link, then walk next siblings
         heading = a.find_parent(["h1","h2","h3","h4","h5","h6"]) or a.parent
 
         firm = ""
@@ -643,7 +640,6 @@ def scrape_aia_mn(url, firm_name):
             nxt = nxt.find_next_sibling()
             attempts += 1
 
-        # Fallback: scan parent's text in order
         if not firm:
             parent = heading.parent if heading else a.parent
             if parent:
@@ -662,16 +658,51 @@ def scrape_aia_mn(url, firm_name):
             continue
         seen.add(key)
 
-        if is_relevant(title):
-            jobs.append({
-                "title": title,
-                "url": full_url,
-                "location": location,
-                "firm_override": firm,
-            })
+        if not is_relevant(title):
+            continue
+
+        # Fetch the individual job page to get the description for richer scoring
+        description = _fetch_aia_mn_description(full_url)
+
+        jobs.append({
+            "title": title,
+            "url": full_url,
+            "location": location,
+            "firm_override": firm,
+            "description": description,
+        })
 
     print(f"    [AIA-MN] found {len(jobs)} matching job links")
     return jobs, None
+
+
+def _fetch_aia_mn_description(url):
+    """Fetch an AIA-MN job page and return the description body text."""
+    soup = fetch(url)
+    if soup is None:
+        return ""
+    # The page has a "Description" heading followed by the body text.
+    # Strategy: find the Description heading, then concatenate text from
+    # all following siblings until we hit "Contact" or "Back to Job Bank".
+    desc_heading = soup.find(string=re.compile(r"^\s*Description\s*$"))
+    if not desc_heading:
+        # Fallback: take everything in the main content area
+        body = soup.find("body")
+        return (body.get_text(" ", strip=True)[:3000]) if body else ""
+
+    container = desc_heading.find_parent()
+    chunks = []
+    for sib in container.find_next_siblings() if container else []:
+        text = sib.get_text(" ", strip=True)
+        if not text:
+            continue
+        low = text.lower()
+        if "back to job bank" in low or low.startswith("contact"):
+            break
+        chunks.append(text)
+        if sum(len(c) for c in chunks) > 5000:
+            break
+    return " ".join(chunks)
 
 
 def scrape_workday(url, firm_name):
