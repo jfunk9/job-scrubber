@@ -1,35 +1,7 @@
 {
-  "scraped_at": "2026-05-20T00:08:58+00:00",
+  "scraped_at": "2026-05-20T00:20:04+00:00",
   "total": 72,
   "jobs": [
-    {
-      "firm": "Target Corporation",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Sr Architect/Architectural Designer Store Design",
-      "url": "https://www.aia-mn.org/job/sr-architect-architectural-designer-store-design/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 71,
-      "fit": 48,
-      "breakdown": {
-        "title_match": 32,
-        "sector": 4,
-        "software": 15,
-        "level": 20,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 6.7,
-        "creative": 22.0,
-        "lifestyle": 10.0,
-        "tech_leverage": 6.0,
-        "tech_depth": 3.7,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
     {
       "firm": "GLTArchitects",
       "priority": "P1",
@@ -38,25 +10,641 @@
       "url": "https://www.aia-mn.org/job/project-architect-project-manager-st-cloud-2/",
       "location": "Southwest Minnesota",
       "posted": "",
-      "score": 57,
-      "fit": 24,
+      "score": 100,
+      "fit": 47,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 25,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 13.3,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Tushie Montgomery Architects",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Designer",
+      "url": "https://www.aia-mn.org/job/architectural-designer-10/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 100,
+      "fit": 41,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 25,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 22.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 3.7,
+        "compensation": 0.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Brunton Architects",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Project Architect",
+      "url": "https://www.aia-mn.org/job/project-architect-3/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 95,
+      "fit": 78,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 20,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 13.3,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 11.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Brunton Architects",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Project Manager",
+      "url": "https://www.aia-mn.org/job/architectural-project-manager-10/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 95,
+      "fit": 81,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 20,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 13.3,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 11.0,
+        "compensation": 0.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Wilkus Architects",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Project Manager",
+      "url": "https://www.aia-mn.org/job/architectural-project-manager-11/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 91,
+      "fit": 66,
       "breakdown": {
         "title_match": 32,
+        "sector": 24,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 7.3,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
+        "compensation": 9.0,
+        "alignment": 6.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Tushie Montgomery Architects",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Space Planner/Architectural Technician",
+      "url": "https://www.aia-mn.org/job/space-planner-architectural-technician/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 84,
+      "fit": 41,
+      "breakdown": {
+        "title_match": 24,
+        "sector": 25,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 22.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 3.7,
+        "compensation": 0.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "AEC Resources",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Senior Project Architect",
+      "url": "https://www.aia-mn.org/job/senior-project-architect-9/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 82,
+      "fit": 59,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 12,
+        "software": 10,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 14.7,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 0.0,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Target Corporation",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Sr Architect/Architectural Designer Store Design",
+      "url": "https://www.aia-mn.org/job/sr-architect-architectural-designer-store-design/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 79,
+      "fit": 64,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 4,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 3.7,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Gensler",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Technical Designer - Junior",
+      "url": "https://www.aia-mn.org/job/technical-designer-junior/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 79,
+      "fit": 87,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 4,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 11.0,
+        "compensation": 9.0,
+        "alignment": 6.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Brick and Mortar",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Commercial Conservation Architect",
+      "url": "https://www.aia-mn.org/job/commercial-conservation-architect/",
+      "location": "Northern Minnesota",
+      "posted": "",
+      "score": 79,
+      "fit": 74,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 4,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 13.3,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Station 19 Architects, Inc.",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architect/Architectural Designer II",
+      "url": "https://www.aia-mn.org/job/architect-architectural-designer-ii-2/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 75,
+      "fit": 42,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 0,
+        "software": 15,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 22.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
+        "compensation": 0.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Alliiance",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Senior Project Architect",
+      "url": "https://www.aia-mn.org/job/senior-project-architect-8/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 70,
+      "fit": 46,
+      "breakdown": {
+        "title_match": 40,
+        "sector": 0,
+        "software": 10,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 22.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 0.0,
+        "tech_depth": 11.0,
+        "compensation": 0.0,
+        "alignment": 6.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "OHA Architecture + Design",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Revit Technician",
+      "url": "https://www.aia-mn.org/job/architectural-revit-technician-2/",
+      "location": "Southwest Minnesota",
+      "posted": "",
+      "score": 67,
+      "fit": 46,
+      "breakdown": {
+        "title_match": 32,
+        "sector": 20,
+        "software": 15,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 22.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Murphy & Co. Design",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "AutoCAD Project Manager",
+      "url": "https://www.aia-mn.org/job/autocad-project-manager-4/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 66,
+      "fit": 84,
+      "breakdown": {
+        "title_match": 32,
+        "sector": 4,
+        "software": 10,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 13.3,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 7.3,
+        "compensation": 9.0,
+        "alignment": 6.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "AEC Resources",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Project Manager",
+      "url": "https://www.aia-mn.org/job/architectural-project-manager-12/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 66,
+      "fit": 72,
+      "breakdown": {
+        "title_match": 24,
+        "sector": 12,
+        "software": 10,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 13.3,
+        "creative": 14.7,
+        "lifestyle": 20.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 0.0,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Quartersawn Design Build",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Residential Architectural Designer",
+      "url": "https://www.aia-mn.org/job/residential-architectural-designer-2/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 65,
+      "fit": 35,
+      "breakdown": {
+        "title_match": 40,
         "sector": 0,
         "software": 5,
         "level": 20,
         "exclude": 0
       },
       "fit_breakdown": {
-        "autonomy": 13.3,
-        "creative": 7.3,
+        "autonomy": 6.7,
+        "creative": 22.0,
         "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 3.7,
+        "tech_leverage": 6.0,
+        "tech_depth": 0.0,
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "HMA Architects",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Interior Design Assistant",
+      "url": "https://www.aia-mn.org/job/interior-design-assistant/",
+      "location": "Southwest Minnesota",
+      "posted": "",
+      "score": 59,
+      "fit": 41,
+      "breakdown": {
+        "title_match": 24,
+        "sector": 20,
+        "software": 15,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 22.0,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Charles Cudd Co., LLC",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architect/Architectural Drafter",
+      "url": "https://www.aia-mn.org/job/architect-architectural-drafter/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 46,
+      "fit": 21,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 0,
+        "software": 10,
+        "level": 20,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 7.3,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 7.3,
+        "compensation": 0.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Station 19 Architects",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architect / Architectural Designer Level II",
+      "url": "https://www.aia-mn.org/job/architect-architectural-designer-level-ii/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 38,
+      "fit": 51,
+      "breakdown": {
+        "title_match": 24,
+        "sector": 4,
+        "software": 10,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 0.0,
+        "compensation": 0.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "AEC Resources",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Design Technical Coordinator (Entry Level)",
+      "url": "https://www.aia-mn.org/job/design-technical-coordinator-entry-level/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 34,
+      "fit": 43,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 8,
+        "software": 10,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "CITYDESKSTUDIO",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Draftsperson",
+      "url": "https://www.aia-mn.org/job/architectural-draftsperson/",
+      "location": "St. Paul",
+      "posted": "",
+      "score": 31,
+      "fit": 68,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 0,
+        "software": 15,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 22.0,
+        "lifestyle": 20.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
+        "compensation": 9.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Streeter Custom Builder",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Project Draftsperon",
+      "url": "https://www.aia-mn.org/job/project-draftsperon/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 31,
+      "fit": 63,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 0,
+        "software": 15,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 22.0,
+        "lifestyle": 10.0,
+        "tech_leverage": 12.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "Sierra Pacific Windows",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Architectural Consultant",
+      "url": "https://www.aia-mn.org/job/architectural-consultant/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 30,
+      "fit": 43,
+      "breakdown": {
+        "title_match": 16,
+        "sector": 4,
+        "software": 10,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 6.7,
+        "creative": 14.7,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 3.7,
+        "compensation": 9.0,
+        "alignment": 3.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
     },
     {
       "firm": "AIA Minnesota",
@@ -66,13 +654,13 @@
       "url": "https://www.aia-mn.org/job/next-gen-project-manager/",
       "location": "Minneapolis",
       "posted": "",
-      "score": 54,
+      "score": 26,
       "fit": 31,
       "breakdown": {
-        "title_match": 24,
+        "title_match": 16,
         "sector": 0,
         "software": 10,
-        "level": 20,
+        "level": 0,
         "exclude": 0
       },
       "fit_breakdown": {
@@ -84,595 +672,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Brick and Mortar",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Commercial Conservation Architect",
-      "url": "https://www.aia-mn.org/job/commercial-conservation-architect/",
-      "location": "Northern Minnesota",
-      "posted": "",
-      "score": 51,
-      "fit": 31,
-      "breakdown": {
-        "title_match": 32,
-        "sector": 4,
-        "software": 15,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 6.7,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 6.0,
-        "tech_depth": 3.7,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "AEC Resources",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Project Architect",
-      "url": "https://www.aia-mn.org/job/senior-project-architect-9/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 44,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Alliiance",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Senior Project Architect",
-      "url": "https://www.aia-mn.org/job/senior-project-architect-8/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 44,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 0,
-        "level": 20,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Gensler",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Technical Designer - Junior",
-      "url": "https://www.aia-mn.org/job/technical-designer-junior/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 31,
-      "fit": 38,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 15,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 22.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 12.0,
-        "tech_depth": 3.7,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Quartersawn Design Build",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Residential Architectural Designer",
-      "url": "https://www.aia-mn.org/job/residential-architectural-designer-2/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 24,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Station 19 Architects",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architect / Architectural Designer Level II",
-      "url": "https://www.aia-mn.org/job/architect-architectural-designer-level-ii/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 24,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Station 19 Architects, Inc.",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architect/Architectural Designer II",
-      "url": "https://www.aia-mn.org/job/architect-architectural-designer-ii-2/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 24,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Tushie Montgomery Architects",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Designer",
-      "url": "https://www.aia-mn.org/job/architectural-designer-10/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 24,
-      "fit": 15,
-      "breakdown": {
-        "title_match": 24,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 14.7,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "CITYDESKSTUDIO",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Draftsperson",
-      "url": "https://www.aia-mn.org/job/architectural-draftsperson/",
-      "location": "St. Paul",
-      "posted": "",
-      "score": 23,
-      "fit": 44,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 15,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 7.3,
-        "lifestyle": 20.0,
-        "tech_leverage": 6.0,
-        "tech_depth": 11.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "AEC Resources",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Project Manager",
-      "url": "https://www.aia-mn.org/job/architectural-project-manager-12/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 16,
-      "fit": 7,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 6.7,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Wilkus Architects",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Project Manager",
-      "url": "https://www.aia-mn.org/job/architectural-project-manager-11/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 16,
-      "fit": 7,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 6.7,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Brunton Architects",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Project Architect",
-      "url": "https://www.aia-mn.org/job/project-architect-3/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 16,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Brunton Architects",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Project Manager",
-      "url": "https://www.aia-mn.org/job/architectural-project-manager-10/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 16,
-      "fit": 7,
-      "breakdown": {
-        "title_match": 16,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 6.7,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Murphy & Co. Design",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "AutoCAD Project Manager",
-      "url": "https://www.aia-mn.org/job/autocad-project-manager-4/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 13,
-      "fit": 7,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 5,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 6.7,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "OHA Architecture + Design",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Revit Technician",
-      "url": "https://www.aia-mn.org/job/architectural-revit-technician-2/",
-      "location": "Southwest Minnesota",
-      "posted": "",
-      "score": 13,
-      "fit": 4,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 5,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 3.7,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "AEC Resources",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Entry-Level Architecture & Interior Design Project Coordinator",
-      "url": "https://www.aia-mn.org/job/entry-level-architecture-interior-design-project-coordinator/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 8,
-      "fit": 7,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 7.3,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Sierra Pacific Windows",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architectural Consultant",
-      "url": "https://www.aia-mn.org/job/architectural-consultant/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 8,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "1st St. NW Inc.",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Drafter (Architectural Metals)",
-      "url": "https://www.aia-mn.org/job/drafter-architectural-metals-2/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 8,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Charles Cudd Co., LLC",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Architect/Architectural Drafter",
-      "url": "https://www.aia-mn.org/job/architect-architectural-drafter/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 8,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "AEC Resources",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Design Architect",
-      "url": "https://www.aia-mn.org/job/design-architect/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 8,
-      "fit": 7,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 7.3,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Tushie Montgomery Architects",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Space Planner/Architectural Technician",
-      "url": "https://www.aia-mn.org/job/space-planner-architectural-technician/",
-      "location": "Minneapolis",
-      "posted": "",
-      "score": 8,
-      "fit": 0,
-      "breakdown": {
-        "title_match": 8,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 0.0,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
+      "scraped_at": "2026-05-20T00:18:24+00:00"
     },
     {
       "firm": "Reprise Design",
@@ -682,96 +682,68 @@
       "url": "https://www.aia-mn.org/job/architectural-technician-5/",
       "location": "Minneapolis",
       "posted": "",
-      "score": 8,
-      "fit": 0,
+      "score": 26,
+      "fit": 13,
       "breakdown": {
         "title_match": 8,
-        "sector": 0,
-        "software": 0,
+        "sector": 8,
+        "software": 10,
         "level": 0,
         "exclude": 0
       },
       "fit_breakdown": {
         "autonomy": 0.0,
-        "creative": 0.0,
+        "creative": 7.3,
         "lifestyle": 0.0,
-        "tech_leverage": 0.0,
+        "tech_leverage": 6.0,
         "tech_depth": 0.0,
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
+      "scraped_at": "2026-05-20T00:18:24+00:00"
     },
     {
       "firm": "AEC Resources",
       "priority": "P1",
       "city": "Minneapolis",
-      "title": "Design Technical Coordinator (Entry Level)",
-      "url": "https://www.aia-mn.org/job/design-technical-coordinator-entry-level/",
+      "title": "Entry-Level Architecture & Interior Design Project Coordinator",
+      "url": "https://www.aia-mn.org/job/entry-level-architecture-interior-design-project-coordinator/",
       "location": "Minneapolis",
       "posted": "",
-      "score": 0,
-      "fit": 7,
+      "score": 22,
+      "fit": 40,
       "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 0,
+        "title_match": 8,
+        "sector": 4,
+        "software": 10,
         "level": 0,
         "exclude": 0
       },
       "fit_breakdown": {
-        "autonomy": 0.0,
+        "autonomy": 6.7,
         "creative": 7.3,
         "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
+        "compensation": 9.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
+      "scraped_at": "2026-05-20T00:18:24+00:00"
     },
     {
-      "firm": "HMA Architects",
+      "firm": "1st St. NW Inc.",
       "priority": "P1",
       "city": "Minneapolis",
-      "title": "Interior Design Assistant",
-      "url": "https://www.aia-mn.org/job/interior-design-assistant/",
-      "location": "Southwest Minnesota",
-      "posted": "",
-      "score": 0,
-      "fit": 7,
-      "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 0,
-        "level": 0,
-        "exclude": 0
-      },
-      "fit_breakdown": {
-        "autonomy": 0.0,
-        "creative": 7.3,
-        "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
-        "compensation": 0.0,
-        "alignment": 0.0
-      },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
-    },
-    {
-      "firm": "Streeter Custom Builder",
-      "priority": "P1",
-      "city": "Minneapolis",
-      "title": "Project Draftsperon",
-      "url": "https://www.aia-mn.org/job/project-draftsperon/",
+      "title": "Drafter (Architectural Metals)",
+      "url": "https://www.aia-mn.org/job/drafter-architectural-metals-2/",
       "location": "Minneapolis",
       "posted": "",
-      "score": 0,
-      "fit": 0,
+      "score": 22,
+      "fit": 17,
       "breakdown": {
-        "title_match": 0,
-        "sector": 0,
-        "software": 0,
+        "title_match": 8,
+        "sector": 4,
+        "software": 10,
         "level": 0,
         "exclude": 0
       },
@@ -779,12 +751,40 @@
         "autonomy": 0.0,
         "creative": 0.0,
         "lifestyle": 0.0,
-        "tech_leverage": 0.0,
-        "tech_depth": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 11.0,
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:10+00:00"
+      "scraped_at": "2026-05-20T00:18:24+00:00"
+    },
+    {
+      "firm": "AEC Resources",
+      "priority": "P1",
+      "city": "Minneapolis",
+      "title": "Design Architect",
+      "url": "https://www.aia-mn.org/job/design-architect/",
+      "location": "Minneapolis",
+      "posted": "",
+      "score": 13,
+      "fit": 22,
+      "breakdown": {
+        "title_match": 8,
+        "sector": 0,
+        "software": 5,
+        "level": 0,
+        "exclude": 0
+      },
+      "fit_breakdown": {
+        "autonomy": 0.0,
+        "creative": 7.3,
+        "lifestyle": 0.0,
+        "tech_leverage": 6.0,
+        "tech_depth": 0.0,
+        "compensation": 9.0,
+        "alignment": 0.0
+      },
+      "scraped_at": "2026-05-20T00:18:24+00:00"
     },
     {
       "firm": "HGA",
@@ -812,7 +812,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:15+00:00"
+      "scraped_at": "2026-05-20T00:18:29+00:00"
     },
     {
       "firm": "HGA",
@@ -840,7 +840,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:15+00:00"
+      "scraped_at": "2026-05-20T00:18:29+00:00"
     },
     {
       "firm": "HGA",
@@ -868,7 +868,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:15+00:00"
+      "scraped_at": "2026-05-20T00:18:29+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -896,7 +896,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -924,7 +924,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -952,7 +952,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -980,7 +980,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1008,7 +1008,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1036,7 +1036,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1064,7 +1064,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1092,7 +1092,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1120,7 +1120,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1148,7 +1148,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1176,7 +1176,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1204,7 +1204,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1232,7 +1232,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1260,7 +1260,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1288,7 +1288,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1316,7 +1316,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1344,7 +1344,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1372,7 +1372,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "Perkins&Will",
@@ -1400,7 +1400,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:24+00:00"
+      "scraped_at": "2026-05-20T00:18:38+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1428,7 +1428,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-20T00:07:26+00:00"
+      "scraped_at": "2026-05-20T00:18:39+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1456,7 +1456,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-20T00:07:26+00:00"
+      "scraped_at": "2026-05-20T00:18:39+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1484,7 +1484,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-20T00:07:26+00:00"
+      "scraped_at": "2026-05-20T00:18:39+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1512,7 +1512,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-20T00:07:26+00:00"
+      "scraped_at": "2026-05-20T00:18:39+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1540,7 +1540,7 @@
         "compensation": 9.0,
         "alignment": 6.0
       },
-      "scraped_at": "2026-05-20T00:07:26+00:00"
+      "scraped_at": "2026-05-20T00:18:39+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1568,7 +1568,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-20T00:07:26+00:00"
+      "scraped_at": "2026-05-20T00:18:39+00:00"
     },
     {
       "firm": "DLR Group",
@@ -1596,7 +1596,7 @@
         "compensation": 9.0,
         "alignment": 3.0
       },
-      "scraped_at": "2026-05-20T00:07:26+00:00"
+      "scraped_at": "2026-05-20T00:18:39+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1624,7 +1624,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1652,7 +1652,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1680,7 +1680,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1708,7 +1708,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1736,7 +1736,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1764,7 +1764,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1792,7 +1792,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1820,7 +1820,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1848,7 +1848,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1876,7 +1876,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "BKV Group",
@@ -1904,7 +1904,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:07:33+00:00"
+      "scraped_at": "2026-05-20T00:18:46+00:00"
     },
     {
       "firm": "Shea Design",
@@ -1932,7 +1932,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:08:51+00:00"
+      "scraped_at": "2026-05-20T00:19:57+00:00"
     },
     {
       "firm": "Shea Design",
@@ -1960,7 +1960,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:08:51+00:00"
+      "scraped_at": "2026-05-20T00:19:57+00:00"
     },
     {
       "firm": "Shea Design",
@@ -1988,7 +1988,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:08:51+00:00"
+      "scraped_at": "2026-05-20T00:19:57+00:00"
     },
     {
       "firm": "Shea Design",
@@ -2016,7 +2016,7 @@
         "compensation": 0.0,
         "alignment": 0.0
       },
-      "scraped_at": "2026-05-20T00:08:51+00:00"
+      "scraped_at": "2026-05-20T00:19:57+00:00"
     }
   ]
 }
