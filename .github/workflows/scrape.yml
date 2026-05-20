@@ -1,11 +1,7 @@
 name: Run Job Scraper
 
 on:
-  # Manual trigger — the "Refresh" button on the Actions tab
   workflow_dispatch:
-
-  # Auto-run on every push to main that changes scraper code or config
-  # (skipped if only jobs.json/index.html changed — those are the workflow's own outputs)
   push:
     branches: [main]
     paths:
@@ -13,19 +9,22 @@ on:
       - 'firms.csv'
       - 'requirements.txt'
       - '.github/workflows/scrape.yml'
-
-  # Auto-run every weekday at 7:00 AM Central (12:00 UTC)
   schedule:
     - cron: '0 12 * * 1-5'
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -37,8 +36,7 @@ jobs:
           cache: 'pip'
 
       - name: Install Python dependencies
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Cache Playwright browsers
         id: playwright-cache
@@ -51,7 +49,7 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: playwright install chromium --with-deps
 
-      - name: Install Playwright system deps (cached browser)
+      - name: Install Playwright system deps
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: playwright install-deps chromium
 
@@ -60,15 +58,22 @@ jobs:
           python -c "
           import job_scraper as s
           import os
-          # Override repo dir so output writes to repo root in CI
           s.GITHUB_REPO_DIR = os.getcwd()
           s.run()
           "
 
-      - name: Commit and push updated dashboard
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "actions@github.com"
-          git add index.html jobs.json
-          git diff --staged --quiet || git commit -m "Auto-update dashboard $(date +'%Y-%m-%d %H:%M UTC')"
-          git push
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: scrape
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
