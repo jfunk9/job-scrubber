@@ -182,6 +182,49 @@
   .jobs-table .col-detail { color: var(--text-dim); font-size: 13px; }
   .jobs-table a { color: var(--text); text-decoration: none; }
   .jobs-table a:hover { color: var(--accent); text-decoration: underline; }
+  .job-excerpt {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    line-height: 1.4;
+    font-style: italic;
+  }
+  .help-icon {
+    display: inline-block;
+    width: 14px; height: 14px; line-height: 13px;
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    margin-left: 6px;
+    font-size: 9px;
+    color: var(--text-dim);
+    cursor: help;
+    background: var(--surface);
+    text-transform: none;
+    font-weight: 600;
+  }
+  .help-icon:hover { color: var(--accent); border-color: var(--accent); }
+  .help-popover {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    max-width: 360px;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    color: var(--text);
+    font-size: 12px;
+    line-height: 1.5;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    display: none;
+  }
+  .help-popover.visible { display: block; }
+  .help-popover h4 { font-size: 13px; margin-bottom: 8px; color: var(--accent); }
+  .help-popover ul { padding-left: 18px; margin-top: 4px; }
+  .help-popover li { margin-bottom: 4px; }
 </style>
 </head>
 <body>
@@ -355,8 +398,36 @@ function render() {
   table.innerHTML = `
     <thead>
       <tr>
-        <th class="col-fit">Fit</th>
-        <th class="col-score">Score</th>
+        <th class="col-fit" style="position:relative;">Fit<span class="help-icon" data-help="fit">?</span>
+          <div class="help-popover" id="help-fit">
+            <h4>Fit Score (0–100)</h4>
+            Weighted by Jason's decision matrix:
+            <ul>
+              <li><b>Creative Engagement</b> (22) — design, concept, creative work</li>
+              <li><b>Autonomy / Agency</b> (20) — principal, lead, ownership signals</li>
+              <li><b>Lifestyle / Energy</b> (20) — hybrid, ESOP, work-life balance</li>
+              <li><b>Tech Leverage</b> (12) — AI, pyRevit, parametric, visualization</li>
+              <li><b>Technical Depth</b> (11) — Revit, construction docs</li>
+              <li><b>Compensation</b> (9) — salary mentioned</li>
+              <li><b>Long-term Alignment</b> (6) — career path, growth</li>
+            </ul>
+            Higher = better fit for what you're aiming at.
+          </div>
+        </th>
+        <th class="col-score" style="position:relative;">Score<span class="help-icon" data-help="score">?</span>
+          <div class="help-popover" id="help-score">
+            <h4>Title-match Score (0–100)</h4>
+            Simpler keyword-based score:
+            <ul>
+              <li><b>Title match</b> (max 40) — architect, designer, project manager, BIM</li>
+              <li><b>Sector</b> (max 25) — healthcare, civic, hospitality, education</li>
+              <li><b>Software</b> (max 15) — Revit, Enscape, Lumion, pyRevit</li>
+              <li><b>Senior bonus</b> (20) — senior / lead / principal / III</li>
+              <li><b>Exclude penalty</b> (-50) — intern, marketing, civil, MEP, etc.</li>
+            </ul>
+            Useful for sanity-checking the Fit score.
+          </div>
+        </th>
         <th class="col-title">Title</th>
         <th class="col-firm">Firm</th>
         <th class="col-detail">Location · Posted</th>
@@ -374,10 +445,14 @@ function render() {
     const fitClass = fit >= 50 ? "score-high" : "score";
     const fbd = j.fit_breakdown || {};
     const fitTip = `Autonomy ${fbd.autonomy||0} | Creative ${fbd.creative||0} | Lifestyle ${fbd.lifestyle||0} | TechLeverage ${fbd.tech_leverage||0} | TechDepth ${fbd.tech_depth||0} | Comp ${fbd.compensation||0} | Alignment ${fbd.alignment||0}`;
+    const excerpt = j.excerpt || "";
     tr.innerHTML = `
       <td class="col-fit"><span class="badge ${fitClass}" title="${fitTip}">${fit}</span></td>
       <td class="col-score"><span class="badge ${scoreClass}">${j.score}</span></td>
-      <td class="col-title"><a href="${j.url}" target="_blank" rel="noopener">${j.title}</a></td>
+      <td class="col-title">
+        <a href="${j.url}" target="_blank" rel="noopener">${j.title}</a>
+        ${excerpt ? `<div class="job-excerpt">${excerpt}</div>` : ""}
+      </td>
       <td class="col-firm">${j.firm} <span class="badge ${j.priority.toLowerCase()}">${j.priority}</span></td>
       <td class="col-detail">${details}</td>
     `;
@@ -389,6 +464,19 @@ function render() {
 document.getElementById("search").addEventListener("input", render);
 document.getElementById("priorityFilter").addEventListener("change", render);
 document.getElementById("scoreFilter").addEventListener("change", render);
+
+document.addEventListener("click", e => {
+  if (e.target.classList && e.target.classList.contains("help-icon")) {
+    const key = e.target.getAttribute("data-help");
+    const pop = document.getElementById("help-" + key);
+    document.querySelectorAll(".help-popover").forEach(p => {
+      if (p !== pop) p.classList.remove("visible");
+    });
+    if (pop) pop.classList.toggle("visible");
+  } else {
+    document.querySelectorAll(".help-popover").forEach(p => p.classList.remove("visible"));
+  }
+});
 
 load();
 </script>
