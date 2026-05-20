@@ -175,8 +175,8 @@
   .jobs-table tbody tr:hover { background: var(--surface2); }
   .jobs-table tr.flagged { background: var(--flag-bg); }
   .jobs-table tr.high td:first-child { border-left: 3px solid var(--green); }
-  .jobs-table .col-fit { width: 60px; }
-  .jobs-table .col-score { width: 60px; }
+  .jobs-table .col-fit { width: 90px; white-space: nowrap; }
+  .jobs-table .col-score { width: 90px; white-space: nowrap; }
   .jobs-table .col-title { min-width: 280px; }
   .jobs-table .col-firm { width: 240px; }
   .jobs-table .col-detail { color: var(--text-dim); font-size: 13px; }
@@ -190,32 +190,37 @@
     font-style: italic;
   }
   .help-icon {
-    display: inline-block;
-    width: 14px; height: 14px; line-height: 13px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px; height: 18px;
     text-align: center;
-    border: 1px solid var(--border);
+    border: 1px solid var(--accent);
     border-radius: 50%;
-    margin-left: 6px;
-    font-size: 9px;
-    color: var(--text-dim);
-    cursor: help;
+    margin-left: 8px;
+    font-size: 12px;
+    color: var(--accent);
+    cursor: pointer;
     background: var(--surface);
     text-transform: none;
-    font-weight: 600;
+    font-weight: 700;
+    vertical-align: middle;
+    user-select: none;
   }
-  .help-icon:hover { color: var(--accent); border-color: var(--accent); }
+  .help-icon:hover { background: var(--accent); color: var(--bg); }
   .help-popover {
     position: absolute;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 14px 16px;
-    max-width: 360px;
+    padding: 14px 18px;
+    width: 560px;
+    max-width: 90vw;
     z-index: 100;
     box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     color: var(--text);
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.45;
     text-transform: none;
     letter-spacing: normal;
     font-weight: 400;
@@ -223,8 +228,22 @@
   }
   .help-popover.visible { display: block; }
   .help-popover h4 { font-size: 13px; margin-bottom: 8px; color: var(--accent); }
-  .help-popover ul { padding-left: 18px; margin-top: 4px; }
-  .help-popover li { margin-bottom: 4px; }
+  .help-popover ul {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+  }
+  .help-popover li {
+    padding: 5px 8px;
+    background: var(--surface2);
+    border-radius: 4px;
+    border-left: 2px solid var(--accent);
+  }
+  .help-popover li b { color: var(--text); }
+  .help-popover .footnote { margin-top: 10px; color: var(--text-dim); font-size: 11px; font-style: italic; }
 </style>
 </head>
 <body>
@@ -411,7 +430,7 @@ function render() {
               <li><b>Compensation</b> (9) — salary mentioned</li>
               <li><b>Long-term Alignment</b> (6) — career path, growth</li>
             </ul>
-            Higher = better fit for what you're aiming at.
+            <div class="footnote">Higher = better fit for what you're aiming at.</div>
           </div>
         </th>
         <th class="col-score" style="position:relative;">Score<span class="help-icon" data-help="score">?</span>
@@ -425,7 +444,7 @@ function render() {
               <li><b>Senior bonus</b> (20) — senior / lead / principal / III</li>
               <li><b>Exclude penalty</b> (-50) — intern, marketing, civil, MEP, etc.</li>
             </ul>
-            Useful for sanity-checking the Fit score.
+            <div class="footnote">Useful for sanity-checking the Fit score.</div>
           </div>
         </th>
         <th class="col-title">Title</th>
