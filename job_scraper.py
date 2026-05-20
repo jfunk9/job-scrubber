@@ -677,32 +677,36 @@ def scrape_aia_mn(url, firm_name):
 
 
 def _fetch_aia_mn_description(url):
-    """Fetch an AIA-MN job page and return the description body text."""
+    """
+    Fetch an AIA-MN job page and return the description body text.
+    Uses text-based extraction (between Description and Contact markers)
+    so it's robust to varying HTML structure.
+    """
     soup = fetch(url)
     if soup is None:
         return ""
-    # The page has a "Description" heading followed by the body text.
-    # Strategy: find the Description heading, then concatenate text from
-    # all following siblings until we hit "Contact" or "Back to Job Bank".
-    desc_heading = soup.find(string=re.compile(r"^\s*Description\s*$"))
-    if not desc_heading:
-        # Fallback: take everything in the main content area
-        body = soup.find("body")
-        return (body.get_text(" ", strip=True)[:3000]) if body else ""
 
-    container = desc_heading.find_parent()
-    chunks = []
-    for sib in container.find_next_siblings() if container else []:
-        text = sib.get_text(" ", strip=True)
-        if not text:
-            continue
-        low = text.lower()
-        if "back to job bank" in low or low.startswith("contact"):
-            break
-        chunks.append(text)
-        if sum(len(c) for c in chunks) > 5000:
-            break
-    return " ".join(chunks)
+    # Grab the full body text and extract the description portion.
+    body = soup.find("body")
+    if not body:
+        return ""
+    full_text = body.get_text("\n", strip=True)
+
+    # Find the start: "Description" header marker
+    m_start = re.search(r"\bDescription\b", full_text)
+    if not m_start:
+        # No marker — just return a chunk of body text (skip nav)
+        return full_text[-4000:] if len(full_text) > 4000 else full_text
+
+    start = m_start.end()
+
+    # Find the end: Contact section or Back to Job Bank link
+    end_match = re.search(r"\b(Contact|Back to Job Bank|info@aia-mn)", full_text[start:])
+    end = start + end_match.start() if end_match else start + 6000
+
+    desc = full_text[start:end].strip()
+    # Cap length to avoid massive text blobs
+    return desc[:6000]
 
 
 def scrape_workday(url, firm_name):
