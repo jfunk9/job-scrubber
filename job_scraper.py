@@ -95,6 +95,7 @@ EXCLUDE_TITLE_KEYWORDS = [
     "industrial designer",
     "behavioral health planner",
     "commercial conservation architect",
+    "project scheduler",
 ]
 
 # Target locations — MSP metro + California + Chicago
