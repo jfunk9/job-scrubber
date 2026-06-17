@@ -92,6 +92,9 @@ EXCLUDE_TITLE_KEYWORDS = [
     "fire protection", "mep",
     "structural", "electrical", "mechanical", "plumbing",
     "landscape designer", "landscape architect",
+    "industrial designer",
+    "behavioral health planner",
+    "commercial conservation architect",
 ]
 
 # Target locations — MSP metro + California + Chicago
