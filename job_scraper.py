@@ -560,14 +560,18 @@ def scrape_icims(url, firm_name):
     except Exception as e:
         return [], f"Playwright error: {e}"
 
-    # Save a debug copy of what we saw (overwrites each run; useful when 0 results)
-    try:
-        m = re.search(r"careers-([a-z0-9-]+)\.icims\.com", url)
-        tenant = m.group(1) if m else "unknown"
-        with open(os.path.join(THIS_DIR, f"icims_{tenant}_debug.html"), "w", encoding="utf-8") as f:
-            f.write("\n<!--FRAME-->\n".join(html_chunks))
-    except Exception:
-        pass
+    # Save a debug copy of what we saw (overwrites each run; useful when 0 results).
+    # Audit fix 2026-07-23 (F5): gated behind JOB_SCRAPER_DEBUG. The Pages artifact
+    # uploads the whole repo dir (path: .), so an unconditional dump published the
+    # scraped HTML to the public site. Off in CI, off by default.
+    if os.environ.get("JOB_SCRAPER_DEBUG"):
+        try:
+            m = re.search(r"careers-([a-z0-9-]+)\.icims\.com", url)
+            tenant = m.group(1) if m else "unknown"
+            with open(os.path.join(THIS_DIR, f"icims_{tenant}_debug.html"), "w", encoding="utf-8") as f:
+                f.write("\n<!--FRAME-->\n".join(html_chunks))
+        except Exception:
+            pass
 
     for html in html_chunks:
         soup = BeautifulSoup(html, "lxml")
@@ -607,11 +611,12 @@ def scrape_aia_mn(url, firm_name):
     if soup is None:
         return [], "fetch failed"
 
-    try:
-        with open(os.path.join(THIS_DIR, "aia_mn_debug.html"), "w", encoding="utf-8") as f:
-            f.write(str(soup))
-    except Exception:
-        pass
+    if os.environ.get("JOB_SCRAPER_DEBUG"):  # audit F5: don't publish debug HTML (see icims dump)
+        try:
+            with open(os.path.join(THIS_DIR, "aia_mn_debug.html"), "w", encoding="utf-8") as f:
+                f.write(str(soup))
+        except Exception:
+            pass
 
     jobs = []
     seen = set()
@@ -933,7 +938,12 @@ def main():
             sys.exit(1)
 
     run(p1_only=args.p1, firm_filter=args.firm)
-    input("\nPress Enter to exit...")
+    # CI guard (2026-07-23): unguarded input() in CI hits EOF -> EOFError -> exit 1,
+    # which turns every SUCCESSFUL Actions run red and makes the deliberate exit-2
+    # abort guard indistinguishable from success at the exit-code level. Same guard
+    # the RFP scraper already carries.
+    if not (os.environ.get("CI") or os.environ.get("GITHUB_ACTIONS")):
+        input("\nPress Enter to exit...")
 
 
 if __name__ == "__main__":
