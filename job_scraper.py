@@ -774,11 +774,16 @@ def scrape_firm(firm):
     print(f"    {url}")
     print(f"    scraper={key}")
 
+    # Audit fix 2026-07-23 (HIGH: crashed firms were swallowed into [] —
+    # indistinguishable from "firm has no matching openings", so a broken
+    # scraper looked like a quiet job market forever). scrape_firm now returns
+    # (jobs, error_or_None) — the RFP-scrubber error-channel pattern — and
+    # run() carries errors into jobs.json + the keep-previous guard.
     try:
         result = scraper(url, name)
     except Exception as e:
         print(f"    [!] scraper crashed: {e}")
-        return []
+        return [], f"scraper crashed: {e}"
 
     if isinstance(result, tuple):
         jobs, err = result
@@ -787,7 +792,7 @@ def scrape_firm(firm):
 
     if err:
         print(f"    [!] {err}")
-        return []
+        return [], str(err)
 
     enriched = []
     for j in jobs:
@@ -820,13 +825,19 @@ def scrape_firm(firm):
     print(f"    -> {len(enriched)} matching listings")
     for j in enriched[:3]:
         print(f"        [{j['score']:>3}] {j['title']}")
-    return enriched
+    return enriched, None
 
 
-def write_results(all_jobs):
+def write_results(all_jobs, firm_errors=None):
+    firm_errors = firm_errors or []
     payload = {
         "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "total": len(all_jobs),
+        # Error channel (2026-07-23): firms whose scraper crashed or errored this
+        # run. The dashboard can surface these; a consumer diffing totals can now
+        # tell "market went quiet" apart from "scrapers broke".
+        "firms_err": len(firm_errors),
+        "firm_errors": firm_errors,
         "jobs": all_jobs,
     }
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
@@ -872,11 +883,39 @@ def run(p1_only=False, firm_filter=None):
     if firm_filter:
         firms = [f for f in firms if firm_filter.lower() in f["name"].lower()]
     print(f"Scanning {len(firms)} firms...")
-    all_jobs = []
+    all_jobs, firm_errors = [], []
     for firm in firms:
-        all_jobs.extend(scrape_firm(firm))
+        jobs, err = scrape_firm(firm)
+        if err:
+            firm_errors.append({"firm": firm["name"], "priority": firm.get("priority", ""),
+                                "error": str(err)[:300]})
+        all_jobs.extend(jobs)
         time.sleep(0.5)
-    write_results(all_jobs)
+
+    # Keep-previous guard (audit fix 2026-07-23): on a FULL run (no filters), a
+    # collapse to zero results — or a majority of firms erroring — is treated as
+    # scraper/infrastructure failure, NOT market truth. We refuse to overwrite a
+    # previously-nonempty jobs.json and exit nonzero so the Actions run shows
+    # red instead of publishing an empty dashboard.
+    full_run = not p1_only and not firm_filter
+    if full_run:
+        prev_total = None
+        try:
+            with open(OUTPUT_JSON, encoding="utf-8") as f:
+                prev_total = json.load(f).get("total")
+        except (OSError, ValueError):
+            pass
+        collapsed = (len(all_jobs) == 0 and (prev_total or 0) > 0)
+        broken_majority = (len(firms) >= 4 and len(firm_errors) >= max(3, len(firms) // 2))
+        if collapsed or broken_majority:
+            reason = ("results collapsed to 0 (previous run had %s)" % prev_total) if collapsed \
+                     else ("%d/%d firms errored" % (len(firm_errors), len(firms)))
+            print(f"\n[!] PUBLISH ABORTED: {reason}. Keeping previous jobs.json/dashboard.")
+            for fe in firm_errors[:10]:
+                print(f"    [!] {fe['firm']}: {fe['error']}")
+            sys.exit(2)
+
+    write_results(all_jobs, firm_errors)
     return all_jobs
 
 
