@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- © 2026 Jason Englund · all rights reserved · produced under the Jason Englund design canon v5 · [[creative-direction]] · jasonenglund.com -->
+<meta name="copyright" content="© 2026 Jason Englund. All rights reserved.">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Twin Cities Architecture Job Finder</title>
@@ -10,8 +13,8 @@
     --surface: #1e293b;
     --surface2: #334155;
     --border: #475569;
-    --text: #e2e8f0;
-    --text-dim: #94a3b8;
+    --text: #E2E5E9;
+    --text-dim: #A9B1BC;
     --accent: #3b82f6;
     --flag: #f59e0b;
     --flag-bg: rgba(245, 158, 11, 0.08);
@@ -19,7 +22,7 @@
     --red: #ef4444;
     --p1: #22c55e;
     --p2: #3b82f6;
-    --p3: #94a3b8;
+    --p3: #A9B1BC;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -244,6 +247,53 @@
   }
   .help-popover li b { color: var(--text); }
   .help-popover .footnote { margin-top: 10px; color: var(--text-dim); font-size: 11px; font-style: italic; }
+
+/* ══ canon v5.1 · THE GRADE (2026-07-30, Jason: "just make it work") ══
+   Desktop Interstate is a STATIC family — there is no wght axis to grade,
+   and font-weight:430 snaps to the nearest installed cut. So the thickness
+   comes from STROKE, not weight: literal ink added to the glyph outline at
+   identical metrics and zero reflow, in sub-step amounts a static family
+   cannot otherwise reach. It also survives the fallback — the grade lands
+   the same whether the face resolves to Interstate, Overpass or Segoe UI.
+   Scaled by pixel density: 0.08px standard, 0.12px on hi-DPI, where the
+   extra ink is real rather than a blur. Tracking tightens 0.006em to raise
+   the block's typographic color against the dark ground — light type
+   haloes into black and reads thin; denser tracking fights that directly.
+   Letterspaced caps below ~11px opt OUT (the grade muddies their counters)
+   and keep the v5 weight lift to 600 instead. */
+:root{ --grade:0.08px; }
+@media (min-resolution:1.5dppx){ :root{ --grade:0.12px; } }
+body{ -webkit-text-stroke:var(--grade) currentColor; paint-order:stroke fill;
+      letter-spacing:-0.006em; }
+code,pre,kbd,samp,textarea,input[type=number],.mono,[class*=mono]{ letter-spacing:0; }
+.label,.label-accent,.masthead,.caption-bar,.folio,.chip-state,.cap,.lab,.k,.hlab,.mast,.meta,.mode,.hdr,.foot,.tag,.chip,.pill,th,small,legend,figcaption{ -webkit-text-stroke:0; }
+
+/* ══ canon v5.2 · THE SHIPPED FACE (2026-07-30) ═══════════════════════
+   Jason: "we eliminate that by shipping the font if possible."
+   Interstate CANNOT be shipped — the desktop licence coversnothing of the
+   sort, and embedding it as a webfont is a licence breach on a public page.
+   OVERPASS VARIABLE is shipped instead: OFL-1.1, free to embed, drawn from
+   the same Interstate DNA the canon already names second in the stack, and
+   VARIABLE — wght 100..900 continuous. That is the whole problem solved at
+   once: every viewer sees the same face, AND the grade stops being a stroke
+   trick and becomes a real weight axis. Body runs 430 — a third of a step
+   above regular, the amount calibrated in v5.1 — while headings and labels
+   keep their own explicit weights and override normally.
+   Stroke is retired where the axis exists, and kept as the @supports
+   fallback for anything that cannot do variations. */
+@font-face{font-family:"Overpass Variable";font-style:normal;font-display:swap;font-weight:100 900;src:url("fonts/overpass-var-latin.woff2") format("woff2-variations");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{ --sans:"Overpass Variable","Interstate","Overpass","Segoe UI","Helvetica Neue",Arial,sans-serif; }
+body{ font-family:var(--sans); }
+/* the grade rides the axis at 470 — measured +4.5% ink against regular on
+   Overpass, where a full 400->500 step is only +6.5%. Dark grounds only:
+   dark type on light already reads heavy. */
+body{ font-weight:470; letter-spacing:-0.006em; -webkit-text-stroke:0; }
+
+/* the axis carries the grade now — stroke only where variations are unavailable */
+
+code,pre,kbd,samp,[class*=mono]{ font-family:"Consolas","SF Mono","DejaVu Sans Mono",monospace;
+  letter-spacing:0; font-weight:400; }
 </style>
 </head>
 <body>
