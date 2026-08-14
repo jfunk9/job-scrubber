@@ -16,6 +16,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write   # failure-notification step files/threads an issue
 
 concurrency:
   group: "pages"
@@ -66,6 +67,33 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
+      # AUDIT 2026-08-06 #7 (added 2026-08-14): the scraper can exit 2 on a
+      # degraded run (guards keep the previous dashboard live) -- but for three
+      # audit cycles NOTHING TOLD ANYONE. This step turns any failed run into a
+      # repo issue: it lands in Jason's GitHub notifications AND doubles as the
+      # durable run-failure history the repo never had. Repeat failures thread
+      # into the same open issue instead of spamming new ones.
+      - name: Report failure as an issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "Scraper run FAILED (auto-filed) - dashboard held on last good version";
+            const url = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = `Run failed at ${new Date().toISOString()} - ${url}\n\n` +
+              "The published dashboard was left on the previous good version. " +
+              "Open the run log above for the PUBLISH ABORTED reason (collapse / majority errors / selector rot).";
+            const {data: open} = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo, state: "open", per_page: 50});
+            const hit = open.find(i => i.title === title);
+            if (hit) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo, issue_number: hit.number, body});
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo, title, body});
+            }
 
   deploy:
     needs: scrape

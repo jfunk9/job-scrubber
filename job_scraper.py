@@ -912,8 +912,32 @@ def run(p1_only=False, firm_filter=None):
             pass
         collapsed = (len(all_jobs) == 0 and (prev_total or 0) > 0)
         broken_majority = (len(firms) >= 4 and len(firm_errors) >= max(3, len(firms) // 2))
-        if collapsed or broken_majority:
+        # Live-baseline ratio guard (AUDIT 2026-08-06 #7, added 2026-08-14): the two
+        # guards above are blind to SELECTOR ROT -- sites answering 200 with zero
+        # rows and no error. 72 jobs collapsing to 1 published silently for months.
+        # The checkout's jobs.json is frozen (CI is contents:read, never commits
+        # back -- prev_total sat at 72 since 2026-05-20), so the honest baseline is
+        # the LIVE deployed dashboard, fetched fresh each run. Thresholds CHOSEN:
+        # <25% of live total = infrastructure, not market (a real market never
+        # loses 3/4 of listings overnight); live floor 8 so a naturally small
+        # board can't trip it. Fetch failure skips the check -- a guard must
+        # never become the thing that breaks the run.
+        ratio_collapsed = False
+        live_total = None
+        if len(all_jobs) > 0:
+            try:
+                import urllib.request as _ur
+                with _ur.urlopen("https://jfunk9.github.io/job-scrubber/jobs.json",
+                                 timeout=15) as _r:
+                    live_total = json.load(_r).get("total")
+            except Exception:
+                live_total = None
+            if live_total and live_total >= 8 and len(all_jobs) < live_total * 0.25:
+                ratio_collapsed = True
+        if collapsed or broken_majority or ratio_collapsed:
             reason = ("results collapsed to 0 (previous run had %s)" % prev_total) if collapsed \
+                     else ("results collapsed to %d from %s live (under 25%% -- selector rot, "
+                           "not market)" % (len(all_jobs), live_total)) if ratio_collapsed \
                      else ("%d/%d firms errored" % (len(firm_errors), len(firms)))
             print(f"\n[!] PUBLISH ABORTED: {reason}. Keeping previous jobs.json/dashboard.")
             for fe in firm_errors[:10]:
