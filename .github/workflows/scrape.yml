@@ -1,16 +1,10 @@
 name: Run Job Scraper
 
+# 2026-09-14, Jason: "i dont want this job running by itself". WAS: weekdays 12:00 UTC plus every push that
+# touched the scraper, firms.csv, requirements or this file. Now it runs only from the Run workflow button,
+# which the dashboard's "Run the finder" link opens.
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'job_scraper.py'
-      - 'firms.csv'
-      - 'requirements.txt'
-      - '.github/workflows/scrape.yml'
-  schedule:
-    - cron: '0 12 * * 1-5'
 
 permissions:
   contents: read
@@ -39,20 +33,11 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Cache Playwright browsers
-        id: playwright-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-chromium-${{ runner.os }}-v1
-
+      # 2026-09-14: WAS a browser cache keyed "playwright-chromium-Linux-v1", a key that never changed. When
+      # pip pulled Playwright 1.62 the cached browser was an older build ("Executable doesn't exist ...
+      # chromium_headless_shell-1234"), so HGA and Perkins&Will failed on every run. Install fresh each run.
       - name: Install Playwright browser
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: playwright install chromium --with-deps
-
-      - name: Install Playwright system deps
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: playwright install-deps chromium
 
       - name: Run scraper
         run: |

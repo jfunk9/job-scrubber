@@ -243,22 +243,33 @@ TIMEOUT = 15
 # ── Playwright (lazy) ──────────────────────────────────────────────────────────
 
 _browser = None
+_pw = None
+_browser_failed = False
 
 
 def get_browser():
-    global _browser
-    if _browser is None:
+    # 2026-09-14: WAS retry-on-every-call with the started Playwright left running after a failed launch, so
+    # the first failure turned every later call into "Sync API inside the asyncio loop" -- 20 firms per run
+    # logged a browser error on top of their real one. Now: stop Playwright on failure, try once per run.
+    global _browser, _pw, _browser_failed
+    if _browser is None and not _browser_failed:
         try:
             from playwright.sync_api import sync_playwright
-            pw = sync_playwright().start()
-            _browser = pw.chromium.launch(headless=True)
+            _pw = sync_playwright().start()
+            _browser = _pw.chromium.launch(headless=True)
             print("  [+] Playwright browser launched")
         except ImportError:
             print("  [!] Playwright not installed - JS-heavy pages will be skipped")
-            return None
+            _browser_failed = True
         except Exception as e:
             print(f"  [!] Could not launch browser: {e}")
-            return None
+            _browser_failed = True
+            try:
+                if _pw is not None:
+                    _pw.stop()
+            except Exception:
+                pass
+            _pw = None
     return _browser
 
 

@@ -295,6 +295,37 @@ body{ font-weight:470; letter-spacing:-0.006em; -webkit-text-stroke:0; }
 
 code,pre,kbd,samp,[class*=mono]{ font-family:"Consolas","SF Mono","DejaVu Sans Mono",monospace;
   letter-spacing:0; font-weight:400; }
+
+/* THE CRITERIA PANEL (2026-09-14, Jason: "i want the fit and score criterias to be up top like what we did with
+   the apartment finder"). WAS: both lists hidden in "?" popovers on the table headers. */
+.criteria { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; padding: 16px 32px 0; max-width: 1400px; margin: 0 auto; }
+@media (max-width: 1000px) { .criteria { grid-template-columns: 1fr; } }
+.crit-box { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px 10px; }
+.crit-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.crit-head h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim); font-weight: 600; }
+.crit-head .sum { color: var(--text-dim); font-size: 12px; }
+.crit-head .sum b { color: var(--text); font-variant-numeric: tabular-nums; }
+.crit-head .custom { color: var(--flag); font-size: 12px; }
+.crit-head .spacer { flex: 1; }
+.wbtn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); border-radius: 6px; padding: 3px 10px; font-size: 12px; cursor: pointer; }
+.wbtn:hover { border-color: var(--accent); }
+.wgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; }
+@media (max-width: 760px) { .wgrid { grid-template-columns: 1fr; } }
+.wrow { display: grid; grid-template-columns: 124px 1fr 30px 40px; align-items: center; gap: 8px; font-size: 13px; }
+.wrow label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wrow input[type=range] { width: 100%; accent-color: var(--accent); cursor: pointer; }
+.wrow .wv { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.wrow .wp { text-align: right; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+.wrow.changed .wv { color: var(--flag); }
+.wrow .wd { grid-column: 1 / -1; color: var(--text-dim); font-size: 11px; margin: -6px 0 2px; }
+.crit-box .note { color: var(--text-dim); font-size: 11px; margin-top: 8px; }
+.slist { list-style: none; display: grid; gap: 5px; font-size: 13px; }
+.slist li { padding: 4px 8px; background: var(--surface2); border-radius: 4px; border-left: 2px solid var(--accent); }
+.slist li b { color: var(--text); }
+.header { position: relative; }
+.runbtn { position: absolute; right: 32px; top: 50%; transform: translateY(-50%); background: var(--flag-bg); color: var(--flag); border: 1px solid var(--flag); border-radius: 6px; padding: 8px 14px; font-size: 14px; font-weight: 600; text-decoration: none; }
+.runbtn:hover { background: var(--flag); color: var(--bg); }
+@media (max-width: 760px) { .runbtn { position: static; transform: none; display: inline-block; margin-top: 10px; } }
 </style>
 </head>
 <body>
@@ -302,9 +333,38 @@ code,pre,kbd,samp,[class*=mono]{ font-family:"Consolas","SF Mono","DejaVu Sans M
 <div class="header">
   <h1>Twin Cities Architecture Job Finder</h1>
   <div class="subtitle">Open positions at architecture firms within ~30 mi of 55408</div>
+  <!-- 2026-09-14: the finder runs only when Jason asks. The page is public and cannot hold a GitHub key, so this
+       opens the workflow's page, where his signed-in Run workflow button starts a scan. -->
+  <a class="runbtn" href="https://github.com/jfunk9/job-scrubber/actions/workflows/scrape.yml" target="_blank" rel="noopener"
+     title="opens GitHub: press Run workflow, then reload this page in about 3 minutes">Run the finder &#9656;</a>
 </div>
 
 <div class="stats" id="stats"></div>
+
+<div class="criteria" id="criteria">
+  <div class="crit-box">
+    <div class="crit-head">
+      <h3>Fit — what you're aiming at</h3>
+      <span class="sum">weights sum <b id="wsum">100</b> · Fit reads 0–100</span>
+      <span class="custom" id="wcustom" hidden>your weights, not the scraper's</span>
+      <span class="spacer"></span>
+      <button class="wbtn" id="wreset" title="back to the scraper's own weights">reset</button>
+    </div>
+    <div class="wgrid" id="wgrid"></div>
+    <p class="note">Drag a slider and every Fit re-scores from the words found in that posting. Your weights stay in this browser; nothing here changes jobs.json.</p>
+  </div>
+  <div class="crit-box">
+    <div class="crit-head"><h3>Score — title match</h3></div>
+    <ul class="slist">
+      <li><b>Title match</b> up to 40 — architect, designer, project manager, BIM</li>
+      <li><b>Sector</b> up to 25 — healthcare, civic, hospitality, education</li>
+      <li><b>Software</b> up to 15 — Revit, Enscape, Lumion, pyRevit</li>
+      <li><b>Senior bonus</b> 20 — senior, lead, principal, III</li>
+      <li><b>Exclude penalty</b> −50 — intern, marketing, civil, MEP</li>
+    </ul>
+    <p class="note">A plain keyword check to sanity-check Fit. The Score filter below uses it.</p>
+  </div>
+</div>
 
 <div class="controls">
   <input type="text" id="search" placeholder="Filter by firm or title…">
@@ -402,6 +462,82 @@ function formatScanLocal(iso) {
   return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
+// ---- THE FIT WEIGHTS (2026-09-14, the apartment finder's panel) ------------------------------------
+// FIT_MATRIX = the scraper's weights (FIT_MATRIX in job_scraper.py). Each posting stores points per category
+// on 0..weight; the sliders re-weight that fraction and normalize to 0..100, so the defaults reproduce the
+// scraper's own Fit.
+const FIT_MATRIX = { creative: 22, autonomy: 20, lifestyle: 20, tech_leverage: 12, tech_depth: 11, compensation: 9, alignment: 6 };
+const FIT_LABELS = {
+  creative: ["Creative", "design, concept, creative work"],
+  autonomy: ["Autonomy", "principal, lead, ownership signals"],
+  lifestyle: ["Lifestyle", "hybrid, ESOP, work-life balance"],
+  tech_leverage: ["Tech leverage", "AI, pyRevit, parametric, visualization"],
+  tech_depth: ["Technical depth", "Revit, construction documents"],
+  compensation: ["Compensation", "salary mentioned"],
+  alignment: ["Long-term alignment", "career path, growth"],
+};
+const FIT_KEYS = Object.keys(FIT_MATRIX);
+const W_MAX = 40, W_STORE = "jobFinder.fitWeights.v1";
+let WEIGHTS = (() => {
+  try {
+    const o = JSON.parse(localStorage.getItem(W_STORE) || "null");
+    if (o && FIT_KEYS.every(k => Number.isFinite(o[k]) && o[k] >= 0 && o[k] <= W_MAX)) return o;
+  } catch (e) { /* blocked storage: defaults */ }
+  return { ...FIT_MATRIX };
+})();
+function wSum() { return FIT_KEYS.reduce((s, k) => s + (WEIGHTS[k] || 0), 0); }
+function wIsDefault() { return FIT_KEYS.every(k => WEIGHTS[k] === FIT_MATRIX[k]); }
+function fitOf(j) {
+  const bd = j.fit_breakdown;
+  if (!bd) return j.fit || 0;
+  let sw = 0, t = 0;
+  for (const k of FIT_KEYS) {
+    const w = WEIGHTS[k] || 0, m = FIT_MATRIX[k];
+    t += (m > 0 ? Math.max(0, Math.min(1, (bd[k] || 0) / m)) : 0) * w;
+    sw += w;
+  }
+  return sw > 0 ? Math.min(100, Math.round(t / sw * 100)) : 0;
+}
+function refreshWeights() {
+  const sum = wSum();
+  document.getElementById("wsum").textContent = sum;
+  document.getElementById("wcustom").hidden = wIsDefault();
+  for (const k of FIT_KEYS) {
+    document.getElementById("wv_" + k).textContent = WEIGHTS[k];
+    document.getElementById("wp_" + k).textContent = (sum > 0 ? Math.round(WEIGHTS[k] / sum * 100) : 0) + "%";
+    document.getElementById("wr_" + k).classList.toggle("changed", WEIGHTS[k] !== FIT_MATRIX[k]);
+  }
+}
+function renderWeights() {
+  const grid = document.getElementById("wgrid");
+  grid.innerHTML = "";
+  for (const k of FIT_KEYS) {
+    const row = document.createElement("div");
+    row.className = "wrow";
+    row.id = "wr_" + k;
+    row.innerHTML = `<label for="w_${k}" title="scraper: ${FIT_MATRIX[k]}">${FIT_LABELS[k][0]}</label>
+      <input type="range" id="w_${k}" min="0" max="${W_MAX}" step="1" value="${WEIGHTS[k]}">
+      <span class="wv" id="wv_${k}"></span><span class="wp" id="wp_${k}"></span>
+      <span class="wd">${FIT_LABELS[k][1]}</span>`;
+    grid.appendChild(row);
+    row.querySelector("input").addEventListener("input", e => {
+      WEIGHTS[k] = Number(e.target.value);
+      try { localStorage.setItem(W_STORE, JSON.stringify(WEIGHTS)); } catch (err) { /* ignore */ }
+      refreshWeights();
+      render();
+    });
+  }
+  refreshWeights();
+}
+document.getElementById("wreset").onclick = () => {
+  WEIGHTS = { ...FIT_MATRIX };
+  try { localStorage.removeItem(W_STORE); } catch (err) { /* ignore */ }
+  renderWeights();
+  render();
+};
+renderWeights();
+// ---- end weights ------------------------------------------------------------------------------------
+
 async function load() {
   let data;
   try {
@@ -418,16 +554,16 @@ async function load() {
     const tA = locationTier(a.location);
     const tB = locationTier(b.location);
     if (tA !== tB) return tA - tB;
-    return (b.fit||0) - (a.fit||0);
+    return fitOf(b) - fitOf(a);
   });
 
   // Stats
   const total = allJobs.length;
-  const high = allJobs.filter(j => (j.fit||0) >= 50).length;
+  const high = allJobs.filter(j => fitOf(j) >= 50).length;
   const firmsWithJobs = new Set(allJobs.map(j => j.firm)).size;
   document.getElementById("stats").innerHTML = `
     <div class="stat"><div class="stat-value">${total}</div><div class="stat-label">Total listings</div></div>
-    <div class="stat"><div class="stat-value flag">${high}</div><div class="stat-label">Fit ≥ 50</div></div>
+    <div class="stat"><div class="stat-value flag" id="fitHigh">${high}</div><div class="stat-label">Fit ≥ 50</div></div>
     <div class="stat"><div class="stat-value">${firmsWithJobs}</div><div class="stat-label">Firms with openings</div></div>
     <div class="stat"><div class="stat-value">${formatScanLocal(data.scraped_at)}</div><div class="stat-label">Last updated</div></div>
   `;
@@ -454,6 +590,11 @@ function render() {
     return true;
   });
 
+  // 2026-09-14: re-sort and re-count on every render so a slider move reorders the list
+  jobs.sort((a, b) => (locationTier(a.location) - locationTier(b.location)) || (fitOf(b) - fitOf(a)));
+  const fh = document.getElementById("fitHigh");
+  if (fh) fh.textContent = (window._jobs || []).filter(j => fitOf(j) >= 50).length;
+
   const root = document.getElementById("content");
   root.innerHTML = "";
 
@@ -468,36 +609,8 @@ function render() {
   table.innerHTML = `
     <thead>
       <tr>
-        <th class="col-fit" style="position:relative;">Fit<span class="help-icon" data-help="fit">?</span>
-          <div class="help-popover" id="help-fit">
-            <h4>Fit Score (0–100)</h4>
-            Weighted by Jason's decision matrix:
-            <ul>
-              <li><b>Creative Engagement</b> (22) — design, concept, creative work</li>
-              <li><b>Autonomy / Agency</b> (20) — principal, lead, ownership signals</li>
-              <li><b>Lifestyle / Energy</b> (20) — hybrid, ESOP, work-life balance</li>
-              <li><b>Tech Leverage</b> (12) — AI, pyRevit, parametric, visualization</li>
-              <li><b>Technical Depth</b> (11) — Revit, construction docs</li>
-              <li><b>Compensation</b> (9) — salary mentioned</li>
-              <li><b>Long-term Alignment</b> (6) — career path, growth</li>
-            </ul>
-            <div class="footnote">Higher = better fit for what you're aiming at.</div>
-          </div>
-        </th>
-        <th class="col-score" style="position:relative;">Score<span class="help-icon" data-help="score">?</span>
-          <div class="help-popover" id="help-score">
-            <h4>Title-match Score (0–100)</h4>
-            Simpler keyword-based score:
-            <ul>
-              <li><b>Title match</b> (max 40) — architect, designer, project manager, BIM</li>
-              <li><b>Sector</b> (max 25) — healthcare, civic, hospitality, education</li>
-              <li><b>Software</b> (max 15) — Revit, Enscape, Lumion, pyRevit</li>
-              <li><b>Senior bonus</b> (20) — senior / lead / principal / III</li>
-              <li><b>Exclude penalty</b> (-50) — intern, marketing, civil, MEP, etc.</li>
-            </ul>
-            <div class="footnote">Useful for sanity-checking the Fit score.</div>
-          </div>
-        </th>
+        <th class="col-fit">Fit</th>
+        <th class="col-score">Score</th>
         <th class="col-title">Title</th>
         <th class="col-firm">Firm</th>
         <th class="col-detail">Location · Posted</th>
@@ -511,7 +624,7 @@ function render() {
     const tr = document.createElement("tr");
     tr.className = j.score >= 80 ? "high" : (j.score >= 60 ? "flagged" : "");
     const details = [formatLocation(j.location), j.posted].filter(x => x).join(' · ');
-    const fit = j.fit || 0;
+    const fit = fitOf(j);
     const fitClass = fit >= 50 ? "score-high" : "score";
     const fbd = j.fit_breakdown || {};
     const fitTip = `Autonomy ${fbd.autonomy||0} | Creative ${fbd.creative||0} | Lifestyle ${fbd.lifestyle||0} | TechLeverage ${fbd.tech_leverage||0} | TechDepth ${fbd.tech_depth||0} | Comp ${fbd.compensation||0} | Alignment ${fbd.alignment||0}`;
