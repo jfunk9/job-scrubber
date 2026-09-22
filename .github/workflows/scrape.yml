@@ -40,6 +40,10 @@ jobs:
         run: playwright install chromium --with-deps
 
       - name: Run scraper
+        # TYPESAFE_API_KEY (2026-09-21): tech_leverage's Jev scoring is a no-op fallback
+        # to keywords when this is unset -- adding the secret is optional, never blocking.
+        env:
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: |
           python -c "
           import job_scraper as s

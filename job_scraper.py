@@ -372,6 +372,67 @@ def is_relevant(title):
 
 
 
+# ── Jev (TypeSafe) — semantic tech_leverage judgment ───────────────────────────
+# 2026-09-21: keyword tech_leverage still has a hole word boundaries can't close --
+# a listing can genuinely say "ai" as a real word (see gains 09-21 smoke test) and
+# still not be ABOUT ai/automation/design-tech in any meaningful way. Jev replaces
+# just this one category with a real judgment; the other six categories stay on
+# keywords (cheap, not shown to need it). Falls back to the keyword ratio whenever
+# the package, the key, or the network isn't there -- a run must never depend on
+# an outside service to publish.
+JEV_STATS = {"used": 0, "fallback": 0, "errors": 0}
+_jev_client = None
+_jev_unavailable = False
+
+try:
+    from typesafe_sdk import Noul, TypeSafeClient
+except ImportError:
+    Noul = None
+    TypeSafeClient = None
+
+
+def get_jev_client():
+    global _jev_client, _jev_unavailable
+    if _jev_client is None and not _jev_unavailable:
+        if TypeSafeClient is None or not os.environ.get("TYPESAFE_API_KEY"):
+            _jev_unavailable = True
+            return None
+        try:
+            _jev_client = TypeSafeClient()
+        except Exception as e:
+            print(f"    [Jev] could not start client: {e}")
+            _jev_unavailable = True
+    return _jev_client
+
+
+def jev_tech_leverage(title, description):
+    """
+    Returns a 0-1 probability that this listing genuinely leans on AI, automation,
+    computational design or emerging design technology -- or None if Jev isn't
+    reachable, in which case the caller falls back to the keyword ratio.
+    """
+    client = get_jev_client()
+    if client is None:
+        return None
+    try:
+        response = client.system_one(
+            state={"title": title, "description": description[:4000]},
+            questions={
+                "tech_leverage": Noul(instructions=(
+                    "Does this job listing genuinely emphasize AI, automation, "
+                    "computational design, or emerging design technology as a "
+                    "meaningful part of the role -- not just an incidental word match?"
+                )),
+            },
+        )
+        JEV_STATS["used"] += 1
+        return response.nouls["tech_leverage"].noul
+    except Exception as e:
+        JEV_STATS["errors"] += 1
+        print(f"    [Jev] call failed, falling back to keywords: {e}")
+        return None
+
+
 # ── Fit-matrix scoring (Jason's weighted decision framework) ──────────────────
 # Each category has a weight (sums to 100) and keyword signals.
 # Score per category = weight * min(1, matches / target_matches)
@@ -438,6 +499,14 @@ def fit_score(title, description=""):
     breakdown = {}
     total = 0.0
     for cat, cfg in FIT_MATRIX.items():
+        if cat == "tech_leverage":
+            jev_p = jev_tech_leverage(title, description)
+            if jev_p is not None:
+                contrib = round(cfg["weight"] * jev_p, 1)
+                breakdown[cat] = contrib
+                total += contrib
+                continue
+            JEV_STATS["fallback"] += 1
         matches = sum(1 for kw in cfg["keywords"] if kw_hit(kw, text))  # was: substring 'ai' matched 'detailing'
         ratio = min(1.0, matches / cfg["target"])
         contrib = round(cfg["weight"] * ratio, 1)
@@ -981,6 +1050,12 @@ def run(p1_only=False, firm_filter=None):
             for fe in firm_errors[:10]:
                 print(f"    [!] {fe['firm']}: {fe['error']}")
             sys.exit(2)
+
+    if JEV_STATS["used"] or JEV_STATS["fallback"] or JEV_STATS["errors"]:
+        print(f"\n[Jev] tech_leverage: {JEV_STATS['used']} scored live, "
+              f"{JEV_STATS['fallback']} fell back to keywords, {JEV_STATS['errors']} call errors")
+    elif not os.environ.get("TYPESAFE_API_KEY"):
+        print("\n[Jev] TYPESAFE_API_KEY not set -- tech_leverage scored by keywords only")
 
     write_results(all_jobs, firm_errors)
     return all_jobs
