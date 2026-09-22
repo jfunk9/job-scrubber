@@ -652,7 +652,7 @@ document.getElementById("scoreFilter").addEventListener("change", render);
 // TRIGGER_URL: set once the Cloudflare Worker (cloudflare-worker/trigger.js) is deployed.
 // Blank means "not set up yet" -- falls back to the old GitHub Actions link so the button
 // is never dead, just one click longer than it will be once this is filled in.
-const TRIGGER_URL = "";
+const TRIGGER_URL = "https://job-scrubber-trigger.jasonenglund.workers.dev/";
 const GH_RUN_FALLBACK = "https://github.com/jfunk9/job-scrubber/actions/workflows/scrape.yml";
 
 document.getElementById("runBtn").addEventListener("click", async () => {
