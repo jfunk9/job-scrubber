@@ -333,10 +333,11 @@ code,pre,kbd,samp,[class*=mono]{ font-family:"Consolas","SF Mono","DejaVu Sans M
 <div class="header">
   <h1>Twin Cities Architecture Job Finder</h1>
   <div class="subtitle">Open positions at architecture firms within ~30 mi of 55408</div>
-  <!-- 2026-09-14: the finder runs only when Jason asks. The page is public and cannot hold a GitHub key, so this
-       opens the workflow's page, where his signed-in Run workflow button starts a scan. -->
-  <a class="runbtn" href="https://github.com/jfunk9/job-scrubber/actions/workflows/scrape.yml" target="_blank" rel="noopener"
-     title="opens GitHub: press Run workflow, then reload this page in about 3 minutes">Run the finder &#9656;</a>
+  <!-- 2026-09-22: WAS a link to GitHub's own Run workflow button -- Jason didn't want a second click on
+       another page. Now this button POSTs straight to a small Cloudflare Worker (cloudflare-worker/trigger.js)
+       that holds the one credential a public static page can't: a GitHub token scoped to Actions:write on
+       just this repo. Falls back to the old GitHub link if the Worker URL below is ever blank or unreachable. -->
+  <button class="runbtn" id="runBtn" type="button" title="scans all firms, takes about 3 minutes">Run the finder &#9656;</button>
 </div>
 
 <div class="stats" id="stats"></div>
@@ -647,6 +648,37 @@ function render() {
 document.getElementById("search").addEventListener("input", render);
 document.getElementById("priorityFilter").addEventListener("change", render);
 document.getElementById("scoreFilter").addEventListener("change", render);
+
+// TRIGGER_URL: set once the Cloudflare Worker (cloudflare-worker/trigger.js) is deployed.
+// Blank means "not set up yet" -- falls back to the old GitHub Actions link so the button
+// is never dead, just one click longer than it will be once this is filled in.
+const TRIGGER_URL = "";
+const GH_RUN_FALLBACK = "https://github.com/jfunk9/job-scrubber/actions/workflows/scrape.yml";
+
+document.getElementById("runBtn").addEventListener("click", async () => {
+  const btn = document.getElementById("runBtn");
+  if (!TRIGGER_URL) {
+    window.open(GH_RUN_FALLBACK, "_blank", "noopener");
+    return;
+  }
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Starting…";
+  try {
+    const r = await fetch(TRIGGER_URL, { method: "POST" });
+    const data = await r.json().catch(() => ({}));
+    if (r.ok && data.ok) {
+      btn.textContent = "Started ✓ refresh in ~3 min";
+    } else {
+      btn.textContent = "Couldn't start — opening GitHub";
+      window.open(GH_RUN_FALLBACK, "_blank", "noopener");
+    }
+  } catch (e) {
+    btn.textContent = "Couldn't start — opening GitHub";
+    window.open(GH_RUN_FALLBACK, "_blank", "noopener");
+  }
+  setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 20000);
+});
 
 document.addEventListener("click", e => {
   if (e.target.classList && e.target.classList.contains("help-icon")) {
