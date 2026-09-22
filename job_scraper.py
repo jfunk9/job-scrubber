@@ -528,6 +528,27 @@ def fit_score(title, description=""):
 
 # ── Scrapers ──────────────────────────────────────────────────────────────────
 
+def fetch_generic_description(url):
+    """
+    2026-09-22: CAUGHT by Jason, not a detector -- he'd read a BKV Group listing
+    that named Enscape and asked why Jev scored it near zero on tech_leverage.
+    Root cause: scrape_generic (and workday, which just calls it) never opened
+    the individual job posting -- 50 of 53 firms in firms.csv were scored on
+    TITLE ONLY, always, for both the keyword scan and now Jev. Neither method
+    was ever shown "Enscape"; the title just said "BIM Specialist". This fetches
+    the real posting the same way _fetch_aia_mn_description already did for its
+    one firm. Best-effort and silent on failure -- a description miss must cost
+    only that listing's description, never the listing or the run.
+    """
+    soup = fetch(url)
+    if soup is None:
+        return ""
+    body = soup.find("body")
+    if not body:
+        return ""
+    return body.get_text(" ", strip=True)[:6000]
+
+
 def scrape_generic(url, firm_name):
     soup = fetch(url)
     if soup is None:
@@ -570,6 +591,13 @@ def scrape_generic(url, firm_name):
                 seen.add(key)
                 if is_relevant(title):
                     jobs.append({"title": title, "url": full_url, "location": ""})
+
+    # Every candidate here passed is_relevant already, so this is bounded by
+    # the same set that would go on to be scored -- not every raw link on the
+    # careers page.
+    for job in jobs:
+        job["description"] = fetch_generic_description(job["url"])
+        time.sleep(0.2)
 
     return jobs, None
 
