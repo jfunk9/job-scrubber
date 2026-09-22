@@ -372,14 +372,17 @@ def is_relevant(title):
 
 
 
-# ── Jev (TypeSafe) — semantic tech_leverage judgment ───────────────────────────
-# 2026-09-21: keyword tech_leverage still has a hole word boundaries can't close --
-# a listing can genuinely say "ai" as a real word (see gains 09-21 smoke test) and
-# still not be ABOUT ai/automation/design-tech in any meaningful way. Jev replaces
-# just this one category with a real judgment; the other six categories stay on
-# keywords (cheap, not shown to need it). Falls back to the keyword ratio whenever
-# the package, the key, or the network isn't there -- a run must never depend on
-# an outside service to publish.
+# ── Jev (TypeSafe) — semantic judgments for the categories keywords fool easiest ─
+# 2026-09-21: keyword tech_leverage had a hole word boundaries can't close -- a
+# listing can genuinely say "ai" as a real word and still not be ABOUT ai/
+# automation/design-tech in any meaningful way. 2026-09-22: compensation has the
+# same disease from the other direction -- its trigger keyword is a bare "$",
+# which fires on any dollar sign anywhere in the page (a benefits footer, a
+# copyright line) whether or not a real number is disclosed. Both categories now
+# get one real Jev judgment per listing instead of a keyword scan; the other
+# five stay on keywords (cheap, not shown to need it). Falls back to the keyword
+# ratio whenever the package, the key, or the network isn't there -- a run must
+# never depend on an outside service to publish.
 JEV_STATS = {"used": 0, "fallback": 0, "errors": 0}
 _jev_client = None
 _jev_unavailable = False
@@ -389,6 +392,21 @@ try:
 except ImportError:
     Noul = None
     TypeSafeClient = None
+
+# One Noul question per Jev-backed category. Keep instructions self-contained --
+# Question IDs never reach the model, only the wording does.
+JEV_QUESTIONS = {
+    "tech_leverage": (
+        "Does this job listing genuinely emphasize AI, automation, "
+        "computational design, or emerging design technology as a "
+        "meaningful part of the role -- not just an incidental word match?"
+    ),
+    "compensation": (
+        "Does this job listing disclose an actual compensation figure or "
+        "range for the role -- not just a passing mention of money, "
+        "benefits, or a dollar sign elsewhere on the page?"
+    ),
+}
 
 
 def get_jev_client():
@@ -405,11 +423,10 @@ def get_jev_client():
     return _jev_client
 
 
-def jev_tech_leverage(title, description):
+def jev_judge(category, title, description):
     """
-    Returns a 0-1 probability that this listing genuinely leans on AI, automation,
-    computational design or emerging design technology -- or None if Jev isn't
-    reachable, in which case the caller falls back to the keyword ratio.
+    Returns a 0-1 probability for one of JEV_QUESTIONS on this listing, or None
+    if Jev isn't reachable -- the caller then falls back to the keyword ratio.
     """
     client = get_jev_client()
     if client is None:
@@ -417,19 +434,13 @@ def jev_tech_leverage(title, description):
     try:
         response = client.system_one(
             state={"title": title, "description": description[:4000]},
-            questions={
-                "tech_leverage": Noul(instructions=(
-                    "Does this job listing genuinely emphasize AI, automation, "
-                    "computational design, or emerging design technology as a "
-                    "meaningful part of the role -- not just an incidental word match?"
-                )),
-            },
+            questions={category: Noul(instructions=JEV_QUESTIONS[category])},
         )
         JEV_STATS["used"] += 1
-        return response.nouls["tech_leverage"].noul
+        return response.nouls[category].noul
     except Exception as e:
         JEV_STATS["errors"] += 1
-        print(f"    [Jev] call failed, falling back to keywords: {e}")
+        print(f"    [Jev] {category} call failed, falling back to keywords: {e}")
         return None
 
 
@@ -499,8 +510,8 @@ def fit_score(title, description=""):
     breakdown = {}
     total = 0.0
     for cat, cfg in FIT_MATRIX.items():
-        if cat == "tech_leverage":
-            jev_p = jev_tech_leverage(title, description)
+        if cat in JEV_QUESTIONS:
+            jev_p = jev_judge(cat, title, description)
             if jev_p is not None:
                 contrib = round(cfg["weight"] * jev_p, 1)
                 breakdown[cat] = contrib
@@ -1052,10 +1063,10 @@ def run(p1_only=False, firm_filter=None):
             sys.exit(2)
 
     if JEV_STATS["used"] or JEV_STATS["fallback"] or JEV_STATS["errors"]:
-        print(f"\n[Jev] tech_leverage: {JEV_STATS['used']} scored live, "
+        print(f"\n[Jev] {', '.join(JEV_QUESTIONS)}: {JEV_STATS['used']} scored live, "
               f"{JEV_STATS['fallback']} fell back to keywords, {JEV_STATS['errors']} call errors")
     elif not os.environ.get("TYPESAFE_API_KEY"):
-        print("\n[Jev] TYPESAFE_API_KEY not set -- tech_leverage scored by keywords only")
+        print(f"\n[Jev] TYPESAFE_API_KEY not set -- {', '.join(JEV_QUESTIONS)} scored by keywords only")
 
     write_results(all_jobs, firm_errors)
     return all_jobs
