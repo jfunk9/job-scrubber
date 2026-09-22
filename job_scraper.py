@@ -301,30 +301,57 @@ def fetch(url):
 
 # ── Scoring ───────────────────────────────────────────────────────────────────
 
+_KW_CACHE = {}
+
+
+def kw_hit(kw, text):
+    """True if keyword `kw` appears in lower-cased `text` as whole word(s).
+
+    2026-09-21: WAS `kw in text`, a plain substring test. 'ai' matched detailing, maintain, email,
+    available, training, retail and job CAPTAIN, so tech_leverage scored on nearly every listing;
+    'vr', 'gis' (logistics, strategist) and 'intern' (international) had the same disease.
+    Now: a word boundary on the LEFT always (kills every mid-word hit: detailing, strategist,
+    community-for-'unity'); on the RIGHT only for keywords of 3 characters or fewer ('ai', 'vr',
+    'gis', 'iii', 'hr', 'bim', '75k'), so 'ai' can't become 'aid' or 'air'. Longer keywords stay
+    stems: 'design' still counts 'designer', 'architect' 'architectural', 'manage' 'manager'.
+    CAUGHT 2026-09-21: the first cut put \b on both sides and 'design' stopped matching
+    'designer' -- 19 of 58 live listings lost their creative points. Known leftover of the stem
+    rule: exclude 'intern' still matches 'international'. Specials are escaped ('$', 'qa/qc',
+    'f&b'); padding spaces (' iii', 'hr ') are stripped because the boundary does their job.
+    """
+    pat = _KW_CACHE.get(kw)
+    if pat is None:
+        k = kw.strip()
+        left = r"\b" if k[:1].isalnum() else ""
+        right = r"\b" if (k[-1:].isalnum() and len(k) <= 3) else ""
+        pat = _KW_CACHE[kw] = re.compile(left + re.escape(k) + right)
+    return pat.search(text) is not None
+
+
 def score_job(title, description=""):
     text = (title + " " + description).lower()
     bd = {"title_match": 0, "sector": 0, "software": 0, "level": 0, "exclude": 0}
 
     for kw in TITLE_KEYWORDS:
-        if kw in text:
+        if kw_hit(kw, text):  # was: substring -- 'vr' and ' iv' hit inside other words
             bd["title_match"] += 8
     bd["title_match"] = min(bd["title_match"], 40)
 
     for kw in SECTOR_KEYWORDS:
-        if kw in text:
+        if kw_hit(kw, text):
             bd["sector"] += 4
     bd["sector"] = min(bd["sector"], 25)
 
     for kw in SOFTWARE_KEYWORDS:
-        if kw in text:
+        if kw_hit(kw, text):  # was: substring 'ai' matched 'detailing'
             bd["software"] += 5
     bd["software"] = min(bd["software"], 15)
 
-    if any(k in text for k in ["senior", "lead", "principal", " iii", " iv", "15 year", "15+ year"]):
+    if any(kw_hit(k, text) for k in ["senior", "lead", "principal", " iii", " iv", "15 year", "15+ year"]):
         bd["level"] = 20
 
     for kw in EXCLUDE_TITLE_KEYWORDS:
-        if kw in title.lower():
+        if kw_hit(kw, title.lower()):  # was: substring 'gis' excluded 'strategist'
             bd["exclude"] -= 50
 
     score = sum(bd.values())
@@ -336,7 +363,7 @@ def is_relevant(title):
     if not t or len(t) < 3:
         return False
     for kw in EXCLUDE_TITLE_KEYWORDS:
-        if kw in t:
+        if kw_hit(kw, t):  # was: substring 'gis' dropped 'Strategist' / 'Logistics' titles
             return False
     arch_words = ["architect", "designer", "design ", "drafter", "project",
                   "captain", "bim", "revit"]
@@ -411,7 +438,7 @@ def fit_score(title, description=""):
     breakdown = {}
     total = 0.0
     for cat, cfg in FIT_MATRIX.items():
-        matches = sum(1 for kw in cfg["keywords"] if kw in text)
+        matches = sum(1 for kw in cfg["keywords"] if kw_hit(kw, text))  # was: substring 'ai' matched 'detailing'
         ratio = min(1.0, matches / cfg["target"])
         contrib = round(cfg["weight"] * ratio, 1)
         breakdown[cat] = contrib
