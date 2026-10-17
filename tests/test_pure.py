@@ -94,5 +94,98 @@ class FetchGenericDescription(unittest.TestCase):
             self.assertEqual(len(js.fetch_generic_description("https://example.invalid/job")), 6000)
 
 
+class RetargetTitles(unittest.TestCase):
+    # 2026-10-17 retarget: his three lanes after Adkins did not renew. Planted both ways.
+    def test_envelope_titles_pass(self):
+        for t in ("Building Envelope Consultant", "Air Barrier Inspector",
+                  "Building Science Specialist", "Project Engineer - Building Envelope",
+                  "Building Enclosure Commissioning Agent", "Forensic Envelope Field Technician"):
+            self.assertTrue(js.is_relevant(t), t)
+
+    def test_aec_tech_titles_pass(self):
+        for t in ("BIM Automation Specialist", "Computational Design Engineer",
+                  "Design Technology Manager", "Digital Practice Lead",
+                  "Revit API Developer", "AEC Solutions Consultant"):
+            self.assertTrue(js.is_relevant(t), t)
+
+    def test_architecture_titles_still_pass(self):
+        for t in ("Architectural Technician", "Project Designer", "BIM Coordinator"):
+            self.assertTrue(js.is_relevant(t), t)
+
+    def test_non_lane_titles_still_drop(self):
+        for t in ("Civil Engineer", "Engineering Technician", "Mechanical Engineer",
+                  "Building Envelope Intern", "Marketing Coordinator", "Software Engineer"):
+            self.assertFalse(js.is_relevant(t), t)
+
+    def test_licensed_architect_title_is_dropped(self):
+        self.assertTrue(js.requires_license("Licensed Architect - Building Envelope"))
+        self.assertTrue(js.requires_license("Project Architect", "Must be a licensed architect."))
+        self.assertFalse(js.requires_license("Building Envelope Consultant", "NCARB a plus"))
+
+    def test_envelope_title_scores_on_title(self):
+        score, bd = js.score_job("Building Envelope Consultant",
+                                 "Air barrier plan review, WUFI and THERM modeling, field testing.")
+        self.assertGreater(bd["title_match"], 0)
+        self.assertGreater(bd["sector"], 0)
+        self.assertGreater(bd["software"], 0)
+        self.assertEqual(bd["exclude"], 0)
+
+
+class RetargetLocations(unittest.TestCase):
+    # 2026-10-17: Twin Cities metro plus remote anywhere in the US. WAS MSP + SoCal + Chicago.
+    def test_twin_cities_pass(self):
+        for loc in ("Minneapolis, MN", "St. Paul, Minnesota", "Bloomington, MN",
+                    "Hybrid - Minneapolis", "Eagan", "Edina, MN 55435"):
+            self.assertTrue(js.is_msp_location(loc), loc)
+
+    def test_chicago_and_socal_onsite_drop(self):
+        for loc in ("Chicago, IL", "Chicago", "San Diego, CA", "Santa Monica, CA",
+                    "Newport Beach", "Bloomington, IL", "Plymouth, MI", "Denver, CO"):
+            self.assertFalse(js.is_msp_location(loc), loc)
+
+    def test_remote_us_passes(self):
+        self.assertTrue(js.is_msp_location("Remote"))
+        self.assertTrue(js.is_msp_location("Remote - US"))
+        self.assertTrue(js.is_msp_location("Remote, Texas"))
+        self.assertTrue(js.is_msp_location("San Francisco, CA", title="BIM Automation Specialist (Remote)"))
+
+    def test_remote_abroad_drops(self):
+        self.assertFalse(js.is_msp_location("Remote - Canada"))
+        self.assertFalse(js.is_msp_location("Remote, United Kingdom"))
+
+    def test_united_states_needs_remote_in_description(self):
+        self.assertTrue(js.is_msp_location("United States", "Design Technology Manager",
+                                           "This is a fully remote position."))
+        self.assertFalse(js.is_msp_location("United States", "Design Technology Manager",
+                                            "On site at our Austin office."))
+        self.assertFalse(js.is_msp_location("United States", "Design Technology Manager",
+                                            "This is not a remote role."))
+
+    def test_empty_location_unchanged_for_local_firms(self):
+        self.assertTrue(js.passes_location("", "Project Designer", "", "Minneapolis"))
+
+    def test_remote_lane_firm_needs_remote_signal(self):
+        self.assertFalse(js.passes_location("", "BIM Automation Specialist", "Onsite in SF.", "Remote (US)"))
+        self.assertTrue(js.passes_location("", "BIM Automation Specialist", "Fully remote.", "Remote (US)"))
+        self.assertFalse(js.passes_location("Chicago, IL", "BIM Manager", "", "Remote (US)"))
+
+
+class FirmsCsv(unittest.TestCase):
+    def test_new_lane_firms_are_present_and_well_formed(self):
+        firms = js.load_firms()
+        names = [f["name"] for f in firms]
+        self.assertEqual(len(names), len(set(names)), "duplicate firm names")
+        for f in firms:
+            self.assertIn(f["scraper_key"], js.SCRAPER_MAP, f["name"])
+            self.assertTrue(f["careers_url"].startswith("https://"), f["name"])
+        envelope = [f for f in firms if "his lane: envelope" in f["notes"]]
+        tech = [f for f in firms if "his lane: AEC tech" in f["notes"]]
+        self.assertGreaterEqual(len(envelope), 3)
+        self.assertGreaterEqual(len(tech), 3)
+        self.assertTrue(any(f["name"].startswith("AET") for f in envelope))
+        for f in envelope + tech:
+            self.assertEqual(f["verified"], "no", f["name"])
+
+
 if __name__ == "__main__":
     unittest.main()

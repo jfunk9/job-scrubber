@@ -6,6 +6,11 @@ Scans careers pages of ~50 Twin Cities architecture firms for open
 positions matching Jason's criteria, scores each match, and writes
 results to jobs.json + a static HTML dashboard (index.html).
 
+2026-10-17 retarget (Adkins did not renew his contract): three lanes, architecture firms,
+building envelope (air barrier and enclosure consultants, testing firms like AET), and AI and
+tech in AEC; Twin Cities metro plus fully remote in the US. NCARB-certified, not licensed, so
+license-required roles stay dropped.
+
 Usage:
     python job_scraper.py            # full scan
     python job_scraper.py --p1       # only top-15 priority firms
@@ -58,6 +63,15 @@ TITLE_KEYWORDS = [
     "3d artist", "rendering", "real-time", "vr", "virtual reality",
     " iii", " iv", "level 3", "level iii", "senior", "lead",
     "principal", "associate",
+    # 2026-10-17, his three lanes after Adkins did not renew. Lane 1, architecture firms:
+    "architectural technician", "project designer", "revit",
+    # Lane 2, building envelope (his Adkins air barrier reviews for AET):
+    "building envelope", "envelope", "building enclosure", "enclosure",
+    "air barrier", "building science", "waterproofing", "facade", "curtain wall",
+    "envelope commissioning", "forensic",
+    # Lane 3, AI and tech in AEC:
+    "computational design", "design technology", "bim automation",
+    "digital practice", "digital design", "virtual design", "vdc", "aec",
 ]
 
 SECTOR_KEYWORDS = [
@@ -67,6 +81,12 @@ SECTOR_KEYWORDS = [
     "retail", "workplace", "office", "education", "k-12",
     "higher education", "mixed-use", "multifamily", "housing",
     "senior living",
+    # 2026-10-17 lane 2, building envelope:
+    "air barrier", "building envelope", "building enclosure", "enclosure",
+    "waterproofing", "building science", "roofing", "fenestration",
+    "energy code", "commissioning", "forensic", "field testing",
+    # 2026-10-17 lane 3, tech in AEC:
+    "aec", "construction technology", "design technology",
 ]
 
 SOFTWARE_KEYWORDS = [
@@ -79,6 +99,10 @@ SOFTWARE_KEYWORDS = [
     "computational design", "parametric", "generative design",
     "ai", "machine learning", "automation",
     "autocad",
+    # 2026-10-17 lane 2, envelope analysis tools ('therm' is a stem, so it also counts 'thermal'):
+    "wufi", "therm", "flixo",
+    # 2026-10-17 lane 3, the automation stack:
+    "python", "revit api", "c#", "speckle", "ifc", "artificial intelligence",
 ]
 
 EXCLUDE_TITLE_KEYWORDS = [
@@ -98,32 +122,64 @@ EXCLUDE_TITLE_KEYWORDS = [
     "project scheduler",
 ]
 
-# Target locations — MSP metro + California + Chicago
+# 2026-10-17: his lanes 2 and 3 are full of titles the engineer excludes would kill
+# ("Project Engineer - Building Envelope" at a testing firm, "Computational Design Engineer").
+# A title carrying one of these lane words is let past ONLY the soft excludes below; intern,
+# marketing, HR and the rest still drop it.
+LANE_TITLE_OVERRIDES = [
+    "envelope", "enclosure", "air barrier", "building science", "waterproofing",
+    "facade", "curtain wall", "fenestration",
+    "computational design", "design technolog", "bim", "revit", "aec",
+    "digital practice", "virtual design", "vdc",
+]
+SOFT_EXCLUDES = ("engineer", "engineering")
+
+# Target locations: Twin Cities metro + fully remote anywhere in the US (his 2026-10-17 pick).
+# 2026-10-17: WAS "MSP metro + California + Chicago": the whitelist also carried San Diego,
+# Newport Beach / Orange County, Santa Monica / Los Angeles and Chicago city. His 10-17 pick
+# (Twin Cities plus remote, after Adkins did not renew) replaces them; those cities now sit in
+# DROPPED_TARGET_CITIES so a bare "Chicago" with no state is still recognised as elsewhere.
+# Hybrid in the Twin Cities counts as local: it passes on the city name.
 TARGET_LOCATION_KEYWORDS = [
-    # MSP metro
+    # Twin Cities metro
     "minneapolis", "minnetonka", "st. paul", "saint paul", "st paul",
     "bloomington", "edina", "eden prairie", "plymouth", "maple grove",
     "wayzata", "apple valley", "burnsville", "richfield",
     "golden valley", "st louis park", "st. louis park",
+    "roseville", "woodbury", "maplewood", "eagan", "lakeville", "shakopee",
+    "brooklyn park", "brooklyn center", "coon rapids", "blaine", "fridley",
+    "new brighton", "arden hills", "shoreview", "mendota heights",
+    "inver grove heights", "hopkins", "chanhassen", "chaska", "savage",
+    "prior lake", "white bear lake", "stillwater", "oakdale", "new hope",
     "minnesota", "twin cities", " mn,", " mn ", ", mn",
-    # California — only metros within 30 mi of San Diego, Newport Beach, Santa Monica
-    # San Diego area
+]
+# Backwards-compat alias used elsewhere
+MSP_KEYWORDS = TARGET_LOCATION_KEYWORDS
+
+# The cities his 10-17 pick dropped (WAS whitelisted, now known-elsewhere).
+DROPPED_TARGET_CITIES = (
     "san diego", "chula vista", "carlsbad", "encinitas", "oceanside",
     "la jolla", "el cajon", "la mesa", "coronado", "national city",
-    # Newport Beach / Orange County
     "newport beach", "costa mesa", "irvine", "huntington beach",
     "anaheim", "santa ana", "tustin", "mission viejo", "laguna beach",
     "lake forest", "aliso viejo", "fountain valley",
-    # Santa Monica / Los Angeles area
     "santa monica", "los angeles", "beverly hills", "culver city",
     "west hollywood", "pasadena", "burbank", "glendale", "long beach",
     "manhattan beach", "redondo beach", "el segundo", "marina del rey",
     "venice", "malibu", "torrance", "inglewood",
-    # Chicago (city only, not all of IL)
     "chicago",
-]
-# Backwards-compat alias used elsewhere
-MSP_KEYWORDS = TARGET_LOCATION_KEYWORDS
+)
+
+REMOTE_KEYWORDS = ("remote", "work from home", "work-from-home", "telecommute",
+                   "anywhere in the us", "anywhere in the united states", "100% virtual")
+
+# A remote role tied to another country is not his (remote anywhere in the US only).
+NON_US_MARKERS = re.compile(
+    r"\b(canada|uk|u\.k\.|united kingdom|england|london|ireland|india|europe|emea|apac|"
+    r"latam|germany|france|netherlands|spain|poland|australia|singapore|japan|china|"
+    r"mexico|brazil|toronto|vancouver|montreal)\b")
+
+US_ONLY_MARKERS = re.compile(r"^\s*(united states( of america)?|usa|u\.s\.a?\.?|us)\s*$")
 
 NON_MN_STATES = ("AL","AK","AZ","AR","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC")
 
@@ -141,20 +197,66 @@ NON_MN_STATE_NAMES = (
 )
 
 
-def is_msp_location(location_text):
-    """Return True if location appears to be MSP-area, or is empty (assume local)."""
-    if not location_text:
+NOT_REMOTE = re.compile(
+    r"\b(not|no|non)[- ]remote\b|not a remote|remote (work )?(is )?not (available|offered|an option)")
+_NON_MN_CODE = re.compile(r"\b(" + "|".join(NON_MN_STATES) + r")\b")
+
+
+def has_remote(text):
+    """True if the text offers remote work (and does not say the opposite)."""
+    t = (text or "").lower()
+    if NOT_REMOTE.search(t):
+        return False
+    return any(k in t for k in REMOTE_KEYWORDS)
+
+
+def is_msp_location(location_text, title="", description=""):
+    """Return True if the job is Twin Cities metro (onsite or hybrid) or remote in the US.
+
+    2026-10-17: WAS "MSP-area, SoCal or Chicago, or empty". Now, in order:
+      empty location             -> True (unchanged; scrape_firm adds a rule for remote-lane firms)
+      says MN / Minnesota        -> True
+      location or title remote   -> True unless tied to another country
+      only "United States"/"US"  -> True only if the description offers remote
+      Twin Cities city name      -> True unless another state's code sits beside it
+                                    ("Bloomington, IL", "Plymouth, MI" are not his)
+      another state, a dropped city (Chicago, SoCal) or another country -> False
+    """
+    if not location_text or not location_text.strip():
         return True
-    loc = location_text.lower()
-    if any(kw in loc for kw in MSP_KEYWORDS):
+    loc = location_text.lower().strip()
+    if re.search(r"\b(mn|minnesota)\b", loc):
         return True
+    if has_remote(loc) or has_remote(title):
+        return not NON_US_MARKERS.search(loc + " " + (title or "").lower())
+    if US_ONLY_MARKERS.match(loc):
+        return has_remote(description)
+    other_code = _NON_MN_CODE.search(location_text)
+    if any(kw in loc for kw in MSP_KEYWORDS) and not other_code:
+        return True
+    if other_code:
+        return False
+    if any(city in loc for city in DROPPED_TARGET_CITIES):
+        return False
     # Full state names check (catches "California", "Texas", etc.)
     if any(state in loc for state in NON_MN_STATE_NAMES):
         return False
-    # Two-letter state code check
-    if re.search(r"\b(" + "|".join(NON_MN_STATES) + r")\b", location_text):
+    if NON_US_MARKERS.search(loc):
         return False
     return True
+
+
+def passes_location(location_text, title="", description="", firm_city=""):
+    """The location gate scrape_firm uses.
+
+    2026-10-17: a firm added for the remote lane (city column starts with "Remote") is mostly
+    scraped by the generic scraper, which never reads a location, so an empty location there
+    would wave through every onsite San Francisco job. For those firms an empty location passes
+    only when the title or description offers remote work.
+    """
+    if not (location_text or "").strip() and (firm_city or "").lower().startswith("remote"):
+        return has_remote(title) or has_remote(description)
+    return is_msp_location(location_text, title, description)
 
 
 def parse_ultipro_text(text):
@@ -362,12 +464,25 @@ def is_relevant(title):
     t = title.lower().strip()
     if not t or len(t) < 3:
         return False
+    lane_title = any(kw_hit(w, t) for w in LANE_TITLE_OVERRIDES)
     for kw in EXCLUDE_TITLE_KEYWORDS:
+        if lane_title and kw in SOFT_EXCLUDES:
+            continue  # 2026-10-17: 'Project Engineer - Building Envelope' is his lane 2
         if kw_hit(kw, t):  # was: substring 'gis' dropped 'Strategist' / 'Logistics' titles
             return False
     arch_words = ["architect", "designer", "design ", "drafter", "project",
                   "captain", "bim", "revit"]
-    return any(w in t for w in arch_words)
+    if any(w in t for w in arch_words):
+        return True
+    # 2026-10-17: his lanes 2 (building envelope) and 3 (AI and tech in AEC) name roles with
+    # none of the architecture words: 'Building Science Specialist', 'Air Barrier Inspector',
+    # 'Computational Design Specialist', 'Digital Practice Manager'.
+    lane_words = ["envelope", "enclosure", "air barrier", "building science",
+                  "waterproofing", "facade", "curtain wall", "fenestration", "forensic",
+                  "computational", "design technolog", "digital practice", "digital design",
+                  "virtual design", "vdc", "aec", "dynamo", "grasshopper", "parametric",
+                  "building information"]
+    return any(kw_hit(w, t) for w in lane_words)
 
 
 
@@ -476,14 +591,19 @@ FIT_MATRIX = {
         "keywords": ["ai", "automation", "computational design", "parametric",
                      "pyrevit", "dynamo", "grasshopper", "vr", "virtual reality",
                      "real-time", "twinmotion", "unreal", "lumion", "enscape",
-                     "machine learning", "design technology", "innovation"],
+                     "machine learning", "design technology", "innovation",
+                     # 2026-10-17 lane 3, AI and tech in AEC:
+                     "bim automation", "revit api", "python", "speckle"],
     },
     "tech_depth": {
         "weight": 11,
         "target": 3,
         "keywords": ["revit", "construction documents", "construction administration",
                      "production", "qa/qc", "specifications", "drafting", "detailing",
-                     "permit drawings", "shop drawings"],
+                     "permit drawings", "shop drawings",
+                     # 2026-10-17 lane 2, the envelope review work he did for AET:
+                     "air barrier", "building envelope", "enclosure", "waterproofing",
+                     "plan review", "field testing", "wufi", "therm"],
     },
     "compensation": {
         "weight": 9,
@@ -949,8 +1069,8 @@ def scrape_firm(firm):
     for j in jobs:
         title = j["title"]
         location = j.get("location", "")
-        # Geographic filter — drop jobs clearly outside MSP metro
-        if not is_msp_location(location):
+        # Geographic filter: Twin Cities metro or remote in the US (2026-10-17; WAS MSP + SoCal + Chicago)
+        if not passes_location(location, title, j.get("description", ""), firm.get("city", "")):
             continue
         # License filter — Jason isn't licensed; drop jobs that require it
         if requires_license(title, j.get("description", "")):
