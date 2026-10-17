@@ -390,6 +390,7 @@ code,pre,kbd,samp,[class*=mono]{ font-family:"Consolas","SF Mono","DejaVu Sans M
 
 <div class="footer" id="footer"></div>
 
+<script src="run_button.js"></script>
 <script>
 const PRIORITY_LABELS = {
   P1: "Priority 1 — Top 15 firms",
@@ -661,23 +662,37 @@ document.getElementById("runBtn").addEventListener("click", async () => {
     window.open(GH_RUN_FALLBACK, "_blank", "noopener");
     return;
   }
+  // 2026-10-17 (loop 957): WAS one "Couldn't start — opening GitHub" for every failure and a
+  // "Started" on the starter's word alone. The words now come from run_button.js and say why.
   const original = btn.textContent;
+  const pressedAt = Date.now();
   btn.disabled = true;
   btn.textContent = "Starting…";
+  let res;
   try {
     const r = await fetch(TRIGGER_URL, { method: "POST" });
-    const data = await r.json().catch(() => ({}));
-    if (r.ok && data.ok) {
-      btn.textContent = "Started ✓ refresh in ~3 min";
-    } else {
-      btn.textContent = "Couldn't start — opening GitHub";
-      window.open(GH_RUN_FALLBACK, "_blank", "noopener");
-    }
+    res = { httpStatus: r.status, data: await r.json().catch(() => ({})) };
   } catch (e) {
-    btn.textContent = "Couldn't start — opening GitHub";
-    window.open(GH_RUN_FALLBACK, "_blank", "noopener");
+    res = { threw: String(e && e.message || e) };
   }
-  setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 20000);
+  const msg = RunButton.startMessage(res);
+  btn.textContent = msg.text;
+  if (!msg.ok) {
+    window.open(GH_RUN_FALLBACK, "_blank", "noopener");
+  } else {
+    let seen = false;
+    for (let i = 0; i < 6 && !seen; i++) {
+      await new Promise(ok => setTimeout(ok, 5000));
+      try {
+        const g = await fetch("https://api.github.com/repos/jfunk9/job-scrubber/actions/runs?per_page=5");
+        seen = RunButton.runAppeared((await g.json()).workflow_runs, pressedAt);
+      } catch (e) { /* keep trying */ }
+    }
+    btn.textContent = seen ? "Running ✓ refresh in ~5 min"
+                           : "Starter said yes but GitHub shows no new run after 30 s. Opening GitHub.";
+    if (!seen) window.open(GH_RUN_FALLBACK, "_blank", "noopener");
+  }
+  setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 60000);
 });
 
 document.addEventListener("click", e => {
