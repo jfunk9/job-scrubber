@@ -171,17 +171,29 @@ DROPPED_TARGET_CITIES = (
 )
 
 REMOTE_KEYWORDS = ("remote", "work from home", "work-from-home", "telecommute",
-                   "anywhere in the us", "anywhere in the united states", "100% virtual")
+                   "anywhere in the us", "anywhere in the united states", "100% virtual",
+                   # 2026-10-17: Autodesk's Workday names its home-based roles "...- OffsiteHome"
+                   "offsitehome", "offsite home")
 
 # A remote role tied to another country is not his (remote anywhere in the US only).
 NON_US_MARKERS = re.compile(
     r"\b(canada|uk|u\.k\.|united kingdom|england|london|ireland|india|europe|emea|apac|"
     r"latam|germany|france|netherlands|spain|poland|australia|singapore|japan|china|"
-    r"mexico|brazil|toronto|vancouver|montreal)\b")
+    r"mexico|brazil|toronto|vancouver|montreal|"
+    # 2026-10-17 later: the Workday boards (Autodesk, Bentley, Trimble) passed Bengaluru, Shanghai,
+    # Tel Aviv, Tokyo, Oslo and Dubai, since an unread place falls through to True.
+    r"bengaluru|bangalore|pune|hyderabad|chennai|shanghai|beijing|shenzhen|israel|tel aviv|"
+    r"tokyo|norway|oslo|sweden|denmark|finland|switzerland|italy|austria|belgium|portugal|"
+    r"czech|romania|hungary|ukraine|korea|seoul|taiwan|philippines|vietnam|thailand|malaysia|"
+    r"indonesia|new zealand|south africa|dubai|abu dhabi|united arab emirates|uae|saudi|qatar|"
+    r"chile|colombia|argentina|"
+    r"ind|chn|isr|jpn|gbr|deu|nor|swe|che|aus|sgp|kor|bra|mex)\b")
 
 US_ONLY_MARKERS = re.compile(r"^\s*(united states( of america)?|usa|u\.s\.a?\.?|us)\s*$")
 
-NON_MN_STATES = ("AL","AK","AZ","AR","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC")
+# 2026-10-17 later: WAS missing "CA" (a leftover from the SoCal whitelist), so "San Francisco, CA"
+# passed as local; it surfaced once iCIMS postings started carrying their real locations.
+NON_MN_STATES = ("AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC")
 
 
 # Full state names (lower-cased) that are NOT Minnesota
@@ -254,8 +266,22 @@ def passes_location(location_text, title="", description="", firm_city=""):
     would wave through every onsite San Francisco job. For those firms an empty location passes
     only when the title or description offers remote work.
     """
-    if not (location_text or "").strip() and (firm_city or "").lower().startswith("remote"):
+    remote_lane = (firm_city or "").lower().startswith("remote")
+    if not (location_text or "").strip() and remote_lane:
         return has_remote(title) or has_remote(description)
+    # 2026-10-17 later: a remote-lane firm's Workday board is worldwide, so a place this file cannot
+    # read ("Bengaluru, IND", "Norway - Oslo") must not pass as local the way it does for a Twin
+    # Cities firm. There a location passes only on Minnesota, a US remote signal, or a bare
+    # "United States" whose description offers remote.
+    if remote_lane:
+        loc = location_text.lower()
+        if re.search(r"\b(mn|minnesota)\b", loc):
+            return True
+        if has_remote(loc) or has_remote(title):
+            return not NON_US_MARKERS.search(loc + " " + (title or "").lower())
+        if US_ONLY_MARKERS.match(loc):
+            return has_remote(description)
+        return False
     return is_msp_location(location_text, title, description)
 
 
@@ -593,7 +619,11 @@ FIT_MATRIX = {
                      "real-time", "twinmotion", "unreal", "lumion", "enscape",
                      "machine learning", "design technology", "innovation",
                      # 2026-10-17 lane 3, AI and tech in AEC:
-                     "bim automation", "revit api", "python", "speckle"],
+                     "bim automation", "revit api", "python", "speckle",
+                     # 2026-10-17 later: HGA's 'Digital Design Support Lead' (Digital Practice Group,
+                     # BIM, Revit, Dynamo) scored fit 9 because iCIMS was scored on title only; with
+                     # its text these name the lane the way firms actually title it.
+                     "digital practice", "digital design", "bim", "vdc", "virtual design"],
     },
     "tech_depth": {
         "weight": 11,
@@ -862,7 +892,58 @@ def scrape_icims(url, firm_name):
                 if is_relevant(clean):
                     jobs.append({"title": clean, "url": full_url, "location": ""})
 
+    # 2026-10-17: WAS title only. HGA's 'Digital Design Support Lead' (BIM, Revit, Dynamo, the
+    # Digital Practice Group) scored fit 9 because Jev and the keywords saw four words. iCIMS
+    # answers a plain GET with 405, so each relevant posting is read through the same browser.
+    for job in jobs:
+        desc, loc = fetch_icims_detail(browser, job["url"])
+        job["description"] = desc
+        job["location"] = loc
     return jobs, None
+
+
+def parse_icims_locations(text):
+    """'Job Locations\\nUS-MN-Minneapolis | US-WI-Milwaukee' -> 'Minneapolis, MN; Milwaukee, WI'."""
+    m = re.search(r"Job Locations?\s*\n?\s*([^\n]+)", text or "")
+    if not m:
+        return ""
+    out = []
+    for part in m.group(1).split("|"):
+        bits = [b.strip() for b in part.strip().split("-", 2)]
+        if len(bits) == 3 and len(bits[1]) == 2:
+            out.append(f"{bits[2]}, {bits[1]}")
+        elif part.strip():
+            out.append(part.strip())
+    return "; ".join(out)
+
+
+def fetch_icims_detail(browser, url):
+    """(description, location) for one iCIMS posting; ("", "") on any miss."""
+    if browser is None:
+        return "", ""
+    if "in_iframe=1" not in url:
+        url += ("&" if "?" in url else "?") + "in_iframe=1"
+    # The in_iframe URL redirects to the branded page, which carries the posting in an inner frame,
+    # so the longest frame's text is the posting (the outer body is only the footer).
+    try:
+        page = browser.new_page()
+        page.goto(url, timeout=30000)
+        try:
+            page.wait_for_load_state("networkidle", timeout=10000)
+        except Exception:
+            page.wait_for_timeout(3000)
+        texts = []
+        for frame in page.frames:
+            try:
+                texts.append(frame.inner_text("body"))
+            except Exception:
+                pass
+        page.close()
+    except Exception as e:
+        print(f"    [iCIMS] detail miss: {e}")
+        return "", ""
+    text = max(texts, key=len) if texts else ""
+    return text[:6000], parse_icims_locations(text)
 
 
 def scrape_aia_mn(url, firm_name):
@@ -984,8 +1065,212 @@ def _fetch_aia_mn_description(url):
     return desc[:6000]
 
 
+def _html_text(html):
+    return BeautifulSoup(html or "", "lxml").get_text(" ", strip=True)[:6000]
+
+
+JSON_HEADERS = {"User-Agent": HEADERS["User-Agent"], "Accept": "application/json",
+                "Accept-Language": "en-US"}
+WORKDAY_PAGE = 20      # the cxs endpoint refuses a bigger page
+WORKDAY_MAX = 1500     # Autodesk carried 355 on 10-17; a cap so a runaway total cannot stall the run
+
+
+def parse_workday_url(url):
+    """https://<tenant>.wd5.myworkdayjobs.com/en-US/<site>?q=enclosure -> (host, tenant, site, search)."""
+    p = urlparse.urlparse(url)
+    host = p.netloc
+    if "myworkdayjobs.com" not in host:
+        return None
+    parts = [s for s in p.path.split("/") if s]
+    if parts and re.fullmatch(r"[a-z]{2}-[A-Z]{2}", parts[0]):
+        parts = parts[1:]
+    if not parts:
+        return None
+    q = urlparse.parse_qs(p.query).get("q", [""])[0]
+    return host, host.split(".")[0], parts[0], q
+
+
 def scrape_workday(url, firm_name):
-    return scrape_generic(url, firm_name)
+    """
+    Workday's public cxs JSON: POST https://<host>/wday/cxs/<tenant>/<site>/jobs pages the board,
+    GET .../<site><externalPath> gives one posting's location list and description.
+    2026-10-17: WAS a placeholder that called scrape_generic, which read WJE's own search page
+    ("BECx, Building Science ... MORE >Building Enclosure Consultant") as a job and found none of
+    the real ones. A board that fails here is an error, never a fall-back to the HTML page.
+    """
+    parsed = parse_workday_url(url)
+    if not parsed:
+        return [], f"not a myworkdayjobs.com board URL: {url}"
+    host, tenant, site, search = parsed
+    api = f"https://{host}/wday/cxs/{tenant}/{site}"
+    postings, total, offset = [], None, 0
+    while offset < WORKDAY_MAX:
+        try:
+            r = requests.post(api + "/jobs", headers=JSON_HEADERS, timeout=TIMEOUT + 10,
+                              json={"appliedFacets": {}, "limit": WORKDAY_PAGE,
+                                    "offset": offset, "searchText": search})
+        except Exception as e:
+            if offset == 0:
+                return [], f"workday cxs: {e}"
+            break
+        if r.status_code != 200:
+            if offset == 0:
+                return [], f"workday cxs returned {r.status_code}"
+            break
+        data = r.json()
+        if total is None:
+            total = data.get("total") or 0  # only the first page carries the real total
+        page = data.get("jobPostings") or []
+        postings.extend(page)
+        offset += WORKDAY_PAGE
+        if not page or offset >= total:
+            break
+        time.sleep(0.2)
+    print(f"    [WD] {tenant}/{site}: {len(postings)} postings of {total}")
+
+    jobs = []
+    for p in postings:
+        title = (p.get("title") or "").strip()
+        path = p.get("externalPath") or ""
+        if not title or not path or not is_relevant(title):
+            continue
+        location = p.get("locationsText") or ""
+        description = ""
+        job_url = f"https://{host}/en-US/{site}{path}"
+        try:
+            d = requests.get(api + path, headers=JSON_HEADERS, timeout=TIMEOUT)
+            if d.status_code == 200:
+                info = d.json().get("jobPostingInfo") or {}
+                locs = [info.get("location") or ""] + list(info.get("additionalLocations") or [])
+                joined = "; ".join(x for x in locs if x)
+                location = joined or location
+                description = _html_text(info.get("jobDescription"))
+                job_url = info.get("externalUrl") or job_url
+        except Exception as e:
+            print(f"    [WD] detail miss {path}: {e}")
+        jobs.append({"title": title, "url": job_url, "location": location,
+                     "description": description, "posted": p.get("postedOn", "")})
+        time.sleep(0.2)
+    return jobs, None
+
+
+def scrape_adp(url, firm_name):
+    """
+    ADP Workforce Now career center (AET). The page's own JSON:
+    .../careercenter/public/events/staffing/v1/job-requisitions?cid=..., 20 a page via $skip.
+    """
+    q = urlparse.parse_qs(urlparse.urlparse(url).query)
+    cid = q.get("cid", [""])[0]
+    cc = q.get("ccId", ["19000101_000001"])[0]
+    if not cid:
+        return [], f"ADP URL has no cid: {url}"
+    base = ("https://workforcenow.adp.com/mascsr/default/careercenter/public/events/staffing/v1/"
+            "job-requisitions")
+    common = f"cid={cid}&ccId={cc}&lang=en_US&locale=en_US"
+    reqs, skip = [], 0
+    while skip < 1000:
+        try:
+            r = requests.get(f"{base}?{common}&$top=20&$skip={skip}", headers=JSON_HEADERS,
+                             timeout=TIMEOUT + 10)
+        except Exception as e:
+            if skip == 0:
+                return [], f"ADP: {e}"
+            break
+        if r.status_code != 200:
+            if skip == 0:
+                return [], f"ADP returned {r.status_code}"
+            break
+        page = r.json().get("jobRequisitions") or []
+        reqs.extend(page)
+        if len(page) < 20:
+            break
+        skip += 20
+    print(f"    [ADP] {len(reqs)} requisitions")
+
+    jobs = []
+    for j in reqs:
+        title = (j.get("requisitionTitle") or "").strip()
+        item = j.get("itemID") or ""
+        if not title or not is_relevant(title):
+            continue
+        locs = []
+        for loc in j.get("requisitionLocations") or []:
+            a = loc.get("address") or {}
+            city = a.get("cityName") or ""
+            st = (a.get("countrySubdivisionLevel1") or {}).get("codeValue") or ""
+            locs.append(", ".join(x for x in (city, st) if x) or
+                        ((loc.get("nameCode") or {}).get("shortName") or "").strip())
+        description = ""
+        try:
+            d = requests.get(f"{base}/{item}?{common}", headers=JSON_HEADERS, timeout=TIMEOUT)
+            if d.status_code == 200:
+                description = _html_text(d.json().get("requisitionDescription"))
+        except Exception:
+            pass
+        jobs.append({
+            "title": title,
+            "url": (f"https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html"
+                    f"?cid={cid}&ccId={cc}&jobId={item}&lang=en_US"),
+            "location": "; ".join(x for x in locs if x),
+            "description": description,
+            "posted": (j.get("postDate") or "")[:10],
+        })
+    return jobs, None
+
+
+def scrape_ashby(url, firm_name):
+    """Ashby job board (Higharc): https://api.ashbyhq.com/posting-api/job-board/<token>."""
+    m = re.search(r"jobs\.ashbyhq\.com/([^/?#]+)", url)
+    if not m:
+        return [], f"not an Ashby board URL: {url}"
+    try:
+        r = requests.get(f"https://api.ashbyhq.com/posting-api/job-board/{m.group(1)}",
+                         headers=JSON_HEADERS, timeout=TIMEOUT)
+        if r.status_code != 200:
+            return [], f"Ashby returned {r.status_code}"
+        data = r.json()
+    except Exception as e:
+        return [], f"Ashby: {e}"
+    jobs = []
+    for j in data.get("jobs", []):
+        title = (j.get("title") or "").strip()
+        if not title or not is_relevant(title):
+            continue
+        location = j.get("location") or ""
+        if j.get("isRemote") and "remote" not in location.lower():
+            location = f"Remote ({location})" if location else "Remote"
+        jobs.append({"title": title, "url": j.get("jobUrl", ""), "location": location,
+                     "description": j.get("descriptionPlain") or _html_text(j.get("descriptionHtml")),
+                     "posted": (j.get("publishedAt") or "")[:10]})
+    return jobs, None
+
+
+def scrape_talentbrew(url, firm_name):
+    """
+    Radancy TalentBrew boards (Terracon): /search-jobs/<place> is server-rendered; each result is
+    <a href="/job/..."><h2>title</h2><span class="job-location">...</span></a>. Only the first
+    page (15) is read: its pager does not take a plain query string (tried 10-17).
+    """
+    soup = fetch(url)
+    if soup is None:
+        return [], "fetch failed"
+    jobs, seen = [], set()
+    for a in soup.find_all("a", href=True):
+        h2 = a.find("h2")
+        if "/job/" not in a["href"] or not h2:
+            continue
+        title = h2.get_text(strip=True)
+        full = urlparse.urljoin(url, a["href"])
+        if full in seen or not is_relevant(title):
+            continue
+        seen.add(full)
+        loc = a.find(class_="job-location")
+        jobs.append({"title": title, "url": full,
+                     "location": loc.get_text(" ", strip=True).replace(" | Multiple Locations", "") if loc else ""})
+    for job in jobs:
+        job["description"] = fetch_generic_description(job["url"])
+        time.sleep(0.2)
+    return jobs, None
 
 
 def scrape_lever(url, firm_name):
@@ -1021,6 +1306,9 @@ SCRAPER_MAP = {
     "ultipro":    scrape_ultipro,
     "icims":      scrape_icims,
     "aia_mn":     scrape_aia_mn,
+    "adp":        scrape_adp,
+    "ashby":      scrape_ashby,
+    "talentbrew": scrape_talentbrew,
 }
 
 
@@ -1148,7 +1436,9 @@ def run(p1_only=False, firm_filter=None):
     Used by GitHub Actions and as the engine behind main().
     Returns the list of all jobs found.
     """
-    firms = load_firms()
+    # 2026-10-17: a firm checked and found to have no Twin Cities or remote US work stays in
+    # firms.csv with verified=dropped and the reason in its notes, so nobody re-adds it blind.
+    firms = [f for f in load_firms() if (f.get("verified") or "").strip() != "dropped"]
     if p1_only:
         firms = [f for f in firms if f["priority"] == "P1"]
     if firm_filter:
