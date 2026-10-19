@@ -140,19 +140,48 @@ SOFT_EXCLUDES = ("engineer", "engineering")
 # (Twin Cities plus remote, after Adkins did not renew) replaces them; those cities now sit in
 # DROPPED_TARGET_CITIES so a bare "Chicago" with no state is still recognised as elsewhere.
 # Hybrid in the Twin Cities counts as local: it passes on the city name.
-TARGET_LOCATION_KEYWORDS = [
-    # Twin Cities metro
+# Twin Cities metro cities (2026-10-19: split out so a Minnesota place outside the metro can be told
+# apart; WAS one list where "minnesota" and ", mn" let Hibbing, Duluth and St. Cloud pass as local).
+METRO_CITIES = (
     "minneapolis", "minnetonka", "st. paul", "saint paul", "st paul",
     "bloomington", "edina", "eden prairie", "plymouth", "maple grove",
     "wayzata", "apple valley", "burnsville", "richfield",
-    "golden valley", "st louis park", "st. louis park",
+    "golden valley", "st louis park", "st. louis park", "saint louis park",
     "roseville", "woodbury", "maplewood", "eagan", "lakeville", "shakopee",
     "brooklyn park", "brooklyn center", "coon rapids", "blaine", "fridley",
     "new brighton", "arden hills", "shoreview", "mendota heights",
     "inver grove heights", "hopkins", "chanhassen", "chaska", "savage",
     "prior lake", "white bear lake", "stillwater", "oakdale", "new hope",
-    "minnesota", "twin cities", " mn,", " mn ", ", mn",
+    # 2026-10-19 added: more of the seven-county metro
+    "st. anthony", "saint anthony", "columbia heights", "crystal", "robbinsdale",
+    "champlin", "anoka", "andover", "ramsey", "ham lake", "lino lakes",
+    "mounds view", "vadnais heights", "little canada", "lake elmo", "hugo",
+    "cottage grove", "hastings", "rosemount", "farmington", "excelsior",
+    "victoria", "waconia", "medina", "orono", "mound", "rogers", "minnetrista",
+    "south st. paul", "west st. paul", "falcon heights", "lauderdale", "st. michael",
+    "twin cities", "msp",
+)
+TARGET_LOCATION_KEYWORDS = list(METRO_CITIES) + [
+    "minnesota", " mn,", " mn ", ", mn",
 ]
+
+# 2026-10-19: AIA Minnesota's own region labels for places outside the metro. WAS passing on the
+# word "minnesota": Evolve's "Outside Minnesota" and CF Design's "Northern Minnesota" listed as local.
+OUTSTATE_REGIONS = re.compile(
+    r"\b(outside (of )?minnesota|(northern|southern|southeast|southwest|northeast|northwest|"
+    r"central|western|eastern|greater) minnesota)\b")
+
+# 2026-10-19: big US cities outside Minnesota, for a place written with no state. WAS falling through
+# to "assumed local": Braun Intertec's "Atlanta" historian passed. The metro is checked first, so
+# "st. louis park" never reads as St. Louis.
+OTHER_US_CITIES = (
+    "atlanta", "dallas", "houston", "austin", "san antonio", "fort worth", "denver", "phoenix",
+    "seattle", "portland", "boston", "new york", "philadelphia", "pittsburgh", "detroit",
+    "milwaukee", "madison", "kansas city", "st. louis", "saint louis", "omaha", "des moines",
+    "fargo", "sioux falls", "nashville", "charlotte", "raleigh", "miami", "tampa", "orlando",
+    "salt lake", "las vegas", "san francisco", "san jose", "oakland", "sacramento", "baltimore",
+    "cleveland", "columbus", "cincinnati", "indianapolis", "louisville", "new orleans",
+)
 # Backwards-compat alias used elsewhere
 MSP_KEYWORDS = TARGET_LOCATION_KEYWORDS
 
@@ -212,6 +241,39 @@ NON_MN_STATE_NAMES = (
 NOT_REMOTE = re.compile(
     r"\b(not|no|non)[- ]remote\b|not a remote|remote (work )?(is )?not (available|offered|an option)")
 _NON_MN_CODE = re.compile(r"\b(" + "|".join(NON_MN_STATES) + r")\b")
+# Whole words, so "mound" never matches inside another name.
+METRO_RE = re.compile(r"\b(" + "|".join(re.escape(c) for c in METRO_CITIES) + r")\b")
+# A named town before ", MN" / ", Minnesota" ("hibbing, mn"); the metro is checked before this.
+_MN_TOWN = re.compile(r"[a-z][a-z .'-]*,\s*(mn|minnesota)\b")
+
+# 2026-10-19, miss m1070: a firm's own careers page gives no location, so every job there carried
+# the firm's home city and passed as local. BKV Group's BIM Specialist listed as Minneapolis while
+# its posting says "THIS ROLE IS LOCATED IN DALLAS, TX". The posting's own words now set the place.
+_POSTING_PLACE_CUES = re.compile(
+    r"(?:\b(?:this|the) (?:role|position|job|opportunity) is (?:located|based) in\b|"
+    r"\b(?:located|based) (?:in|at) our\b|"
+    r"\bjob location\s*[:\-]|\blocation\s*[:\-])\s*", re.I)
+_CITY_STATE = re.compile(r"([A-Za-z][A-Za-z .'-]{1,40}?),\s*([A-Z]{2}|[A-Za-z]{4,14})\b")
+_US_STATE_NAMES = set(NON_MN_STATE_NAMES) | {"minnesota"}
+_US_STATE_CODES = set(NON_MN_STATES) | {"MN"}
+
+
+def posting_location(description):
+    """The place a posting's own text names after a cue such as "This role is located in" or
+    "Location:", as "City, ST", or "" when it names none. Read only when the scraper gave no
+    location; a word that is not a US state after the comma is not taken as one."""
+    text = description or ""
+    for cue in _POSTING_PLACE_CUES.finditer(text):
+        window = text[cue.end():cue.end() + 90]
+        if has_remote(window[:30]):
+            return "Remote"
+        for m in _CITY_STATE.finditer(window):
+            city, state = m.group(1).strip(), m.group(2)
+            ok = state.upper() in _US_STATE_CODES if len(state) == 2 else state.lower() in _US_STATE_NAMES
+            if ok:
+                # the last words before the comma are the city ("4124 Roseway Rd Minneapolis")
+                return f"{' '.join(city.split()[-3:])}, {state}"
+    return ""
 
 
 def has_remote(text):
@@ -237,18 +299,27 @@ def is_msp_location(location_text, title="", description=""):
     if not location_text or not location_text.strip():
         return True
     loc = location_text.lower().strip()
+    remote = has_remote(loc) or has_remote(title)
     if re.search(r"\b(mn|minnesota)\b", loc):
-        return True
-    if has_remote(loc) or has_remote(title):
+        # 2026-10-19: WAS True for any Minnesota place. Now the metro, a bare "MN"/"Minnesota",
+        # or remote; Hibbing, Duluth, St. Cloud, Rochester or "Northern Minnesota" alone drop.
+        if METRO_RE.search(loc) or remote:
+            return True
+        if OUTSTATE_REGIONS.search(loc):
+            return False
+        return not _MN_TOWN.search(loc)
+    if remote:
         return not NON_US_MARKERS.search(loc + " " + (title or "").lower())
     if US_ONLY_MARKERS.match(loc):
         return has_remote(description)
     other_code = _NON_MN_CODE.search(location_text)
-    if any(kw in loc for kw in MSP_KEYWORDS) and not other_code:
+    if METRO_RE.search(loc) and not other_code:
         return True
     if other_code:
         return False
     if any(city in loc for city in DROPPED_TARGET_CITIES):
+        return False
+    if any(re.search(r"\b" + re.escape(city) + r"\b", loc) for city in OTHER_US_CITIES):
         return False
     # Full state names check (catches "California", "Texas", etc.)
     if any(state in loc for state in NON_MN_STATE_NAMES):
@@ -276,7 +347,8 @@ def passes_location(location_text, title="", description="", firm_city=""):
     if remote_lane:
         loc = location_text.lower()
         if re.search(r"\b(mn|minnesota)\b", loc):
-            return True
+            # 2026-10-19: the metro rule, WAS any Minnesota place
+            return is_msp_location(location_text, title, description)
         if has_remote(loc) or has_remote(title):
             return not NON_US_MARKERS.search(loc + " " + (title or "").lower())
         if US_ONLY_MARKERS.match(loc):
@@ -1357,6 +1429,9 @@ def scrape_firm(firm):
     for j in jobs:
         title = j["title"]
         location = j.get("location", "")
+        if not location.strip():
+            # 2026-10-19, m1070: no place from the board, so read the posting's own words
+            location = posting_location(j.get("description", ""))
         # Geographic filter: Twin Cities metro or remote in the US (2026-10-17; WAS MSP + SoCal + Chicago)
         if not passes_location(location, title, j.get("description", ""), firm.get("city", "")):
             continue

@@ -371,6 +371,63 @@ class OtherBoards(unittest.TestCase):
         self.assertFalse(js.is_msp_location("AMER - United States - Colorado - Denver - Wewatta"))
 
 
+class PostingOwnPlace(unittest.TestCase):
+    # 2026-10-19, miss m1070: firm career pages give no location, so every job carried the firm's home
+    # city. The snippets below are copied from the live postings' text as fetch_generic_description
+    # returned it on 2026-10-19 (BKV's three said Minneapolis on the dashboard).
+    BKV_BIM = ("Contact Us Join Us The Latest BIM Specialist This role is located in Dallas, TX Job "
+               "Description BKV Group seeks a BIM Specialist to join our growing,")
+    BKV_PM = ("Latest Project Manager I (Hospitality) This role is located in Washington, DC BKV Group "
+              "seeks a talented Project Manager I with 8-12+ years of")
+    AEC = ("Architectural BIM Technician / BIM Coordinator Location:\n4124 Roseway Rd\nMinneapolis, MN "
+           "55409 Pay:\n$78,500 - $108,000")
+
+    def test_the_posting_names_its_place(self):
+        self.assertEqual(js.posting_location(self.BKV_BIM), "Dallas, TX")
+        self.assertEqual(js.posting_location(self.BKV_PM), "Washington, DC")
+        self.assertTrue(js.posting_location(self.AEC).endswith("Minneapolis, MN"))
+
+    def test_no_cue_or_no_state_gives_nothing(self):
+        self.assertEqual(js.posting_location(""), "")
+        self.assertEqual(js.posting_location("Offices in Dallas, TX and Minneapolis, MN."), "")
+        self.assertEqual(js.posting_location("Location: our studio, overlooking the river"), "")
+
+    def test_scrape_firm_drops_a_dallas_job_at_a_minneapolis_firm(self):
+        jobs = [{"title": "BIM Specialist", "url": "u1", "location": "", "description": self.BKV_BIM},
+                {"title": "BIM Technician", "url": "u2", "location": "", "description": self.AEC},
+                {"title": "BIM Coordinator", "url": "u3", "location": "", "description": "Revit work."}]
+        firm = {"name": "BKV Group", "careers_url": "x", "scraper_key": "stub", "priority": "P1",
+                "city": "Minneapolis"}
+        with mock.patch.dict(js.SCRAPER_MAP, {"stub": lambda u, n: (jobs, None)}), \
+                mock.patch.object(js, "_jev_unavailable", True), mock.patch.object(js, "_jev_client", None), \
+                _quiet():
+            got, err = js.scrape_firm(firm)
+        self.assertIsNone(err)
+        urls = {j["url"]: j["location"] for j in got}
+        self.assertNotIn("u1", urls)                      # WAS kept as Minneapolis
+        self.assertTrue(urls["u2"].endswith("Minneapolis, MN"))
+        self.assertEqual(urls["u3"], "")                  # no place named: unchanged, the firm's city
+
+
+class MetroOnly(unittest.TestCase):
+    # 2026-10-19: WAS any Minnesota place passing as local (the 10-17 ledger's loose items).
+    def test_outstate_towns_and_regions_drop(self):
+        for loc in ("Hibbing, MN", "Duluth, MN", "St. Cloud, MN", "Rochester, MN",
+                    "Northern Minnesota", "Southwest Minnesota", "Outside Minnesota", "Atlanta"):
+            self.assertFalse(js.is_msp_location(loc), loc)
+
+    def test_metro_still_passes(self):
+        # copied from the 10-17 live run: Braun's multi-office line and Terracon's metro line
+        for loc in ("Bloomington, MN; Hibbing, MN; La Crosse, WI; Duluth, MN; Fargo, ND",
+                    "Minneapolis-St. Paul-Bloomington, MN; Plymouth, MN", "St. Paul, MN",
+                    "Minnesota", "MN", "Remote, MN", "St. Louis Park, MN", "Mounds View, MN"):
+            self.assertTrue(js.is_msp_location(loc), loc)
+
+    def test_outstate_drops_for_a_remote_lane_firm_too(self):
+        self.assertFalse(js.passes_location("Duluth, MN", "BIM Manager", "", "Remote (US)"))
+        self.assertTrue(js.passes_location("Minneapolis, MN", "BIM Manager", "", "Remote (US)"))
+
+
 class DigitalDesignFit(unittest.TestCase):
     # 2026-10-17: HGA's 'Digital Design Support Lead' scored fit 9 on its title alone.
     DESC = ("HGA is seeking a Digital Design Support Lead to join our Digital Practice Group. Are you "
