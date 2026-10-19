@@ -468,18 +468,21 @@ function formatScanLocal(iso) {
 // FIT_MATRIX = the scraper's weights (FIT_MATRIX in job_scraper.py). Each posting stores points per category
 // on 0..weight; the sliders re-weight that fraction and normalize to 0..100, so the defaults reproduce the
 // scraper's own Fit.
-const FIT_MATRIX = { creative: 22, autonomy: 20, lifestyle: 20, tech_leverage: 12, tech_depth: 11, compensation: 9, alignment: 6 };
+// 2026-10-19, his ask "we dont have an ai slider": AI split out of tech_leverage (WAS 12) as its own slider.
+const FIT_MATRIX = { creative: 22, autonomy: 20, lifestyle: 20, ai: 6, tech_leverage: 6, tech_depth: 11, compensation: 9, alignment: 6 };
 const FIT_LABELS = {
   creative: ["Creative", "design, concept, creative work"],
   autonomy: ["Autonomy", "principal, lead, ownership signals"],
   lifestyle: ["Lifestyle", "hybrid, ESOP, work-life balance"],
-  tech_leverage: ["Tech leverage", "AI, pyRevit, parametric, visualization"],
+  ai: ["AI", "AI, machine learning, automation, Python"],
+  tech_leverage: ["Design tech", "pyRevit, Dynamo, parametric, visualization"],
   tech_depth: ["Technical depth", "Revit, construction documents"],
   compensation: ["Compensation", "salary mentioned"],
   alignment: ["Long-term alignment", "career path, growth"],
 };
 const FIT_KEYS = Object.keys(FIT_MATRIX);
-const W_MAX = 40, W_STORE = "jobFinder.fitWeights.v1";
+// v2 2026-10-19: the AI slider joined; v1 weights lack it and would fail the check below anyway.
+const W_MAX = 40, W_STORE = "jobFinder.fitWeights.v2";
 let WEIGHTS = (() => {
   try {
     const o = JSON.parse(localStorage.getItem(W_STORE) || "null");
@@ -629,7 +632,7 @@ function render() {
     const fit = fitOf(j);
     const fitClass = fit >= 50 ? "score-high" : "score";
     const fbd = j.fit_breakdown || {};
-    const fitTip = `Autonomy ${fbd.autonomy||0} | Creative ${fbd.creative||0} | Lifestyle ${fbd.lifestyle||0} | TechLeverage ${fbd.tech_leverage||0} | TechDepth ${fbd.tech_depth||0} | Comp ${fbd.compensation||0} | Alignment ${fbd.alignment||0}`;
+    const fitTip = `Autonomy ${fbd.autonomy||0} | Creative ${fbd.creative||0} | Lifestyle ${fbd.lifestyle||0} | AI ${fbd.ai||0} | DesignTech ${fbd.tech_leverage||0} | TechDepth ${fbd.tech_depth||0} | Comp ${fbd.compensation||0} | Alignment ${fbd.alignment||0}`;
     const excerpt = j.excerpt || "";
     tr.innerHTML = `
       <td class="col-fit"><span class="badge ${fitClass}" title="${fitTip}">${fit}</span></td>

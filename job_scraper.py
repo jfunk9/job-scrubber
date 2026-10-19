@@ -609,7 +609,8 @@ except ImportError:
 # One Noul question per Jev-backed category. Keep instructions self-contained --
 # Question IDs never reach the model, only the wording does.
 JEV_QUESTIONS = {
-    "tech_leverage": (
+    # 2026-10-19: WAS keyed "tech_leverage"; the question is about AI, so it now scores the AI slider.
+    "ai": (
         "Does this job listing genuinely emphasize AI, automation, "
         "computational design, or emerging design technology as a "
         "meaningful part of the role -- not just an incidental word match?"
@@ -683,15 +684,26 @@ FIT_MATRIX = {
                      "4-day", "four-day", "wellness", "balance", "flexible schedule",
                      "esop", "employee-owned", "employee owned", "100% employee"],
     },
-    "tech_leverage": {
-        "weight": 12,
+    # 2026-10-19, his ask "we dont have an ai slider": AI split out of tech_leverage (WAS weight 12,
+    # with ai, automation, machine learning, python and the Revit API in it) into its own category.
+    # The 12 points are split 6 and 6 so the other five keep their weights.
+    "ai": {
+        "weight": 6,
         "target": 2,
-        "keywords": ["ai", "automation", "computational design", "parametric",
+        "keywords": ["ai", "artificial intelligence", "machine learning", "generative",
+                     "llm", "large language model", "chatgpt", "copilot", "automation",
+                     "computational design", "python", "revit api", "bim automation",
+                     "scripting", "data science", "data-driven"],
+    },
+    "tech_leverage": {
+        "weight": 6,
+        "target": 2,
+        "keywords": ["parametric",
                      "pyrevit", "dynamo", "grasshopper", "vr", "virtual reality",
                      "real-time", "twinmotion", "unreal", "lumion", "enscape",
-                     "machine learning", "design technology", "innovation",
+                     "design technology", "innovation",
                      # 2026-10-17 lane 3, AI and tech in AEC:
-                     "bim automation", "revit api", "python", "speckle",
+                     "speckle",
                      # 2026-10-17 later: HGA's 'Digital Design Support Lead' (Digital Practice Group,
                      # BIM, Revit, Dynamo) scored fit 9 because iCIMS was scored on title only; with
                      # its text these name the lane the way firms actually title it.

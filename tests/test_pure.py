@@ -49,7 +49,7 @@ class KwHit(unittest.TestCase):
 class JevJudge(unittest.TestCase):
     def test_unavailable_returns_none(self):
         with mock.patch.object(js, "_jev_client", None), mock.patch.object(js, "_jev_unavailable", True):
-            self.assertIsNone(js.jev_judge("tech_leverage", "BIM Specialist", "Enscape"))
+            self.assertIsNone(js.jev_judge("ai", "BIM Specialist", "Enscape"))
 
     def test_client_error_returns_none_and_counts(self):
         def boom(**_kw):
@@ -57,7 +57,7 @@ class JevJudge(unittest.TestCase):
         stub = types.SimpleNamespace(system_one=boom)
         with mock.patch.object(js, "_jev_client", stub), mock.patch.object(js, "Noul", lambda **kw: kw), \
                 mock.patch.dict(js.JEV_STATS, {"used": 0, "fallback": 0, "errors": 0}), _quiet():
-            self.assertIsNone(js.jev_judge("tech_leverage", "BIM Specialist", "Enscape"))
+            self.assertIsNone(js.jev_judge("ai", "BIM Specialist", "Enscape"))
             self.assertEqual(js.JEV_STATS["errors"], 1)
             self.assertEqual(js.JEV_STATS["used"], 0)
 
@@ -441,12 +441,45 @@ class DigitalDesignFit(unittest.TestCase):
             fit_full, bd = js.fit_score("Digital Design Support Lead", self.DESC)
         self.assertLess(fit_title, 15)
         self.assertGreaterEqual(fit_full, 45)
-        self.assertGreater(bd["tech_leverage"], 6)
+        # 2026-10-19: WAS > 6 of 12; tech_leverage is 6 now that AI has its own 6
+        self.assertEqual(bd["tech_leverage"], js.FIT_MATRIX["tech_leverage"]["weight"])
 
     def test_an_unrelated_support_lead_stays_low_on_tech(self):
         with mock.patch.object(js, "_jev_unavailable", True), mock.patch.object(js, "_jev_client", None):
             _, bd = js.fit_score("Customer Support Lead", "Answer phones and route tickets.")
         self.assertEqual(bd["tech_leverage"], 0)
+
+
+class AiSlider(unittest.TestCase):
+    # 2026-10-19, his ask: "we dont have an ai slider". AI was a few words inside Tech leverage.
+    def _bd(self, title, desc):
+        with mock.patch.object(js, "_jev_unavailable", True), mock.patch.object(js, "_jev_client", None):
+            return js.fit_score(title, desc)[1]
+
+    def test_an_ai_posting_scores_on_ai(self):
+        bd = self._bd("Design Technology Specialist",
+                      "Build AI and machine learning tools, Python scripting against the Revit API.")
+        self.assertEqual(bd["ai"], js.FIT_MATRIX["ai"]["weight"])
+
+    def test_a_plain_bim_posting_scores_no_ai(self):
+        bd = self._bd("BIM Specialist", "Revit, Enscape and Dynamo; detailing and construction documents.")
+        self.assertEqual(bd["ai"], 0)        # 'detailing' holds the letters ai, not the word
+        self.assertGreater(bd["tech_leverage"], 0)
+
+    def test_weights_still_sum_to_100(self):
+        self.assertEqual(sum(c["weight"] for c in js.FIT_MATRIX.values()), 100)
+
+    def test_the_page_carries_the_same_weights_as_the_scraper(self):
+        # the page re-scores from its own copy of FIT_MATRIX; a mismatch makes the defaults lie
+        page_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "index.html")
+        with open(page_path, encoding="utf-8") as f:
+            html = f.read()
+        import re
+        m = re.search(r"const FIT_MATRIX = \{([^}]*)\}", html)
+        page = {k: int(v) for k, v in re.findall(r"(\w+):\s*(\d+)", m.group(1))}
+        self.assertEqual(page, {k: c["weight"] for k, c in js.FIT_MATRIX.items()})
+        for k in page:
+            self.assertIn(f"  {k}: [", html, k)   # every slider has its label
 
 
 if __name__ == "__main__":
