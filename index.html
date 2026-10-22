@@ -68,6 +68,16 @@
     font-size: 14px;
   }
   .controls input { min-width: 280px; }
+  /* 2026-10-22, his ask "add back my favorite cities": the place chips above the filters */
+  .places { display: flex; gap: 8px; padding: 16px 32px 0; align-items: center; flex-wrap: wrap; max-width: 1400px; margin: 0 auto; }
+  .places .plabel { color: var(--text-dim); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px; }
+  .pchip { background: var(--surface); border: 1px solid var(--border); color: var(--text-dim); border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; font-family: inherit; }
+  .pchip:hover { border-color: var(--accent); }
+  .pchip.on { background: var(--flag-bg); border-color: var(--flag); color: var(--flag); font-weight: 600; }
+  .pchip .n { margin-left: 6px; font-variant-numeric: tabular-nums; opacity: 0.8; }
+  .pchip .x { margin-left: 8px; opacity: 0.7; }
+  .places input { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 5px 12px; border-radius: 999px; font-size: 13px; width: 150px; }
+  .places .pnote { flex-basis: 100%; color: var(--text-dim); font-size: 11px; }
   .container { padding: 20px 32px 40px; max-width: 1400px; margin: 0 auto; }
   details.priority-group {
     background: var(--surface);
@@ -367,6 +377,8 @@ code,pre,kbd,samp,[class*=mono]{ font-family:"Consolas","SF Mono","DejaVu Sans M
   </div>
 </div>
 
+<div class="places" id="places"></div>
+
 <div class="controls">
   <input type="text" id="search" placeholder="Filter by firm or title…">
   <select id="priorityFilter">
@@ -543,6 +555,95 @@ document.getElementById("wreset").onclick = () => {
 renderWeights();
 // ---- end weights ------------------------------------------------------------------------------------
 
+// ---- THE PLACES (2026-10-22, his ask "add back my favorite cities") ---------------------------------
+// The scraper tags every job it keeps with j.regions (job_regions() in job_scraper.py); these chips pick
+// which regions show. Twin Cities and Remote are on by default, his 10-17 pick. A typed city is a chip
+// that matches the job's location text, so it can reach any US place the scraper kept ("other-us").
+// A jobs.json from before this change has no regions: its jobs count as Twin Cities.
+const PLACES = [
+  ["twin-cities", "Twin Cities"], ["remote", "Remote (US)"],
+  ["chicago", "Chicago"], ["san-diego", "San Diego"],
+  ["orange-county", "Newport Beach / OC"], ["los-angeles", "Santa Monica / LA"],
+  ["other-us", "Elsewhere in the US"],
+];
+const P_STORE = "jobFinder.places.v1";
+let PSTATE = (() => {
+  try {
+    const o = JSON.parse(localStorage.getItem(P_STORE) || "null");
+    if (o && Array.isArray(o.on) && Array.isArray(o.custom)) {
+      return { on: o.on.filter(k => typeof k === "string"), custom: o.custom.filter(k => typeof k === "string") };
+    }
+  } catch (e) { /* blocked storage: defaults */ }
+  return { on: ["twin-cities", "remote"], custom: [] };
+})();
+function savePlaces() {
+  try { localStorage.setItem(P_STORE, JSON.stringify(PSTATE)); } catch (e) { /* ignore */ }
+}
+function jobRegions(j) { return j.regions && j.regions.length ? j.regions : ["twin-cities"]; }
+function customHit(j, name) { return (j.location || "").toLowerCase().includes(name.toLowerCase()); }
+function inPlaces(j) {
+  if (jobRegions(j).some(r => PSTATE.on.includes(r))) return true;
+  return PSTATE.custom.some(c => PSTATE.on.includes("c:" + c) && customHit(j, c));
+}
+function renderPlaces() {
+  const box = document.getElementById("places");
+  const jobs = window._jobs || [];
+  box.innerHTML = "";
+  const lab = document.createElement("span");
+  lab.className = "plabel";
+  lab.textContent = "Where";
+  box.appendChild(lab);
+  const chip = (key, label, n, removable) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "pchip" + (PSTATE.on.includes(key) ? " on" : "");
+    b.append(label);
+    const c = document.createElement("span");
+    c.className = "n";
+    c.textContent = n;
+    b.appendChild(c);
+    b.addEventListener("click", () => {
+      PSTATE.on = PSTATE.on.includes(key) ? PSTATE.on.filter(k => k !== key) : PSTATE.on.concat(key);
+      savePlaces(); renderPlaces(); render();
+    });
+    if (removable) {
+      const x = document.createElement("span");
+      x.className = "x";
+      x.textContent = "×";
+      x.title = "remove this city";
+      x.addEventListener("click", e => {
+        e.stopPropagation();
+        PSTATE.custom = PSTATE.custom.filter(k => k !== removable);
+        PSTATE.on = PSTATE.on.filter(k => k !== key);
+        savePlaces(); renderPlaces(); render();
+      });
+      b.appendChild(x);
+    }
+    box.appendChild(b);
+  };
+  for (const [key, label] of PLACES) chip(key, label, jobs.filter(j => jobRegions(j).includes(key)).length);
+  for (const name of PSTATE.custom) chip("c:" + name, name, jobs.filter(j => customHit(j, name)).length, name);
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "+ add a city";
+  input.maxLength = 40;
+  input.addEventListener("keydown", e => {
+    if (e.key !== "Enter") return;
+    const name = input.value.trim().replace(/\s+/g, " ");
+    if (!name) return;
+    if (!PSTATE.custom.some(c => c.toLowerCase() === name.toLowerCase())) PSTATE.custom.push(name);
+    const key = "c:" + PSTATE.custom.find(c => c.toLowerCase() === name.toLowerCase());
+    if (!PSTATE.on.includes(key)) PSTATE.on.push(key);
+    savePlaces(); renderPlaces(); render();
+  });
+  box.appendChild(input);
+  const note = document.createElement("div");
+  note.className = "pnote";
+  note.textContent = "Chips pick which places show; your picks stay in this browser. A typed city matches the location text of the jobs the last run kept, so a city the firms don't post in shows zero.";
+  box.appendChild(note);
+}
+// ---- end places -------------------------------------------------------------------------------------
+
 async function load() {
   let data;
   try {
@@ -562,14 +663,11 @@ async function load() {
     return fitOf(b) - fitOf(a);
   });
 
-  // Stats
-  const total = allJobs.length;
-  const high = allJobs.filter(j => fitOf(j) >= 50).length;
-  const firmsWithJobs = new Set(allJobs.map(j => j.firm)).size;
+  // Stats (the three counts are redrawn by render() so they follow the place chips)
   document.getElementById("stats").innerHTML = `
-    <div class="stat"><div class="stat-value">${total}</div><div class="stat-label">Total listings</div></div>
-    <div class="stat"><div class="stat-value flag" id="fitHigh">${high}</div><div class="stat-label">Fit ≥ 50</div></div>
-    <div class="stat"><div class="stat-value">${firmsWithJobs}</div><div class="stat-label">Firms with openings</div></div>
+    <div class="stat"><div class="stat-value" id="statTotal"></div><div class="stat-label">Total listings</div></div>
+    <div class="stat"><div class="stat-value flag" id="fitHigh"></div><div class="stat-label">Fit ≥ 50</div></div>
+    <div class="stat"><div class="stat-value" id="statFirms"></div><div class="stat-label">Firms with openings</div></div>
     <div class="stat"><div class="stat-value">${formatScanLocal(data.scraped_at)}</div><div class="stat-label">Last updated</div></div>
   `;
 
@@ -577,6 +675,7 @@ async function load() {
     `Last updated: ${formatScanLocal(data.scraped_at)} &nbsp;|&nbsp; Adkins Architects Inc.`;
 
   window._jobs = allJobs;
+  renderPlaces();
   render();
 }
 
@@ -585,7 +684,8 @@ function render() {
   const pFilter = document.getElementById("priorityFilter").value;
   const sFilter = parseInt(document.getElementById("scoreFilter").value, 10);
 
-  const jobs = (window._jobs || []).filter(j => {
+  const placed = (window._jobs || []).filter(inPlaces);
+  const jobs = placed.filter(j => {
     if (pFilter && j.priority !== pFilter) return false;
     if (j.score < sFilter) return false;
     if (search) {
@@ -597,14 +697,16 @@ function render() {
 
   // 2026-09-14: re-sort and re-count on every render so a slider move reorders the list
   jobs.sort((a, b) => (locationTier(a.location) - locationTier(b.location)) || (fitOf(b) - fitOf(a)));
-  const fh = document.getElementById("fitHigh");
-  if (fh) fh.textContent = (window._jobs || []).filter(j => fitOf(j) >= 50).length;
+  const setStat = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  setStat("statTotal", placed.length);
+  setStat("fitHigh", placed.filter(j => fitOf(j) >= 50).length);
+  setStat("statFirms", new Set(placed.map(j => j.firm)).size);
 
   const root = document.getElementById("content");
   root.innerHTML = "";
 
   if (!jobs.length) {
-    root.innerHTML = `<p style="color: var(--text-dim);">No jobs match the current filters.</p>`;
+    root.innerHTML = `<p style="color: var(--text-dim);">No jobs match the current filters or places.</p>`;
     return;
   }
 

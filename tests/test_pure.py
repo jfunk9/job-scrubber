@@ -392,7 +392,9 @@ class PostingOwnPlace(unittest.TestCase):
         self.assertEqual(js.posting_location("Offices in Dallas, TX and Minneapolis, MN."), "")
         self.assertEqual(js.posting_location("Location: our studio, overlooking the river"), "")
 
-    def test_scrape_firm_drops_a_dallas_job_at_a_minneapolis_firm(self):
+    def test_scrape_firm_does_not_call_a_dallas_job_minneapolis(self):
+        # 2026-10-22: WAS "drops"; Dallas is kept now, tagged other-us, so a typed city can find it
+        # (the default page still hides it: it is not twin-cities)
         jobs = [{"title": "BIM Specialist", "url": "u1", "location": "", "description": self.BKV_BIM},
                 {"title": "BIM Technician", "url": "u2", "location": "", "description": self.AEC},
                 {"title": "BIM Coordinator", "url": "u3", "location": "", "description": "Revit work."}]
@@ -404,7 +406,9 @@ class PostingOwnPlace(unittest.TestCase):
             got, err = js.scrape_firm(firm)
         self.assertIsNone(err)
         urls = {j["url"]: j["location"] for j in got}
-        self.assertNotIn("u1", urls)                      # WAS kept as Minneapolis
+        regions = {j["url"]: j["regions"] for j in got}
+        self.assertEqual(regions["u1"], ["other-us"])     # WAS kept as Minneapolis
+        self.assertEqual(regions["u2"], ["twin-cities"])
         self.assertTrue(urls["u2"].endswith("Minneapolis, MN"))
         self.assertEqual(urls["u3"], "")                  # no place named: unchanged, the firm's city
 
@@ -480,6 +484,60 @@ class AiSlider(unittest.TestCase):
         self.assertEqual(page, {k: c["weight"] for k, c in js.FIT_MATRIX.items()})
         for k in page:
             self.assertIn(f"  {k}: [", html, k)   # every slider has its label
+
+
+class JobRegions(unittest.TestCase):
+    # 2026-10-22, his ask "add back my favorite cities": a job outside Twin Cities plus remote is kept
+    # and tagged, so the page's chips can bring it back; the default page must read as it did.
+    R = staticmethod(js.job_regions)
+
+    def test_twin_cities_and_remote_keep_their_old_answer(self):
+        self.assertEqual(self.R("Minneapolis, MN", "Architect"), ["twin-cities"])
+        self.assertEqual(self.R("Remote", "BIM Lead"), ["remote"])
+        self.assertEqual(self.R("", "Architect"), ["twin-cities"])      # an unread place at a Twin Cities firm
+
+    def test_his_favorite_cities_are_tagged(self):
+        self.assertEqual(self.R("Chicago, IL", "Architect"), ["chicago"])
+        self.assertEqual(self.R("San Diego, CA", "Architect"), ["san-diego"])
+        self.assertEqual(self.R("Newport Beach, CA", "Architect"), ["orange-county"])
+        self.assertEqual(self.R("Santa Monica, CA", "Architect"), ["los-angeles"])
+        self.assertEqual(self.R("Chicago", "Architect"), ["chicago"])    # no state, still Chicago
+
+    def test_a_two_city_posting_carries_both(self):
+        self.assertEqual(self.R("Chicago, Minneapolis", "Architect"), ["twin-cities", "chicago"])
+
+    def test_a_namesake_in_another_state_is_not_his_city(self):
+        self.assertNotIn("los-angeles", self.R("Glendale, AZ", "Architect"))
+        self.assertNotIn("los-angeles", self.R("Venice, FL", "Architect"))
+        self.assertNotIn("orange-county", self.R("Lake Forest, IL", "Architect"))
+        self.assertNotIn("twin-cities", self.R("Bloomington, IL", "Architect"))
+
+    def test_other_us_places_are_kept_for_a_typed_city(self):
+        self.assertEqual(self.R("Dallas, TX", "Architect"), ["other-us"])
+        self.assertEqual(self.R("Duluth, MN", "Architect"), ["other-us"])
+
+    def test_other_countries_and_a_bare_us_still_drop(self):
+        self.assertEqual(self.R("Toronto, Canada", "Architect"), [])
+        self.assertEqual(self.R("Bengaluru, IND", "Architect"), [])
+        self.assertEqual(self.R("United States", "Architect", "Onsite only."), [])
+        self.assertEqual(self.R("Remote - Canada", "Architect"), [])
+
+    def test_remote_lane_firm_rules_hold(self):
+        # an empty place at a remote-lane firm needs a remote signal; a Dallas role there is other-us
+        self.assertEqual(self.R("", "Designer", "Fully remote.", "Remote (US)"), ["remote"])
+        self.assertEqual(self.R("", "Designer", "Onsite.", "Remote (US)"), [])
+        self.assertEqual(self.R("Dallas, TX", "Designer", "", "Remote (US)"), ["other-us"])
+
+    def test_is_msp_location_is_unchanged_for_the_four_cities(self):
+        for place in ("Chicago, IL", "San Diego, CA", "Santa Monica, CA", "Newport Beach, CA"):
+            self.assertFalse(js.is_msp_location(place))
+
+    def test_the_page_offers_every_region_the_scraper_emits(self):
+        page_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "index.html")
+        with open(page_path, encoding="utf-8") as f:
+            html = f.read()
+        for key in list(js.FAVORITE_REGIONS) + ["twin-cities", "remote", "other-us"]:
+            self.assertIn(f'"{key}"', html, key)
 
 
 if __name__ == "__main__":

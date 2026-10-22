@@ -185,19 +185,27 @@ OTHER_US_CITIES = (
 # Backwards-compat alias used elsewhere
 MSP_KEYWORDS = TARGET_LOCATION_KEYWORDS
 
-# The cities his 10-17 pick dropped (WAS whitelisted, now known-elsewhere).
-DROPPED_TARGET_CITIES = (
-    "san diego", "chula vista", "carlsbad", "encinitas", "oceanside",
-    "la jolla", "el cajon", "la mesa", "coronado", "national city",
-    "newport beach", "costa mesa", "irvine", "huntington beach",
-    "anaheim", "santa ana", "tustin", "mission viejo", "laguna beach",
-    "lake forest", "aliso viejo", "fountain valley",
-    "santa monica", "los angeles", "beverly hills", "culver city",
-    "west hollywood", "pasadena", "burbank", "glendale", "long beach",
-    "manhattan beach", "redondo beach", "el segundo", "marina del rey",
-    "venice", "malibu", "torrance", "inglewood",
-    "chicago",
-)
+# 2026-10-22, his ask "add back my favorite cities": the four places his 10-17 pick dropped are
+# FAVORITE_REGIONS now. is_msp_location still says no to them (the default page is Twin Cities plus
+# remote); job_regions() below tags a job that sits in one, so the page's city chips can add it back
+# without a rerun. region key -> (label on the page, state code, cities).
+FAVORITE_REGIONS = {
+    "san-diego": ("San Diego area", "CA", (
+        "san diego", "chula vista", "carlsbad", "encinitas", "oceanside",
+        "la jolla", "el cajon", "la mesa", "coronado", "national city")),
+    "orange-county": ("Newport Beach / Orange County", "CA", (
+        "newport beach", "costa mesa", "irvine", "huntington beach",
+        "anaheim", "santa ana", "tustin", "mission viejo", "laguna beach",
+        "lake forest", "aliso viejo", "fountain valley")),
+    "los-angeles": ("Santa Monica / Los Angeles", "CA", (
+        "santa monica", "los angeles", "beverly hills", "culver city",
+        "west hollywood", "pasadena", "burbank", "glendale", "long beach",
+        "manhattan beach", "redondo beach", "el segundo", "marina del rey",
+        "venice", "malibu", "torrance", "inglewood")),
+    "chicago": ("Chicago", "IL", ("chicago",)),
+}
+# The cities his 10-17 pick dropped (WAS whitelisted, now known-elsewhere); is_msp_location reads this.
+DROPPED_TARGET_CITIES = tuple(c for _, _, cities in FAVORITE_REGIONS.values() for c in cities)
 
 REMOTE_KEYWORDS = ("remote", "work from home", "work-from-home", "telecommute",
                    "anywhere in the us", "anywhere in the united states", "100% virtual",
@@ -355,6 +363,44 @@ def passes_location(location_text, title="", description="", firm_city=""):
             return has_remote(description)
         return False
     return is_msp_location(location_text, title, description)
+
+
+def job_regions(location_text, title="", description="", firm_city=""):
+    """Which of the page's place chips a job belongs to: any of "twin-cities", "remote", a
+    FAVORITE_REGIONS key, or "other-us" (a US place that is none of those, kept so a city he types
+    on the page can find it). An empty list drops the job: another country, or a bare "United States"
+    with no remote offer.
+
+    2026-10-22, his ask "add back my favorite cities". WAS one yes/no gate (passes_location), which
+    threw San Diego, Newport Beach, Santa Monica and Chicago jobs away at scrape time, so the page
+    could never show them again. passes_location is unchanged and still decides Twin Cities and
+    remote, so the default page (Twin Cities plus remote) reads exactly as it did.
+    """
+    loc = (location_text or "").lower()
+    remote_lane = (firm_city or "").lower().startswith("remote")
+    non_us = bool(NON_US_MARKERS.search(loc + " " + (title or "").lower()))
+    remote = (has_remote(location_text) or has_remote(title)) and not non_us
+    local = bool(METRO_RE.search(loc) or re.search(r"\b(mn|minnesota)\b", loc))
+    regions = []
+    if passes_location(location_text, title, description, firm_city):
+        if remote:
+            regions.append("remote")
+        if local or (not remote and not remote_lane):
+            regions.append("twin-cities")     # an unread place at a Twin Cities firm stays local
+        if not regions:
+            regions.append("remote")          # a remote-lane firm's role that passed on its description
+    codes = set(_NON_MN_CODE.findall(location_text or ""))
+    for key, (_, state, cities) in FAVORITE_REGIONS.items():
+        if codes and state not in codes:
+            continue                           # "Glendale, AZ", "Venice, FL" are not his
+        if any(re.search(r"\b" + re.escape(c) + r"\b", loc) for c in cities):
+            regions.append(key)
+    if not regions and loc.strip() and not non_us:
+        if (codes or local
+                or any(s in loc for s in NON_MN_STATE_NAMES)
+                or any(re.search(r"\b" + re.escape(c) + r"\b", loc) for c in OTHER_US_CITIES)):
+            regions.append("other-us")
+    return regions
 
 
 def parse_ultipro_text(text):
@@ -1444,8 +1490,11 @@ def scrape_firm(firm):
         if not location.strip():
             # 2026-10-19, m1070: no place from the board, so read the posting's own words
             location = posting_location(j.get("description", ""))
-        # Geographic filter: Twin Cities metro or remote in the US (2026-10-17; WAS MSP + SoCal + Chicago)
-        if not passes_location(location, title, j.get("description", ""), firm.get("city", "")):
+        # Geographic filter (2026-10-17: Twin Cities metro or remote in the US; WAS MSP + SoCal + Chicago).
+        # 2026-10-22: a job outside that default is kept, tagged with its place, so the page's city chips
+        # can add his favorite cities back; only another country (or no place at all) drops here.
+        regions = job_regions(location, title, j.get("description", ""), firm.get("city", ""))
+        if not regions:
             continue
         # License filter — Jason isn't licensed; drop jobs that require it
         if requires_license(title, j.get("description", "")):
@@ -1459,6 +1508,7 @@ def scrape_firm(firm):
             "title": title,
             "url": j["url"],
             "location": location,
+            "regions": regions,
             "posted": j.get("posted", ""),
             "score": score,
             "fit": fit,
